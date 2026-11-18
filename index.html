@@ -610,6 +610,49 @@ nav.bn a.on{color:var(--ink);font-weight:700}
 .fcol.today{background:#fff;box-shadow:0 1px 3px rgba(34,50,74,.08)}
 .fcol.past{opacity:.55}
 .fdl{font-size:12px;font-weight:700;line-height:1.1;text-align:center}.fdl i{display:block;font-style:normal;font-weight:400;font-size:10.5px;color:var(--muted)}
+
+/* v6 */
+.bagbox{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px;overflow:hidden}
+.bagh{display:flex;gap:10px;align-items:center;margin-bottom:12px}.bagh .emo{width:34px;height:34px}.bagh b{display:block;font-size:16px}.bagh small{color:var(--muted);font-size:12px}
+.bagg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bg{background:var(--cl);border-radius:18px;padding:12px;display:grid;gap:1px;position:relative;overflow:hidden}
+.bg small{font-size:12px;color:var(--c);font-weight:700}.bg b{font-size:20px;line-height:1.2}.bg>span:not(.bgi):not(.kg){font-size:12px;color:var(--muted)}.bg div span{font-size:12px;color:var(--muted)}
+.bgi{width:40px;height:40px;border-radius:14px;background:#fff;display:grid;place-items:center;margin-bottom:6px;box-shadow:0 1px 3px rgba(0,0,0,.06)}.bgi .emo{width:26px;height:26px}
+.bg.wide>div{display:grid;gap:1px}
+.bg.wide{grid-column:1/-1;grid-template-columns:auto 1fr auto;align-items:center;gap:12px}.bg.wide .bgi{margin:0}
+.kg{font-weight:800;font-size:34px;color:var(--c);opacity:.25;line-height:1}.kg i{font-style:normal;font-size:14px;margin-left:2px}
+.arrive{margin-top:12px;background:var(--sand-l);border-radius:18px;padding:12px 14px;display:grid;gap:8px}
+.ah{display:flex;gap:8px;align-items:center;font-size:14px}.ah .emo{width:24px;height:24px}
+.arow{display:flex;gap:10px;align-items:center;font-size:14px;background:#fff;border-radius:12px;padding:7px 10px}
+.tagd{background:var(--sky-l);color:var(--sky);border-radius:999px;padding:1px 10px;font-size:12px;font-weight:700;flex:0 0 auto}.tagd.r{background:var(--peach-l);color:var(--peach)}
+.pdfn{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--muted)}.pdfn .emo{width:18px;height:18px;margin-top:1px}
+.hrows{display:grid;gap:7px;margin:12px 0 8px}
+.hrow{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5}.hrow .emo{width:22px;height:22px;flex:0 0 auto}
+.hio{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.chip .emo{width:15px;height:15px}
+.passh{display:flex;gap:8px;align-items:center;font-size:14px;margin-bottom:10px}.passh .emo{width:26px;height:26px}
+.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.rt{background:var(--sand-l);border-radius:16px;padding:10px 6px 9px;display:grid;justify-items:center;text-align:center;gap:2px}
+.rti{position:relative;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;margin-bottom:2px}.rti>.emo{width:28px;height:28px}
+.rti i{position:absolute;right:-3px;bottom:-3px;width:18px;height:18px}.rti i .emo{width:18px;height:18px}
+.rt b{font-size:13px}.rt small{font-size:11px;color:var(--muted);line-height:1.35}
+@media (min-width:600px){.routes{grid-template-columns:repeat(6,1fr)}}
+.wearc{display:grid;grid-template-columns:104px 1fr;gap:10px;align-items:center;padding:12px}
+.wearc.snow{background:linear-gradient(160deg,#fff 40%,#EAF2FA)}.wearc.tokyo{background:linear-gradient(160deg,#fff 40%,#F7EFE6)}
+.wfig .guy{width:104px;height:auto;display:block}
+.wpl{display:flex;gap:6px;align-items:center;font-size:16px}.wpl .emo{width:22px;height:22px}
+.wtemp{font-size:22px;font-weight:700;color:var(--mint);margin:2px 0 6px}
+.witems{display:flex;flex-wrap:wrap;gap:4px}.witems span{display:inline-flex;gap:3px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:1px 8px 1px 4px;font-size:12px}.witems .emo{width:16px;height:16px}
+.wtx p{margin:8px 0 0;font-size:12.5px;color:var(--muted)}
+.walk{list-style:none;display:flex;align-items:center;gap:8px;margin:-2px 0 -2px 2px;padding:0 0 0 40px;font-size:12.5px;color:var(--muted);position:relative}
+.walk::before{content:"";position:absolute;left:14px;top:-8px;bottom:-8px;border-left:2px dotted #CFC4B8}
+.walk .emo{width:20px;height:20px}
+.walk span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.walk.far span{background:var(--sky-l);border-color:transparent}
+.mine{top:46px!important;left:auto!important;right:8px;width:32px;height:32px;padding:0!important;min-width:0!important;border-radius:50%!important;display:grid;place-items:center;font-size:15px!important;background:#F6D77A!important}
+.pcb .mine~.pnum{top:8px}
+.hl{color:var(--muted);font-size:11.5px;margin-left:6px}
 </style>
 </head>
 <body>
@@ -843,23 +886,29 @@ function rHome(){
   '<div class="sh" id="flight">'+shIc('plane')+'<h2>航班與行李</h2><span class="en">Flights</span></div><div class="stack">'+
   flightCard('去程','GK012','2/16','二','TPE','台北桃園','T1','02:30','NRT','東京成田','T3','06:35','')+
   flightCard('回程','GK011','2/23','二','NRT','東京成田','T3','22:25','TPE','台北桃園','T1','01:30','+1')+
-  '<div class="card"><div class="fhead"><strong>行李規定（每人，去回程相同）</strong></div><div class="bagt">'+
-  '<div class="t-lil">'+em('backpack')+'<b>個人物品</b><span>1 件・前方座位下</span></div>'+
-  '<div class="t-blu">'+em('shopping-bags')+'<b>手提行李</b><span>1 件・56×36×23 cm</span></div>'+
-  '<div class="t-red big">'+em('warning')+'<b class="num">合計 7 kg</b><span>個人物品＋手提行李</span></div>'+
-  '<div class="t-grn">'+em('luggage')+'<b class="num">託運 20 kg</b><span>100×100×100 cm 內</span></div></div>'+'<div class="callout" style="margin-top:10px">行程單建議起飛前 3 小時到機場：去程 2/15 晚上 23:30 前到桃園，回程 2/23 19:25 前到成田。行程單 PDF 請存在手機裡，網站不放，因為上面有姓名和訂位代號。</div></div></div>'+
+  '<div class="bagbox"><div class="bagh">'+em('luggage')+'<div><b>行李規定</b><small>每人・去回程相同</small></div></div><div class="bagg">'+
+  '<div class="bg t-lil"><span class="bgi">'+em('backpack')+'</span><small>個人物品</small><b class="num">1 件</b><span>放前方座位下</span></div>'+
+  '<div class="bg t-blu"><span class="bgi">'+em('handbag')+'</span><small>手提行李</small><b class="num">1 件</b><span>56 × 36 × 23 cm</span></div>'+
+  '<div class="bg t-red wide"><span class="bgi">'+em('warning')+'</span><div><small>個人物品＋手提行李</small><b class="num">合計 7 kg</b></div><span class="kg num">7<i>kg</i></span></div>'+
+  '<div class="bg t-grn wide"><span class="bgi">'+em('luggage')+'</span><div><small>託運行李</small><b class="num">20 kg</b><span>100 × 100 × 100 cm 內</span></div><span class="kg num">20<i>kg</i></span></div></div>'+
+  '<div class="arrive"><div class="ah">'+em('alarm-clock')+'<b>行程單建議起飛前 3 小時到機場</b></div>'+
+  '<div class="arow"><span class="tagd">去程</span><span>2/15（一）晚上 <b class="num">23:30</b> 前到<b>桃園</b></span></div>'+
+  '<div class="arow"><span class="tagd r">回程</span><span>2/23（二）<b class="num">19:25</b> 前到<b>成田</b></span></div>'+
+  '<div class="pdfn">'+em('locked')+'<span>行程單 PDF 請存在手機裡，網站不放，因為上面有姓名和訂位代號。</span></div></div></div></div>'+
 
   '<div class="sh" id="stay">'+shIc('bed')+'<h2>住宿</h2><span class="en">Stay</span></div><div class="grid2">'+
   hotel('2/16 – 2/18・2 晚','THE NOBORISAKA HOTEL','登り坂ホテル・河口湖','6832 Funatsu, Fujikawaguchiko, Yamanashi 401-0301','16:00','10:00','+81-555-72-5300','離河口湖站走路約 20–30 分，拖行李搭計程車。有大浴場、三溫暖。','THE NOBORISAKA HOTEL Fujikawaguchiko','noborisaka')+
   hotel('2/18 – 2/23・5 晚','APA 飯店〈新宿御苑前〉','APA Hotel Shinjuku Gyoemmae','2-2-8 Shinjuku, Shinjuku-ku, Tokyo 160-0022','15:00','看訂房資料','—','丸之內線「新宿御苑前」站旁，走到新宿三丁目也很近。','APA Hotel Shinjuku Gyoemmae','gyoen')+'</div>'+
 
   '<div class="sh">'+shIc('bus')+'<h2>富士山交通</h2><span class="en">Around Fuji</span></div><div class="card">'+
-  '<p style="margin:0 0 8px;font-size:14px">Mt. Fuji Pass 可無限搭乘富士五湖的觀光巴士：紅線（河口湖）、綠線（西湖）、藍線（鳴澤・精進湖・本栖湖），還有往忍野八海和山中湖的「富士湖號」，以及富士急行線（大月–河口湖）。全景纜車、河口湖遊覽船也有免費或優惠。</p>'+
+  '<div class="passh">'+em('ticket')+'<span><b>Mt. Fuji Pass</b> 可無限搭乘富士五湖的觀光巴士</span></div>'+
+  '<div class="routes">'+[['red-circle','紅線','河口湖','bus'],['green-circle','綠線','西湖','bus'],['blue-circle','藍線','鳴澤・精進湖・本栖湖','bus'],['yellow-circle','富士湖號','忍野八海・山中湖','oncoming-bus'],['purple-circle','富士急行線','大月 – 河口湖','light-rail'],['mountain-cableway','全景纜車・遊覽船','免費或優惠','ship']].map(function(x){
+    return '<div class="rt"><span class="rti">'+em(x[3])+'<i>'+em(x[0])+'</i></span><b>'+x[1]+'</b><small>'+x[2]+'</small></div>';}).join('')+'</div>'+
   '<div class="links">'+lk(D.L.kimiyo,'五湖周遊巴士介紹')+lk(D.L.fujitour,'路線・時刻表')+lk(D.L.fujikko,'富士湖號時刻表')+lk(D.L.willer,'成田 → 河口湖 訂票')+lk(D.L.hwbus,'河口湖 → 新宿 訂票')+lk(D.L.hwteach,'高速巴士訂票教學')+'</div></div>'+
 
-  '<div class="sh">'+shIc('snow')+'<h2>2 月的天氣</h2><span class="en">Weather</span></div><div class="grid2">'+
-  '<div class="card wx">'+shIc('snowflake')+'<div><strong>河口湖</strong><p class="small muted" style="margin:4px 0 0">早晚常在零度以下，可能有積雪。羽絨外套＋發熱衣，鞋子要防滑。</p></div></div>'+
-  '<div class="card wx">'+shIc('cloud')+'<div><strong>東京</strong><p class="small muted" style="margin:4px 0 0">白天約 10 度上下，乾冷、風大，室內暖氣很強，洋蔥式穿法。</p></div></div></div>'+
+  '<div class="sh">'+shIc('snowflake')+'<h2>2 月的天氣</h2><span class="en">What to wear</span></div><div class="grid2">'+
+  wearCard('河口湖','−5 ~ 8°C',GUY_FUJI,[['womans-hat','毛帽'],['scarf','圍巾'],['coat','羽絨外套'],['gloves','手套'],['socks','發熱衣・厚襪'],['hiking-boot','防滑鞋']],'早晚常在零度以下，可能有積雪，路面會結冰。','snow')+
+  wearCard('東京','2 ~ 11°C',GUY_TOKYO,[['coat','大衣'],['t-shirt','薄毛衣・發熱衣'],['jeans','長褲'],['running-shoe','好走的鞋'],['handbag','包包放圍巾']],'白天約 10 度，乾冷風大；室內暖氣很強，穿洋蔥式方便脫。','tokyo')+'</div>'+
   '<p class="small muted" style="margin-top:18px">你的 Google 地圖清單「日本8天7夜」的 21 個地點都已經放進行程、探索和美食，卡片上有綠點的就是你存的。'+lk(D.L.mylist,'打開清單')+'</p>';
   $$('#v-home [data-ct]').forEach(function(a){a.addEventListener('click',function(){LOCAL.ctab=a.dataset.ct;saveLocal();});});
   if(WX.kawa||WX.tokyo)wxCard();else loadWeather(function(){if(cur()==='home')wxCard();if(cur()==='plan')rPlan();});
@@ -873,13 +922,42 @@ function flightCard(dir,no,date,dow,fc,fa,ft,ftm,tc,ta,tt,ttm,plus){
   '<div class="bp-stub"><small>BOARDING</small><b class="num">'+no+'</b><div class="bar"></div></div></div>';
 }
 function hotel(when,name,sub,addr,cin,cout,tel,note,q,ph){
+  var row=function(e,lab,val){return '<div class="hrow">'+em(e)+'<span class="sr">'+lab+'</span><span>'+val+'</span></div>';};
   return '<div class="card" style="padding:0;overflow:hidden">'+(PH[ph]?'<div style="aspect-ratio:16/8">'+photo(ph,name).replace('<img','<img style="width:100%;height:100%;object-fit:cover"')+'</div>':'')+
-  '<div style="padding:14px 16px"><span class="chip mint">'+when+'</span><h3 style="font-size:16px;margin:8px 0 0">'+esc(name)+'</h3><div class="small muted">'+esc(sub)+'</div>'+
-  '<dl class="kv"><dt>地址</dt><dd>'+esc(addr)+'</dd><dt>入住</dt><dd class="num">'+cin+'</dd><dt>退房</dt><dd class="num">'+cout+'</dd><dt>電話</dt><dd class="num">'+esc(tel)+'</dd></dl>'+
-  '<p class="small muted" style="margin:8px 0 6px">'+esc(note)+'</p><div class="links">'+lk(mapUrl(q),'Google 地圖')+'</div>'+
+  '<div style="padding:14px 16px"><span class="chip mint">'+em('spiral-calendar')+when+'</span><h3 style="font-size:16px;margin:8px 0 0">'+esc(name)+'</h3><div class="small muted">'+esc(sub)+'</div>'+
+  '<div class="hrows">'+row('round-pushpin','地址',esc(addr))+'<div class="hio">'+row('old-key','入住','<b class="num">'+cin+'</b><small class="hl">入住</small>')+row('door','退房','<b class="num">'+cout+'</b><small class="hl">退房</small>')+'</div>'+(tel!=='—'?row('mobile-phone','電話','<span class="num">'+esc(tel)+'</span>'):'')+row('light-bulb','提醒',esc(note))+'</div>'+
+  '<div class="links">'+lk(mapUrl(q),'Google 地圖')+'</div>'+
   (PH[ph]?'<div class="credit">'+credit(ph,'照片為周邊景色')+'</div>':'')+'</div></div>';
 }
 
+/* ---------- WEAR ---------- */
+var GUY_FUJI='<svg viewBox="0 0 120 170" class="guy" aria-hidden="true">'+
+ '<g fill="#fff" stroke="#BFD6EA" stroke-width="1.2"><circle cx="12" cy="30" r="3"/><circle cx="104" cy="22" r="2.5"/><circle cx="108" cy="70" r="3"/><circle cx="10" cy="96" r="2.5"/><circle cx="100" cy="128" r="2"/><circle cx="18" cy="140" r="2"/></g>'+
+ '<rect x="40" y="117" width="17" height="34" rx="6" fill="#3B4A63"/><rect x="63" y="117" width="17" height="34" rx="6" fill="#3B4A63"/>'+
+ '<path d="M36 146h22a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H36a6 6 0 0 1-6-6v-2a6 6 0 0 1 6-6z" fill="#8A5A3B"/><path d="M84 146H62a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h22a6 6 0 0 0 6-6v-2a6 6 0 0 0-6-6z" fill="#8A5A3B"/>'+
+ '<path d="M30 158h31M59 158h31" stroke="#5C3A24" stroke-width="3"/>'+
+ '<rect x="22" y="74" width="15" height="44" rx="7.5" fill="#5F8DBE" transform="rotate(12 29.5 76)"/><rect x="83" y="74" width="15" height="44" rx="7.5" fill="#5F8DBE" transform="rotate(-12 90.5 76)"/>'+
+ '<circle cx="21" cy="118" r="7.5" fill="#F2A7B8"/><circle cx="99" cy="118" r="7.5" fill="#F2A7B8"/>'+
+ '<rect x="33" y="68" width="54" height="58" rx="20" fill="#5F8DBE"/><path d="M35 86h50M34 102h52M36 117h48" stroke="#4A76A6" stroke-width="2.2" stroke-linecap="round"/><path d="M60 76v48" stroke="#E8F0F8" stroke-width="2"/>'+
+ '<rect x="38" y="62" width="44" height="13" rx="6.5" fill="#E0728D"/><rect x="66" y="68" width="11" height="28" rx="4" fill="#E0728D"/><path d="M66 90h11M66 85h11" stroke="#C25472" stroke-width="2"/>'+
+ '<circle cx="60" cy="42" r="20" fill="#FCE1CF"/><circle cx="53" cy="45" r="2.3" fill="#22324A"/><circle cx="67" cy="45" r="2.3" fill="#22324A"/><ellipse cx="48" cy="51" rx="4" ry="2.4" fill="#F6A9B8"/><ellipse cx="72" cy="51" rx="4" ry="2.4" fill="#F6A9B8"/><path d="M56 52q4 3.5 8 0" stroke="#22324A" stroke-width="2" fill="none" stroke-linecap="round"/>'+
+ '<path d="M38 40a22 22 0 0 1 44 0z" fill="#7BC4C4"/><rect x="36" y="35" width="48" height="9" rx="4.5" fill="#3B9C9C"/><path d="M46 26v8M54 22v12M62 21v13M70 23v11" stroke="#5BB0B0" stroke-width="2"/><circle cx="60" cy="16" r="6.5" fill="#fff" stroke="#DCE7F0"/>'+
+ '</svg>';
+var GUY_TOKYO='<svg viewBox="0 0 120 170" class="guy" aria-hidden="true">'+
+ '<g stroke="#BFD6EA" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M6 40h16M10 48h10M98 34h16M100 42h10"/></g>'+
+ '<rect x="41" y="112" width="16" height="40" rx="6" fill="#5F8DBE"/><rect x="63" y="112" width="16" height="40" rx="6" fill="#5F8DBE"/>'+
+ '<path d="M36 148h22v9H34a4 4 0 0 1-4-4v0a5 5 0 0 1 6-5z" fill="#fff" stroke="#C9BBAC" stroke-width="1.5"/><path d="M84 148H62v9h24a4 4 0 0 0 4-4v0a5 5 0 0 0-6-5z" fill="#fff" stroke="#C9BBAC" stroke-width="1.5"/>'+
+ '<rect x="23" y="72" width="14" height="44" rx="7" fill="#D9B98F" transform="rotate(8 30 74)"/><rect x="83" y="72" width="14" height="44" rx="7" fill="#D9B98F" transform="rotate(-8 90 74)"/>'+
+ '<circle cx="24" cy="116" r="6" fill="#FCE1CF"/><circle cx="96" cy="116" r="6" fill="#FCE1CF"/>'+
+ '<path d="M92 112h18l-3 24H95z" fill="#E0728D"/><path d="M95 112q6-12 12 0" stroke="#C25472" stroke-width="2" fill="none"/>'+
+ '<path d="M36 70h48l4 60H32z" fill="#D9B98F"/><path d="M50 68l10 18 10-18" fill="#7BC4C4"/><path d="M48 68l12 22M72 68L60 90" stroke="#B8946A" stroke-width="2.5"/><rect x="34" y="100" width="52" height="6" rx="3" fill="#B8946A"/><circle cx="54" cy="94" r="1.8" fill="#8A6A45"/><circle cx="66" cy="94" r="1.8" fill="#8A6A45"/><circle cx="54" cy="114" r="1.8" fill="#8A6A45"/><circle cx="66" cy="114" r="1.8" fill="#8A6A45"/>'+
+ '<circle cx="60" cy="44" r="20" fill="#FCE1CF"/><path d="M39 44a21 21 0 0 1 42-2q-8-10-22-6-12 3-20 8z" fill="#3A2E2A"/><path d="M39 44q-1 10 3 16M81 42q2 10-2 18" stroke="#3A2E2A" stroke-width="4" stroke-linecap="round" fill="none"/>'+
+ '<circle cx="53" cy="47" r="2.3" fill="#22324A"/><circle cx="67" cy="47" r="2.3" fill="#22324A"/><ellipse cx="48" cy="53" rx="4" ry="2.4" fill="#F6A9B8"/><ellipse cx="72" cy="53" rx="4" ry="2.4" fill="#F6A9B8"/><path d="M56 54q4 3.5 8 0" stroke="#22324A" stroke-width="2" fill="none" stroke-linecap="round"/>'+
+ '</svg>';
+function wearCard(place,temp,fig,items,note,cls){
+  return '<div class="card wearc '+cls+'"><div class="wfig">'+fig+'</div><div class="wtx"><div class="wpl">'+em(cls==='snow'?'snowman':'dashing-away')+'<b>'+place+'</b></div><div class="wtemp num">'+temp+'</div>'+
+   '<div class="witems">'+items.map(function(x){return '<span>'+em(x[0])+x[1]+'</span>';}).join('')+'</div><p>'+note+'</p></div></div>';
+}
 /* ---------- PLAN ---------- */
 function rPlan(){if(!WX.kawa&&!WX._loading){WX._loading=1;loadWeather(function(){if(cur()==='plan')rPlan();});}
   var d=findDay(LOCAL.day),idx=S.days.indexOf(d);
@@ -889,7 +967,7 @@ function rPlan(){if(!WX.kawa&&!WX._loading){WX._loading=1;loadWeather(function()
   '<div class="dayh"><div class="en">DAY '+(idx+1)+' ・ '+esc(d.en)+'</div><h2>'+esc(d.zh)+'</h2>'+dayWx(d)+(d.note?'<p>'+esc(d.note)+'</p>':'')+
   '<div style="margin-top:8px"><button class="ibtn" id="edday">'+ic('edit')+'改標題和備註</button></div></div>'+
   mapHtml(d.map||d.id,pts,'DAY '+(idx+1))+
-  '<ol class="stops">'+d.stops.map(function(s,i){return stopHtml(s,i,d.stops.length);}).join('')+'</ol>'+
+  '<ol class="stops">'+d.stops.map(function(s,i){return (i?walkHtml(d.stops[i-1],s):'')+stopHtml(s,i,d.stops.length);}).join('')+'</ol>'+
   '<div style="margin-top:14px"><button class="btn" id="addstop">'+ic('plus')+'新增一站</button></div>';
   wirePins($('#v-plan'));
   $$('#v-plan .tab').forEach(function(b){b.onclick=function(){LOCAL.day=b.dataset.day;saveLocal();rPlan();};});
@@ -900,6 +978,15 @@ function rPlan(){if(!WX.kawa&&!WX._loading){WX._loading=1;loadWeather(function()
     if(a==='up'&&i>0){var t=st[i];st[i]=st[i-1];st[i-1]=t;persist();rPlan();}
     if(a==='down'&&i<st.length-1){var t2=st[i];st[i]=st[i+1];st[i+1]=t2;persist();rPlan();}
     if(a==='del')armDelete(b,function(){st.splice(i,1);persist();rPlan();toast('已刪除');});};});
+}
+function stopLL(s){if(s.k==='flight')return null;var f=s.food?foodById(s.food):null,p=s.ref?placeById(s.ref):null;return s.ll||(f&&f.ll)||(p&&p.ll)||null;}
+function isMove(s){return s.k==='flight'||['bus','train','plane'].indexOf(s.ic)>=0;}
+function walkHtml(a,b){
+  if(isMove(a)||isMove(b))return '';var p=stopLL(a),q=stopLL(b);if(!p||!q)return '';
+  var R=6371000,t=Math.PI/180,dl=(q[0]-p[0])*t,dn=(q[1]-p[1])*t,x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(p[0]*t)*Math.cos(q[0]*t)*Math.sin(dn/2)*Math.sin(dn/2);
+  var m=2*R*Math.asin(Math.sqrt(x))*1.3;if(m<60)return '';
+  if(m>2500)return '<li class="walk far">'+em('metro')+'<span>約 <b class="num">'+(m/1000).toFixed(1)+' km</b>・建議搭車</span></li>';
+  return '<li class="walk">'+em('person-walking')+'<span>步行約 <b class="num">'+Math.max(1,Math.round(m/75))+' 分鐘</b>・'+(m<1000?Math.round(m/10)*10+' m':(m/1000).toFixed(1)+' km')+'</span></li>';
 }
 function stopHtml(s,i,n){
   var f=s.food?foodById(s.food):null,phk=s.ph||(f&&f.dish?'d-'+f.dish:'');
