@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#EFE8D8">
+<meta name="theme-color" content="#9BB7D4">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -13,7 +13,7 @@
 <meta property="og:description" content="2027/2/16–2/23 河口湖 2 泊＋新宿 5 泊">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /* Plan: Pantone notebook — Sand Dollar 13-1106 page, white cards, Cerulean 15-4020 as the main fill, Aqua Sky 14-4811 for food and links;
    deeper shades of the same hues carry text so contrast holds. Peach only for warnings. Single theme by choice. */
@@ -500,85 +500,14 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .trit{flex:1;text-align:left;border:0;background:var(--sand-l);border-radius:10px;padding:6px 10px;cursor:pointer;display:grid;font:inherit;color:var(--ink)}
 .trit span{font-size:12px;color:var(--muted)}.trit b{font-size:14.5px}
 .top .wrap{display:flex;align-items:center;gap:8px}.top .sp{flex:1}
-.thm{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer;color:var(--ink)}
-.thm svg{width:14px;height:14px}
-.mast{display:none}
 
-/* ===== Newspaper / editorial theme ===== */
-body.np{
-  --bg:#EFE8D8;--card:#FBF7EC;--ink:#1F1A14;--muted:#6A6052;--line:rgba(31,26,20,.22);
-  --mint:#1F1A14;--mint-l:#E8DFCB;--sky:#2F5E58;--sky-l:#E4E2D0;--peach:#A3311E;--peach-l:#F0D8CC;
-  --cer:#C8B48A;--cer-d:#1F1A14;--aqua-d:#2F5E58;--sand-l:#EDE4D0;--sand-d:#8A7558;
-  --pink:#A8455C;--pink-l:#F0DCD8;--yel:#93670F;--yel-l:#F1E4C0;--grn:#3D6B45;--grn-l:#DDE5D0;--lil:#5A4785;--lil-l:#E3DDE8;--blu:#2D4C75;--blu-l:#DCE2E8;--red:#A3311E;--red-l:#F0D6CA;
-  --body:"Noto Serif TC","Songti TC","PMingLiU",serif;--latin:"Playfair Display","Noto Serif TC",Georgia,serif;--r:2px;
-  background-color:var(--bg);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .18 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-body.np .top{background:rgba(239,232,216,.95);border-bottom:3px double var(--ink)}
-body.np .brand{font-family:var(--body);font-weight:900;letter-spacing:.06em}
-body.np .brand i{background:var(--ink)}
-body.np .thm{border-radius:2px;border-color:var(--ink);background:transparent}
-body.np .mast{display:block;text-align:center;margin:4px 0 14px;border-bottom:1px solid var(--ink);padding-bottom:6px}
-body.np .mast .mt{font:900 34px/1.05 var(--latin);letter-spacing:-.01em}
-body.np .mast .mz{font-weight:900;letter-spacing:.5em;font-size:13px;margin:4px 0 6px;padding-left:.5em}
-body.np .mast .ml{display:flex;justify-content:space-between;border-top:3px double var(--ink);border-bottom:1px solid var(--ink);padding:3px 2px;font-size:11.5px;font-family:var(--body);letter-spacing:.04em}
-@media (max-width:380px){body.np .mast .mt{font-size:28px}body.np .mast .ml span:last-child{display:none}}
-body.np .hero{border-radius:0;display:flex;flex-direction:column-reverse;background:none;overflow:visible}
-body.np .hero img{height:220px;border:1px solid var(--ink)}
-body.np .hero .ov{position:static;background:none;padding:0 0 10px}
-body.np .hero .ov h1{font-size:32px;font-weight:900;text-shadow:none;line-height:1.2;margin:0 0 4px}
-body.np .hero .d{font-family:var(--body);font-style:italic;font-weight:500}
-body.np .cd b{font-family:var(--latin);color:var(--red);font-weight:900}
-body.np .credit{font-style:italic}
-body.np img{filter:sepia(.22) saturate(.85) contrast(1.04)}
-body.np .card,body.np .pc,body.np .drow,body.np .quick a,body.np .wxlinks a,body.np .fstep{border-radius:2px;border:1px solid var(--line);background:var(--card);box-shadow:none}
-body.np .quick a{background:var(--card)!important}
-body.np .qi,body.np .shic,body.np .sic,body.np .wic,body.np .tile,body.np .bagt>div,body.np .callout,body.np .trout,body.np .trit,body.np .fgrid,body.np .wd,body.np .dth,body.np .pimg{border-radius:2px}
-body.np .qi{border:1px solid currentColor}
-body.np .sh{border-top:3px double var(--ink);padding-top:10px;margin-top:28px}
-body.np .sh h2{font-weight:900;letter-spacing:.03em;background:none}
-body.np .sh .en{font-family:var(--latin);font-style:italic;text-transform:none;letter-spacing:0;font-size:13px}
-body.np .shic{background:transparent!important;border:1px solid var(--ink);color:var(--ink)!important}
-body.np .btn{border-radius:2px;background:var(--ink);color:var(--card)}
-body.np .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
-body.np .ibtn,body.np .fb,body.np .chip,body.np input,body.np textarea,body.np select,body.np .search input{border-radius:2px}
-body.np .ibtn.round{border-radius:50%}
-body.np .fb.on,body.np .fb[class*=on]{background:var(--ink);color:var(--card);border-color:var(--ink)}
-body.np .seg{border-radius:2px;background:transparent;border:1px solid var(--ink);padding:2px}
-body.np .seg button{border-radius:1px;font-family:var(--body)}
-body.np .seg button.on{background:var(--ink);color:var(--card);box-shadow:none}
-body.np nav.bn{border-radius:3px;background:var(--card);border:1.5px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
-body.np nav.bn a{color:var(--muted);font-family:var(--body);border-radius:0}
-body.np nav.bn a.on{color:var(--ink);font-weight:900}
-body.np nav.bn a.on svg{background:var(--ink);color:var(--card);border-radius:2px}
-body.np .stop .no{border-radius:2px;background:var(--ink);font-family:var(--latin)}
-body.np .stop .no.food{background:var(--red)}body.np .stop .no.off{background:#B8AC98}
-body.np .dayh h2{font-weight:900;font-size:26px}
-body.np .dayh .en{font-family:var(--latin);font-style:italic;letter-spacing:0;font-size:13px}
-body.np .dayh p::first-letter{float:left;font-size:3em;line-height:.9;font-weight:900;margin:4px 6px 0 0;color:var(--red)}
-body.np .dayh p{color:var(--ink)}
-body.np .drow .t,body.np .pc h3,body.np .stop h3{font-weight:900}
-body.np .flight .ap b,body.np .num{font-family:var(--latin)}
-body.np .mine{background:var(--ink)!important;color:#F4C95D!important;border-radius:2px}
-body.np .callout{border-left:3px solid var(--ink)}
-body.np .callout.peach{border-left-color:var(--red)}
-body.np .trout{background:var(--card);border:1px solid var(--ink)}
-body.np .trres{font-weight:900}
-body.np .ibtn.mic{background:var(--red);color:var(--card)}
-body.np .fdot{border-radius:50%}
-body.np .tno{color:var(--red);font-family:var(--latin)}
-body.np .wp{border-bottom:1px solid var(--line)}
-body.np .tab,body.np .sc,body.np .musteat,body.np .sea,body.np .search,body.np .searchw .search,body.np .ti,body.np .tbl,body.np .sheet,body.np .toast,body.np .empty,body.np .settle,body.np .crow,body.np .dwx,body.np .dsheet .dimg,body.np .settings input,body.np .trin textarea,body.np .acard,body.np .acard img,body.np .map,body.np .mapw{border-radius:2px}
-body.np .tab{background:var(--card)}body.np .tab.on span{color:var(--card)}body.np .tab.on,body.np .tab[aria-selected=true]{background:var(--ink);color:var(--card);border-color:var(--ink)}
-body.np .sheet{border-top:3px double var(--ink)}
-body.np .top .sync{font-family:var(--latin);font-style:italic}
 @media (prefers-reduced-motion:no-preference){.sc,.pc,.drow{transition:border-color .15s}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <div class="brand"><i aria-hidden="true"></i>富士・東京 8 日</div>
-  <span class="sp"></span><button class="thm" id="thm" type="button" aria-label="切換版面風格"></button><div class="sync" id="sync">連線中…</div>
+  <span class="sp"></span><div class="sync" id="sync">連線中…</div>
 </div></header>
 
 <main class="wrap">
@@ -670,8 +599,6 @@ var IC={
  mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',
  speaker:'<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>',
  expand:'<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',
- news:'<rect x="3" y="4" width="15" height="16" rx="1"/><path d="M18 8h3v10a2 2 0 0 1-2 2M7 8h7M7 12h7M7 16h4"/>',
- leaf:'<path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15M5 19l7-7"/>',
  money:'<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="3"/>'
 };
 function ic(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(IC[n]||IC.pin)+'</svg>';}
@@ -693,7 +620,6 @@ function defaults(){return {days:clone(D.DAYS),todos:clone(D.TODOS),costs:clone(
 var S=defaults();
 var LOCAL={saved:[],pack:{},day:'d1',fil:{},lang:'ja',name:''};
 try{var lr=JSON.parse(localStorage.getItem('jp27-local')||'null');if(lr)Object.assign(LOCAL,lr);}catch(e){}
-function applyTheme(){var np=LOCAL.theme!=='clean';document.body.classList.toggle('np',np);var b=document.getElementById('thm');if(b)b.innerHTML=ic(np?'leaf':'news')+'<span>'+(np?'清新版':'報紙版')+'</span>';var m=document.querySelector('meta[name=theme-color]');if(m)m.content=np?'#EFE8D8':'#F5EFE8';}
 function saveLocal(){try{localStorage.setItem('jp27-local',JSON.stringify(LOCAL));}catch(e){}}
 try{var ls=JSON.parse(localStorage.getItem('jp27-trip')||'null');if(ls&&Array.isArray(ls.days))S=ls;}catch(e){}
 
@@ -779,7 +705,6 @@ function route(){var h=cur();$$('section.view').forEach(function(s){s.classList.
   $$('#nav a').forEach(function(a){var on=a.dataset.v===h;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   render();window.scrollTo(0,0);}
 window.addEventListener('hashchange',route);
-applyTheme();document.getElementById('thm').onclick=function(){LOCAL.theme=LOCAL.theme==='clean'?'np':'clean';saveLocal();applyTheme();};
 function go(h){if(location.hash==='#'+h)route();else location.hash=h;}
 function render(){({home:rHome,plan:rPlan,explore:rExplore,food:rFood,list:rList,cost:rCost,card:rCard}[cur()])();}
 
@@ -789,9 +714,7 @@ function dayThumb(d,i){var k='';d.stops.some(function(s){var f=s.food?foodById(s
 function rHome(){
   var days=Math.ceil((new Date('2027-02-16T00:00:00+08:00')-new Date())/86400000);
   var cd=days>0?'<div class="cd"><b>'+days+'</b><span class="muted">天後出發</span></div>':(days>-8?'<div class="cd"><b>DAY '+(1-days)+'</b><span class="muted">旅行中</span></div>':'<div class="cd muted">旅程結束，辛苦了</div>');
-  var now=new Date(Date.now()+8*3600000),wk='日一二三四五六';
   $('#v-home').innerHTML=
-  '<div class="mast"><div class="mt">The Fuji &amp; Tokyo Daily</div><div class="mz">富士・東京旅行日報</div><div class="ml"><span>VOL. I ・ NO. 8</span><span>'+now.getUTCFullYear()+' 年 '+(now.getUTCMonth()+1)+' 月 '+now.getUTCDate()+' 日（'+wk[now.getUTCDay()]+'）</span><span>兩人特刊</span></div></div>'+
   '<div class="hero"><img src="img/ph/kawaguchi.jpg" alt="河口湖與富士山"><div class="ov"><h1>富士・東京 8 日</h1><div class="d">2027.02.16 – 02.23 ・ 河口湖 2 泊＋新宿 5 泊 ・ 2 人</div>'+cd+'</div></div>'+
   '<div class="credit">'+credit('kawaguchi','封面照片')+'</div>'+
   '<div class="quick">'+qt('#plan','route','今天行程')+qt('#card','card','過敏字卡',' data-ct="card"')+qt('#flight','plane','航班行李',' data-scroll="flight"')+qt('#stay','bed','住宿',' data-scroll="stay"')+
