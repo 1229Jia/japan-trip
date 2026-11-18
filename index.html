@@ -502,6 +502,123 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .top .wrap{display:flex;align-items:center;gap:8px}.top .sp{flex:1}
 
 @media (prefers-reduced-motion:no-preference){.sc,.pc,.drow{transition:border-color .15s}}
+
+/* ===== v5 soft redesign ===== */
+:root{--r:24px;--shadow:0 1px 2px rgba(34,50,74,.04),0 8px 24px rgba(34,50,74,.07)}
+body{background:#F6F1EA;background-image:radial-gradient(60% 40% at 100% 0%,rgba(155,183,212,.28),transparent 70%),radial-gradient(50% 35% at 0% 30%,rgba(123,196,196,.18),transparent 70%),radial-gradient(60% 40% at 100% 85%,rgba(222,205,190,.45),transparent 70%);background-attachment:fixed}
+.top{background:rgba(246,241,234,.8);border-bottom:0}
+.card,.pc,.tstep{border:0!important;border-radius:var(--r);box-shadow:var(--shadow)}
+.emo{width:1.25em;height:1.25em;flex:0 0 auto;vertical-align:-.25em;display:inline-block}
+.emo.big{width:44px;height:44px}
+.chip .emo,.fb .emo{width:16px;height:16px;margin-right:2px}
+.fb{border:0;box-shadow:0 1px 2px rgba(34,50,74,.06),0 2px 8px rgba(34,50,74,.05);padding:7px 14px;border-radius:999px;background:#fff}
+.fb.on{background:var(--ink);color:#fff}
+.shic{width:44px!important;height:44px!important;border-radius:16px!important;background:#fff!important;box-shadow:var(--shadow)}
+.shic .emo{width:28px;height:28px}
+.sh{margin:30px 0 12px}.sh h2{font-size:21px;letter-spacing:.01em;background:none}
+.sh .act{margin-left:auto}
+.sic{width:auto!important;height:auto!important;background:none!important;margin-right:6px}.sic .emo{width:22px;height:22px;vertical-align:-5px}
+.hero{border-radius:32px;box-shadow:var(--shadow)}
+.hero img{height:260px}
+.hero .ov h1{font-size:30px;letter-spacing:.02em}
+.cd{display:inline-flex;align-items:baseline;gap:6px;background:#fff;border-radius:999px;padding:4px 14px;margin-top:8px;box-shadow:var(--shadow)}
+.cd b{font-size:26px}
+.credit,.cap{font-size:10px;opacity:.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* day carousel */
+.dcar{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 14px;scrollbar-width:none}
+.dcar::-webkit-scrollbar{display:none}
+.dc{flex:0 0 150px;scroll-snap-align:start;border:0;background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:6px;text-align:left;cursor:pointer;position:relative;font:inherit;color:var(--ink)}
+.dc .dth{width:100%;height:auto;aspect-ratio:4/3;border-radius:17px}
+.dc .dth span{left:8px;bottom:8px;border-radius:999px;padding:0 9px;height:22px;font-size:12px;background:#fff!important}
+.dc .dth span::before{content:"DAY ";font-size:10px}
+.dcb{display:grid;padding:8px 6px 4px}.dcb b{font-size:14px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em}.dcb small{color:var(--muted);font-size:11.5px}
+.dcr{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center}.dcr .emo{width:20px;height:20px}
+/* boarding pass */
+.bp{display:grid;grid-template-columns:1fr 92px;filter:drop-shadow(0 6px 16px rgba(34,50,74,.1))}
+.bp-main,.bp-stub{background:#fff;padding:14px 16px;position:relative}
+.bp-main{border-radius:24px 0 0 24px;-webkit-mask:radial-gradient(circle at 100% 0,transparent 11px,#000 12px) top/100% 51% no-repeat,radial-gradient(circle at 100% 100%,transparent 11px,#000 12px) bottom/100% 51% no-repeat;mask:radial-gradient(circle at 100% 0,transparent 11px,#000 12px) top/100% 51% no-repeat,radial-gradient(circle at 100% 100%,transparent 11px,#000 12px) bottom/100% 51% no-repeat}
+.bp-stub{border-radius:0 24px 24px 0;border-left:2px dashed #E3DCD3;display:grid;align-content:space-between;justify-items:center;text-align:center;background:linear-gradient(160deg,#fff,var(--sky-l));-webkit-mask:radial-gradient(circle at 0 0,transparent 11px,#000 12px) top/100% 51% no-repeat,radial-gradient(circle at 0 100%,transparent 11px,#000 12px) bottom/100% 51% no-repeat;mask:radial-gradient(circle at 0 0,transparent 11px,#000 12px) top/100% 51% no-repeat,radial-gradient(circle at 0 100%,transparent 11px,#000 12px) bottom/100% 51% no-repeat}
+.bp-stub small{font-size:9.5px;letter-spacing:.14em;color:var(--muted)}.bp-stub b{font-size:16px}
+.bp-stub .bar{width:58px;height:46px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 12px);opacity:.85;border-radius:2px}
+.bp-top{display:flex;justify-content:space-between;align-items:center}
+.bp-dir{display:inline-flex;gap:5px;align-items:center;background:var(--sky-l);color:var(--sky);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700}
+.bp-dir .emo{width:16px;height:16px}.bp-no{font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.06em}
+.bp-route{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;margin:10px 0 8px}
+.bp-route b{font-size:32px;line-height:1;display:block;letter-spacing:.02em}.bp-route small{font-size:11.5px;color:var(--muted)}.bp-route .r{text-align:right}
+.bp-line{display:flex;align-items:center;gap:4px}.bp-line i{flex:1;border-top:2px dotted #C9D6E4}.bp-line .emo{width:22px;height:22px}
+.bp-info{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:6px;border-top:1px solid #F0EAE2;padding-top:8px}
+.bp-info small{display:block;font-size:10.5px;color:var(--muted)}.bp-info b{font-size:15px}.bp-info sup{font-size:9px;color:var(--peach);margin-left:2px}
+.bagt>div{border-radius:20px!important;padding:12px!important}.bagt .emo{width:30px;height:30px}
+.pill-note{display:flex;gap:8px;align-items:center;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;box-shadow:var(--shadow)}.pill-note .emo{width:22px;height:22px}
+/* hotel */
+.hcard{padding:0!important;overflow:hidden}.himg{position:relative;aspect-ratio:16/9}.himg img{width:100%;height:100%;object-fit:cover}
+.hwhen{position:absolute;left:12px;top:12px;background:#fff;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700}
+.hb{padding:12px 16px 14px}.hb h3{font-size:16px;margin:0}
+.hrow{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;margin-top:6px}.hrow .emo{width:18px;height:18px;margin-top:2px}
+.feats{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.feats span{display:inline-flex;gap:4px;align-items:center;background:var(--sand-l);border-radius:999px;padding:3px 10px;font-size:12px}.feats .emo{width:16px;height:16px}
+.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.routes>div{background:var(--sand-l);border-radius:18px;padding:10px 6px;display:grid;justify-items:center;text-align:center;gap:2px}
+.routes .emo{width:28px;height:28px}.routes b{font-size:13px}.routes small{font-size:11px;color:var(--muted)}
+.wear .card{display:grid;justify-items:center;text-align:center;gap:2px;padding:16px 10px}.wear .num{font-size:20px;font-weight:700}.wear small{color:var(--muted);font-size:12px}
+/* weather emoji */
+.wic{background:#FFF6DC!important;border-radius:16px!important;width:48px;height:48px}.wic .emo{width:30px;height:30px}
+.wd{border-radius:16px!important}.wd .emo{width:26px;height:26px}
+.dwx .emo{width:20px;height:20px}
+.fuji .fh .emo.big{width:40px;height:40px}
+/* tiles emoji */
+.tile{border-radius:20px!important}.tile .emo{width:32px;height:32px}
+.qi{border-radius:16px!important;background:var(--cl,#fff)!important}.qi .emo{width:24px;height:24px}
+/* walking connectors */
+.walk{list-style:none;display:flex;align-items:center;gap:8px;margin:-2px 0 -2px 2px;padding:0 0 0 40px;font-size:12.5px;color:var(--muted);position:relative}
+.walk::before{content:"";position:absolute;left:14px;top:-8px;bottom:-8px;border-left:2px dotted #CFC4B8}
+.walk .emo{width:20px;height:20px}
+.walk span{background:#fff;border-radius:999px;padding:3px 10px;box-shadow:0 1px 2px rgba(34,50,74,.06)}
+.walk.far span{background:var(--sky-l)}
+.stop .no{border-radius:12px}
+.stop .sc{border:0!important;border-radius:22px!important;box-shadow:var(--shadow)}
+.tab{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(34,50,74,.06)}
+.tab.on{background:var(--ink);color:#fff}.tab.on span{color:#fff;opacity:.8}
+/* nav emoji */
+nav.bn a i{display:grid;place-items:center;width:44px;height:30px;border-radius:999px;transition:background .2s,transform .2s}
+nav.bn a i .emo{width:22px;height:22px;filter:grayscale(1) opacity(.55);transition:filter .2s,transform .2s}
+nav.bn a.on i{background:var(--sand-l)}
+nav.bn a.on i .emo{filter:none;transform:scale(1.15)}
+nav.bn a.on{color:var(--ink);font-weight:700}
+/* seg */
+.seg.big{display:flex;background:#fff;box-shadow:var(--shadow);padding:5px}.seg.big button{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 8px}
+.seg.big button .emo{width:20px;height:20px}.seg.big button.on{background:var(--ink);color:#fff;box-shadow:none}
+/* must-buy */
+.bgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}
+@media (min-width:600px){.bgrid{grid-template-columns:repeat(3,1fr)}}
+.bc{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:6px 6px 12px;display:flex;flex-direction:column;cursor:pointer;position:relative;transition:opacity .2s}
+.bimg{position:relative;aspect-ratio:1/1;border-radius:17px;overflow:hidden;background:var(--sand-l);display:block;margin-bottom:8px}
+.bimg img{width:100%;height:100%;object-fit:cover;display:block}
+.bimg.ill{background:linear-gradient(145deg,var(--sky-l),var(--sand-l));display:grid;place-items:center}
+.bemo .emo{width:72px;height:72px}
+.bimg em{position:absolute;left:8px;bottom:8px;font-style:normal;font-size:10px;background:rgba(255,255,255,.85);border-radius:999px;padding:1px 7px;color:var(--muted)}
+.bimg input{position:absolute;opacity:0;width:1px;height:1px}
+.bck{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;color:transparent;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.bck svg{width:16px;height:16px}
+.bc.got .bck{background:var(--aqua-d);color:#fff}
+.bc.got .bimg img,.bc.got .bemo{opacity:.55}
+.bc.got>b{text-decoration:line-through;color:var(--muted)}
+.bimg input:focus-visible+.bck{outline:3px solid var(--cer-d)}
+.bc>b{font-size:14px;padding:0 6px;line-height:1.35}
+.bc small{display:block;padding:0 6px;font-size:11.5px;color:var(--muted);line-height:1.45}
+.bc .bj{font-size:11px;opacity:.85}.bc .bw{display:flex;gap:3px;align-items:center;margin-top:4px;color:var(--ink)}.bc .bw .emo{width:13px;height:13px}
+.bc .bt{margin-top:2px}
+
+.dc .dth span{white-space:nowrap;display:inline-flex!important;align-items:center;gap:2px;width:auto}
+.dcar{scroll-padding-left:16px}
+.fwrap{display:grid;grid-template-columns:34px 1fr;gap:4px;background:var(--sand-l);border-radius:20px;padding:10px 8px}
+.frow-l{display:grid;grid-template-rows:34px 36px 36px;align-items:center;font-size:11px;color:var(--muted);text-align:center}
+.fcols{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}.fcols::-webkit-scrollbar{display:none}
+.fcol{display:grid;grid-template-rows:34px 36px 36px;align-items:center;justify-items:center;min-width:40px;border-radius:14px;padding:0 2px}
+.fcol.today{background:#fff;box-shadow:0 1px 3px rgba(34,50,74,.08)}
+.fcol.past{opacity:.55}
+.fdl{font-size:12px;font-weight:700;line-height:1.1;text-align:center}.fdl i{display:block;font-style:normal;font-weight:400;font-size:10.5px;color:var(--muted)}
+.stop .tools{flex-wrap:nowrap}.stop .tools .links{flex-wrap:wrap;min-width:0}
+.stop .tools .ibtn{width:32px;height:32px;padding:0;justify-content:center;flex:0 0 auto}
 </style>
 </head>
 <body>
@@ -526,6 +643,7 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 <div class="toast" id="toast" role="status"></div>
 
 <script src="data.js"></script>
+<script src="emo.js"></script>
 <script>
 (function(){
 'use strict';
@@ -601,6 +719,14 @@ var IC={
  expand:'<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',
  money:'<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="3"/>'
 };
+var E={route:'world-map',card:'memo',plane:'airplane',bed:'bed',hotel:'hotel',bowl:'steaming-bowl',food:'fork-and-knife-with-plate',mtn:'mount-fuji',coin:'coin',money:'yen-banknote',wallet:'money-bag',
+ sun:'sun',suncloud:'sun-behind-cloud',cloud:'cloud',rain:'cloud-with-rain',snow:'cloud-with-snow',snowflake:'snowflake',calendar:'spiral-calendar',bus:'oncoming-bus',train:'railway-car',check:'check-mark-button',bag:'shopping-bags',
+ warn:'warning',phone:'mobile-phone',passport:'passport-control',gift:'wrapped-gift',clock:'alarm-clock',swap:'speech-balloon',coffee:'hot-beverage',shop:'shopping-bags',cart:'shopping-cart',temple:'shinto-shrine',
+ tower:'tokyo-tower',cam:'camera-with-flash',pin:'round-pushpin',star:'glowing-star',sparkle:'sparkles',shirt:'t-shirt',store:'department-store',ticket:'admission-tickets',plug:'electric-plug',eye:'eyes',info:'information',
+ heart:'red-heart',search:'magnifying-glass-tilted-left',grid:'sparkles',cake:'shortcake',grill:'meat-on-bone',fish:'sushi',pot:'pot-of-food',skewer:'oden',noodle:'steaming-bowl',meat:'cut-of-meat',home:'house',bulb:'light-bulb',
+ key:'old-key',walk:'person-walking',lug:'luggage',receipt:'receipt',x:'cross-mark',cityscape:'cityscape'};
+function em(k,cls){var b=window.EMO&&EMO[k];return b?'<svg class="emo'+(cls?' '+cls:'')+'" viewBox="0 0 32 32" aria-hidden="true">'+b+'</svg>':'';}
+function ei(n,cls){var k=E[n]||n;return (window.EMO&&EMO[k])?em(k,cls):ic(n);}
 function ic(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(IC[n]||IC.pin)+'</svg>';}
 function mapUrl(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);}
 function lk(u,t){return '<a class="lnk" href="'+esc(u)+'" target="_blank" rel="noopener">'+ic('link')+esc(t)+'</a>';}
@@ -699,7 +825,8 @@ function wirePins(el){$$('[data-go]',el).forEach(function(p){p.addEventListener(
 
 /* ---------- nav ---------- */
 var VIEWS=[['home','首頁','home'],['plan','行程','route'],['explore','探索','bag'],['food','美食','bowl'],['list','清單','check'],['cost','費用','coin'],['card','實用','card']];
-$('#nav').innerHTML=VIEWS.map(function(v){return '<a href="#'+v[0]+'" data-v="'+v[0]+'">'+ic(v[2])+'<span>'+v[1]+'</span></a>';}).join('');
+var NAVE={home:'house',plan:'world-map',explore:'shopping-bags',food:'steaming-bowl',list:'check-mark-button',cost:'money-bag',card:'light-bulb'};
+$('#nav').innerHTML=VIEWS.map(function(v){return '<a href="#'+v[0]+'" data-v="'+v[0]+'"><i>'+em(NAVE[v[0]])+'</i><span>'+v[1]+'</span></a>';}).join('');
 function cur(){var h=(location.hash||'#home').slice(1);return VIEWS.some(function(v){return v[0]===h;})?h:'home';}
 function route(){var h=cur();$$('section.view').forEach(function(s){s.classList.toggle('on',s.id==='v-'+h);});
   $$('#nav a').forEach(function(a){var on=a.dataset.v===h;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
@@ -717,50 +844,47 @@ function rHome(){
   $('#v-home').innerHTML=
   '<div class="hero"><img src="img/ph/kawaguchi.jpg" alt="河口湖與富士山"><div class="ov"><h1>富士・東京 8 日</h1><div class="d">2027.02.16 – 02.23 ・ 河口湖 2 泊＋新宿 5 泊 ・ 2 人</div>'+cd+'</div></div>'+
   '<div class="credit">'+credit('kawaguchi','封面照片')+'</div>'+
-  '<div class="quick">'+qt('#plan','route','今天行程')+qt('#card','card','過敏字卡',' data-ct="card"')+qt('#flight','plane','航班行李',' data-scroll="flight"')+qt('#stay','bed','住宿',' data-scroll="stay"')+
-  qt('#food','bowl','吃什麼')+qt('#explore','mtn','去哪玩')+qt('#card','coin','退稅',' data-ct="tax"')+qt('#cost','wallet','記帳')+'</div>'+
-'<div class="sh">'+shIc('sun')+'<h2>天氣與富士山</h2><span class="en">即時</span></div><div class="card" id="wxbox"><div class="small muted">載入天氣中…</div></div>'+
-
-  '<div class="sh">'+shIc('calendar')+'<h2>行程總覽</h2><span class="en">Overview</span></div><div class="dlist">'+
-  S.days.map(function(d,i){return '<button class="drow" data-day="'+d.id+'">'+dayThumb(d,i)+'<div><div class="t">'+esc(d.zh)+'</div><div class="s">'+d.date+'（'+d.dow+'）・'+d.stops.length+' 站</div></div><span class="chip '+(d.reg==='fuji'?'sky':'mint')+'">'+ic(d.reg==='fuji'?'mtn':'tower')+(d.reg==='fuji'?'富士':'東京')+'</span></button>';}).join('')+'</div>'+
-
-  '<div class="sh" id="flight">'+shIc('plane')+'<h2>航班與行李</h2><span class="en">Flights</span></div><div class="stack">'+
-  flightCard('去程','GK012','2/16（二）','TPE','台北桃園 T1','02:30','NRT','東京成田 T3','06:35','')+
-  flightCard('回程','GK011','2/23（二）','NRT','東京成田 T3','22:25','TPE','台北桃園 T1','01:30','+1 天')+
-  '<div class="card"><div class="fhead"><strong>行李規定（每人，去回程相同）</strong></div><div class="bagt">'+
-  '<div class="t-lil">'+ic('bag')+'<b>個人物品</b><span>1 件・前方座位下</span></div>'+
-  '<div class="t-blu">'+ic('shop')+'<b>手提行李</b><span>1 件・56×36×23 cm</span></div>'+
-  '<div class="t-red big">'+ic('warn')+'<b class="num">合計 7 kg</b><span>個人物品＋手提行李</span></div>'+
-  '<div class="t-grn">'+ic('plane')+'<b class="num">託運 20 kg</b><span>100×100×100 cm 內</span></div></div>'+'<div class="callout" style="margin-top:10px">行程單建議起飛前 3 小時到機場：去程 2/15 晚上 23:30 前到桃園，回程 2/23 19:25 前到成田。行程單 PDF 請存在手機裡，網站不放，因為上面有姓名和訂位代號。</div></div></div>'+
-
-  '<div class="sh" id="stay">'+shIc('bed')+'<h2>住宿</h2><span class="en">Stay</span></div><div class="grid2">'+
-  hotel('2/16 – 2/18・2 晚','THE NOBORISAKA HOTEL','登り坂ホテル・河口湖','6832 Funatsu, Fujikawaguchiko, Yamanashi 401-0301','16:00','10:00','+81-555-72-5300','離河口湖站走路約 20–30 分，拖行李搭計程車。有大浴場、三溫暖。','THE NOBORISAKA HOTEL Fujikawaguchiko','noborisaka')+
-  hotel('2/18 – 2/23・5 晚','APA 飯店〈新宿御苑前〉','APA Hotel Shinjuku Gyoemmae','2-2-8 Shinjuku, Shinjuku-ku, Tokyo 160-0022','15:00','看訂房資料','—','丸之內線「新宿御苑前」站旁，走到新宿三丁目也很近。','APA Hotel Shinjuku Gyoemmae','gyoen')+'</div>'+
-
-  '<div class="sh">'+shIc('bus')+'<h2>富士山交通</h2><span class="en">Around Fuji</span></div><div class="card">'+
-  '<p style="margin:0 0 8px;font-size:14px">Mt. Fuji Pass 可無限搭乘富士五湖的觀光巴士：紅線（河口湖）、綠線（西湖）、藍線（鳴澤・精進湖・本栖湖），還有往忍野八海和山中湖的「富士湖號」，以及富士急行線（大月–河口湖）。全景纜車、河口湖遊覽船也有免費或優惠。</p>'+
-  '<div class="links">'+lk(D.L.kimiyo,'五湖周遊巴士介紹')+lk(D.L.fujitour,'路線・時刻表')+lk(D.L.fujikko,'富士湖號時刻表')+lk(D.L.willer,'成田 → 河口湖 訂票')+lk(D.L.hwbus,'河口湖 → 新宿 訂票')+lk(D.L.hwteach,'高速巴士訂票教學')+'</div></div>'+
-
-  '<div class="sh">'+shIc('snow')+'<h2>2 月的天氣</h2><span class="en">Weather</span></div><div class="grid2">'+
-  '<div class="card wx"><span class="shic">'+ic('snow')+'</span><div><strong>河口湖</strong><p class="small muted" style="margin:4px 0 0">早晚常在零度以下，可能有積雪。羽絨外套＋發熱衣，鞋子要防滑。</p></div></div>'+
-  '<div class="card wx"><span class="shic">'+ic('cloud')+'</span><div><strong>東京</strong><p class="small muted" style="margin:4px 0 0">白天約 10 度上下，乾冷、風大，室內暖氣很強，洋蔥式穿法。</p></div></div></div>'+
-  '<p class="small muted" style="margin-top:18px">你的 Google 地圖清單「日本8天7夜」的 21 個地點都已經放進行程、探索和美食，卡片上有綠點的就是你存的。'+lk(D.L.mylist,'打開清單')+'</p>';
+  '<div class="sh">'+shIc('sun')+'<h2>天氣・富士山</h2></div><div class="card" id="wxbox"><div class="small muted">載入天氣中…</div></div>'+
+  '<div class="sh">'+shIc('calendar')+'<h2>8 天行程</h2><span class="act small muted">左右滑</span></div><div class="dcar">'+
+  S.days.map(function(d,i){return '<button class="dc" data-day="'+d.id+'">'+dayThumb(d,i)+'<span class="dcb"><b>'+esc(d.zh)+'</b><small>'+d.date+'（'+d.dow+'）'+'</small></span><span class="dcr">'+em(d.reg==='fuji'?'mount-fuji':'tokyo-tower')+'</span></button>';}).join('')+'</div>'+
+  '<div class="sh" id="flight">'+shIc('plane')+'<h2>機票</h2><span class="act small muted">捷星日本航空</span></div><div class="stack">'+
+  flightCard('去程','GK012','2/16','二','TPE','台北桃園','T1','02:30','NRT','東京成田','T3','06:35','')+
+  flightCard('回程','GK011','2/23','二','NRT','東京成田','T3','22:25','TPE','台北桃園','T1','01:30','+1')+
+  '<div class="bagt">'+
+  '<div class="t-lil">'+em('backpack')+'<b>個人物品</b><span>1 件・座位下</span></div>'+
+  '<div class="t-blu">'+em('shopping-bags')+'<b>手提行李</b><span>56×36×23 cm</span></div>'+
+  '<div class="t-red">'+em('warning')+'<b class="num">合計 7 kg</b><span>上面兩件加起來</span></div>'+
+  '<div class="t-grn">'+em('luggage')+'<b class="num">託運 20 kg</b><span>每人 1 件</span></div></div>'+
+  '<div class="pill-note">'+em('alarm-clock')+'<span>提早 3 小時到機場：去程 <b class="num">2/15 23:30</b>・回程 <b class="num">2/23 19:25</b></span></div></div>'+
+  '<div class="sh" id="stay">'+shIc('bed')+'<h2>住宿</h2></div><div class="grid2">'+
+  hotel('2/16–2/18・2 晚','THE NOBORISAKA HOTEL','登り坂ホテル・河口湖','6832 Funatsu, Fujikawaguchiko','16:00','10:00','+81-555-72-5300',[['hot-springs','大浴場'],['taxi','車站搭計程車']],'THE NOBORISAKA HOTEL Fujikawaguchiko','noborisaka')+
+  hotel('2/18–2/23・5 晚','APA 新宿御苑前','APA Hotel Shinjuku Gyoemmae','2-2-8 Shinjuku, Shinjuku-ku','15:00','看訂房資料','—',[['metro','丸之內線旁'],['person-walking','走到新宿三丁目']],'APA Hotel Shinjuku Gyoemmae','gyoen')+'</div>'+
+  '<div class="sh">'+shIc('bus')+'<h2>富士山交通</h2><span class="act small muted">Mt. Fuji Pass</span></div><div class="card">'+
+  '<div class="routes">'+[['red-circle','紅線','河口湖'],['green-circle','綠線','西湖'],['blue-circle','藍線','精進湖・本栖湖'],['oncoming-bus','富士湖號','忍野・山中湖'],['railway-car','富士急行線','大月–河口湖'],['ship','遊覽船・纜車','免費或優惠']].map(function(x){return '<div>'+em(x[0])+'<b>'+x[1]+'</b><small>'+x[2]+'</small></div>';}).join('')+'</div>'+
+  '<div class="links">'+lk(D.L.fujitour,'時刻表')+lk(D.L.kimiyo,'巴士介紹')+lk(D.L.willer,'成田→河口湖')+lk(D.L.hwbus,'河口湖→新宿')+'</div></div>'+
+  '<div class="sh">'+shIc('snowflake')+'<h2>2 月穿搭</h2></div><div class="grid2 wear">'+
+  '<div class="card">'+em('mount-fuji','big')+'<b>河口湖</b><span class="num">−5 ~ 8°C</span><small>羽絨＋發熱衣・防滑鞋</small></div>'+
+  '<div class="card">'+em('tokyo-tower','big')+'<b>東京</b><span class="num">2 ~ 11°C</span><small>洋蔥式・室內很暖</small></div></div>'+
+  '<p class="small muted" style="margin-top:16px">★ 是你自己找的地點・'+lk(D.L.mylist,'Google 地圖清單')+'</p>';
   $$('#v-home [data-ct]').forEach(function(a){a.addEventListener('click',function(){LOCAL.ctab=a.dataset.ct;saveLocal();});});
   if(WX.kawa||WX.tokyo)wxCard();else loadWeather(function(){if(cur()==='home')wxCard();if(cur()==='plan')rPlan();});
   $$('#v-home [data-day]').forEach(function(b){b.onclick=function(){LOCAL.day=b.dataset.day;saveLocal();go('plan');};});
   $$('#v-home [data-scroll]').forEach(function(a){a.onclick=function(e){e.preventDefault();document.getElementById(a.dataset.scroll).scrollIntoView({behavior:'smooth'});};});
 }
-function flightCard(dir,no,date,fc,fa,ft,tc,ta,tt,plus){
-  return '<div class="card"><div class="fhead"><span class="chip '+(dir==='去程'?'mint':'sky')+'">'+dir+'</span><strong>'+no+'</strong><span class="muted small">捷星日本航空・'+date+'</span></div>'+
-  '<div class="flight"><div class="ap"><b>'+fc+'</b><span>'+fa+'</span><div class="tm">'+ft+'</div></div><div class="mid">'+ic('plane')+'<br>直飛</div>'+
-  '<div class="ap r"><b>'+tc+'</b><span>'+ta+'</span><div class="tm">'+tt+(plus?' <span class="small muted">'+plus+'</span>':'')+'</div></div></div></div>';
+function flightCard(dir,no,date,dow,fc,fa,ft,ftm,tc,ta,tt,ttm,plus){
+  return '<div class="bp"><div class="bp-main"><div class="bp-top"><span class="bp-dir">'+em('airplane')+dir+'</span><span class="num bp-no">'+no+'</span></div>'+
+  '<div class="bp-route"><div><b class="num">'+fc+'</b><small>'+fa+' '+ft+'</small></div><div class="bp-line"><i></i>'+em('airplane')+'<i></i></div><div class="r"><b class="num">'+tc+'</b><small>'+ta+' '+tt+'</small></div></div>'+
+  '<div class="bp-info"><div><small>日期</small><b class="num">'+date+'（'+dow+'）</b></div><div><small>起飛</small><b class="num">'+ftm+'</b></div><div><small>抵達</small><b class="num">'+ttm+(plus?'<sup>'+plus+'</sup>':'')+'</b></div></div></div>'+
+  '<div class="bp-stub"><small>BOARDING</small><b class="num">'+no+'</b><div class="bar"></div></div></div>';
 }
-function hotel(when,name,sub,addr,cin,cout,tel,note,q,ph){
-  return '<div class="card" style="padding:0;overflow:hidden">'+(PH[ph]?'<div style="aspect-ratio:16/8">'+photo(ph,name).replace('<img','<img style="width:100%;height:100%;object-fit:cover"')+'</div>':'')+
-  '<div style="padding:14px 16px"><span class="chip mint">'+when+'</span><h3 style="font-size:16px;margin:8px 0 0">'+esc(name)+'</h3><div class="small muted">'+esc(sub)+'</div>'+
-  '<dl class="kv"><dt>地址</dt><dd>'+esc(addr)+'</dd><dt>入住</dt><dd class="num">'+cin+'</dd><dt>退房</dt><dd class="num">'+cout+'</dd><dt>電話</dt><dd class="num">'+esc(tel)+'</dd></dl>'+
-  '<p class="small muted" style="margin:8px 0 6px">'+esc(note)+'</p><div class="links">'+lk(mapUrl(q),'Google 地圖')+'</div>'+
-  (PH[ph]?'<div class="credit">'+credit(ph,'照片為周邊景色')+'</div>':'')+'</div></div>';
+function hotel(when,name,sub,addr,cin,cout,tel,feats,q,ph){
+  return '<div class="card hcard">'+(PH[ph]?'<div class="himg">'+photo(ph,name)+'<span class="hwhen">'+when+'</span></div>':'')+
+  '<div class="hb"><h3>'+esc(name)+'</h3><div class="small muted">'+esc(sub)+'</div>'+
+  '<div class="hrow">'+em('round-pushpin')+'<span>'+esc(addr)+'</span></div>'+
+  '<div class="hrow">'+em('old-key')+'<span>入住 <b class="num">'+cin+'</b>・退房 <b class="num">'+cout+'</b></span></div>'+
+  (tel!=='—'?'<div class="hrow">'+em('mobile-phone')+'<span class="num">'+esc(tel)+'</span></div>':'')+
+  '<div class="feats">'+feats.map(function(f){return '<span>'+em(f[0])+f[1]+'</span>';}).join('')+'</div>'+
+  '<div class="links">'+lk(mapUrl(q),'地圖')+'</div>'+(PH[ph]?'<div class="credit">'+credit(ph,'照片')+'</div>':'')+'</div></div>';
 }
 
 /* ---------- PLAN ---------- */
@@ -772,7 +896,7 @@ function rPlan(){if(!WX.kawa&&!WX._loading){WX._loading=1;loadWeather(function()
   '<div class="dayh"><div class="en">DAY '+(idx+1)+' ・ '+esc(d.en)+'</div><h2>'+esc(d.zh)+'</h2>'+dayWx(d)+(d.note?'<p>'+esc(d.note)+'</p>':'')+
   '<div style="margin-top:8px"><button class="ibtn" id="edday">'+ic('edit')+'改標題和備註</button></div></div>'+
   mapHtml(d.map||d.id,pts,'DAY '+(idx+1))+
-  '<ol class="stops">'+d.stops.map(function(s,i){return stopHtml(s,i,d.stops.length);}).join('')+'</ol>'+
+  '<ol class="stops">'+d.stops.map(function(s,i){return (i?walkHtml(d.stops[i-1],s):'')+stopHtml(s,i,d.stops.length);}).join('')+'</ol>'+
   '<div style="margin-top:14px"><button class="btn" id="addstop">'+ic('plus')+'新增一站</button></div>';
   wirePins($('#v-plan'));
   $$('#v-plan .tab').forEach(function(b){b.onclick=function(){LOCAL.day=b.dataset.day;saveLocal();rPlan();};});
@@ -783,6 +907,15 @@ function rPlan(){if(!WX.kawa&&!WX._loading){WX._loading=1;loadWeather(function()
     if(a==='up'&&i>0){var t=st[i];st[i]=st[i-1];st[i-1]=t;persist();rPlan();}
     if(a==='down'&&i<st.length-1){var t2=st[i];st[i]=st[i+1];st[i+1]=t2;persist();rPlan();}
     if(a==='del')armDelete(b,function(){st.splice(i,1);persist();rPlan();toast('已刪除');});};});
+}
+function stopLL(s){if(s.k==='flight')return null;var f=s.food?foodById(s.food):null,p=s.ref?placeById(s.ref):null;return s.ll||(f&&f.ll)||(p&&p.ll)||null;}
+function isMove(s){return s.k==='flight'||['bus','train','plane'].indexOf(s.ic)>=0;}
+function walkHtml(a,b){
+  if(isMove(a)||isMove(b))return '';var p=stopLL(a),q=stopLL(b);if(!p||!q)return '';
+  var R=6371000,t=Math.PI/180,dl=(q[0]-p[0])*t,dn=(q[1]-p[1])*t,x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(p[0]*t)*Math.cos(q[0]*t)*Math.sin(dn/2)*Math.sin(dn/2);
+  var m=2*R*Math.asin(Math.sqrt(x))*1.3;if(m<60)return '';
+  if(m>2500)return '<li class="walk far">'+em('metro')+'<span>約 <b class="num">'+(m/1000).toFixed(1)+' km</b>・建議搭車</span></li>';
+  return '<li class="walk">'+em('person-walking')+'<span>步行約 <b class="num">'+Math.max(1,Math.round(m/75))+' 分</b>・'+(m<1000?Math.round(m/10)*10+' m':(m/1000).toFixed(1)+' km')+'</span></li>';
 }
 function stopHtml(s,i,n){
   var f=s.food?foodById(s.food):null,phk=s.ph||(f&&f.dish?'d-'+f.dish:'');
@@ -797,12 +930,12 @@ function stopHtml(s,i,n){
   var isDish=phk.indexOf('d-')===0,pha=s.pha||(placeById(s.ref)||{}).pha;
   return '<li class="stop" id="it-'+esc(s.id)+'"><div class="no '+(s.ll&&s.k!=='flight'?kindOf(s):'off')+'">'+s._n+'</div><div class="sc">'+
    (PH[phk]?'<div class="ph">'+photo(phk,s.n)+'</div><div class="cap">'+(isDish?'菜色示意照片（非該店）・':(pha?'周邊街景・':''))+credit(phk,'照片')+'</div>':'')+
-   '<div class="in"><div class="h">'+(s.t?'<span class="tm">'+ic('clock')+esc(s.t)+'</span>':'')+'<h3><span class="sic '+tn(s.ic||'pin')+'">'+ic(s.ic||'pin')+'</span>'+((pl&&pl.mine)||(f&&f.mine)?'<span class="star">★</span>':'')+esc(s.n)+'</h3></div>'+(chips?'<div class="chips">'+chips+'</div>':'')+
+   '<div class="in"><div class="h">'+(s.t?'<span class="tm">'+ic('clock')+esc(s.t)+'</span>':'')+'<h3><span class="sic">'+ei(s.ic||'pin')+'</span>'+((pl&&pl.mine)||(f&&f.mine)?'<span class="star">★</span>':'')+esc(s.n)+'</h3></div>'+(chips?'<div class="chips">'+chips+'</div>':'')+
    (note?'<div class="note">'+esc(note)+'</div>':'')+(meta?'<div class="meta">'+meta+'</div>':'')+eat+sea+
    '<div class="tools"><div class="links">'+links+'</div><span class="sp"></span>'+
    '<button class="ibtn" data-act="up" data-i="'+i+'" aria-label="往上移"'+(i===0?' disabled':'')+'>'+ic('up')+'</button>'+
    '<button class="ibtn" data-act="down" data-i="'+i+'" aria-label="往下移"'+(i===n-1?' disabled':'')+'>'+ic('down')+'</button>'+
-   '<button class="ibtn" data-act="edit" data-i="'+i+'">'+ic('edit')+'編輯</button>'+
+   '<button class="ibtn" data-act="edit" data-i="'+i+'" aria-label="編輯">'+ic('edit')+'</button>'+
    '<button class="ibtn" data-act="del" data-i="'+i+'" aria-label="刪除">'+ic('trash')+'</button></div></div></div></li>';
 }
 var ICOPTS=[['pin','景點'],['food','吃飯'],['coffee','咖啡甜點'],['shop','逛街'],['cart','採買'],['mtn','自然'],['temple','寺社'],['tower','展望台'],['cam','拍照'],['bus','巴士'],['train','電車'],['plane','飛機'],['hotel','住宿']];
@@ -844,7 +977,7 @@ function editDay(d){
 
 /* ---------- PLACES ---------- */
 var RSV={net:['Tabelog 可網路訂位','mint','check'],phone:['可預約（可能要打電話）','sun','phone'],no:['不收預約，現場排隊','','clock'],tc:['TableCheck 記帳','mint','check'],line:['現場取號（LINE 叫號）','','clock']};
-function rsvChip(p){var r=p&&RSV[p.rsv];return r?'<span class="chip '+r[1]+'">'+ic(r[2])+r[0]+'</span>':'';}
+function rsvChip(p){var r=p&&RSV[p.rsv];return r?'<span class="chip '+r[1]+'">'+ei(r[2])+r[0]+'</span>':'';}
 var KIC={'景點':'mtn','寺社':'temple','展望台':'tower','拍照':'cam','體驗':'sparkle','藥妝零食':'cart','香氛':'sparkle','選物':'bag','服飾雜貨':'shirt','百貨':'store','街區':'shop','美妝':'sparkle','古著':'shirt','服飾':'shirt',
  '炸牛排':'meat','鄉土料理':'pot','烏龍麵':'noodle','甜點':'cake','咖啡':'coffee','燒肉':'grill','伴手禮':'gift','拉麵':'noodle','漢堡排':'meat','居酒屋':'skewer','鰻魚飯':'fish','百貨美食':'store','壽司':'fish','海鮮丼':'fish','壽喜燒':'pot','小吃':'meat'};
 function kic(p){return p.kic||KIC[p.kind]||(p.dish?'bowl':'pin');}
@@ -855,7 +988,7 @@ function photoBox(p,cls){var phk=p.ph||(p.dish?'d-'+p.dish:'');
 function placeCard(p,num){
   return '<article class="pc" id="it-'+esc(p.id)+'"><button class="pcb" data-open="'+esc(p.id)+'" aria-label="'+esc(p.n)+' 詳細資訊">'+photoBox(p)+
    (p.mine?'<span class="mine" aria-label="我找的">★</span>':'')+(num?'<span class="pnum">'+num+'</span>':'')+
-   '<span class="pin2"><b>'+esc(p.n)+'</b><span class="pk">'+ic(kic(p))+esc(p.kind)+'・'+esc((D.AREAS[p.area]||'').split('・')[0])+'</span></span></button>'+
+   '<span class="pin2"><b>'+esc(p.n)+'</b><span class="pk">'+ei(kic(p))+esc(p.kind)+'・'+esc((D.AREAS[p.area]||'').split('・')[0])+'</span></span></button>'+
    '<button class="heart'+(isSaved(p.id)?' on':'')+'" data-heart="'+esc(p.id)+'" aria-pressed="'+isSaved(p.id)+'" aria-label="收藏 '+esc(p.n)+'">'+ic('heart')+'</button></article>';
 }
 function openPlace(p,xkey,rer){
@@ -866,7 +999,7 @@ function openPlace(p,xkey,rer){
   var links=lk(mapUrl(p.q||p.n),'Google 地圖')+(p.tb?lk(p.tb,'Tabelog'):'');(p.lk||[]).forEach(function(l){links+=lk(l[0],l[1]);});
   openModal('<div class="dsheet">'+photoBox(p,'dimg')+(PH[phk]?'<div class="credit">'+(isDish?'菜色示意（非該店）・':(p.pha?'周邊街景・':''))+credit(phk,'照片')+'</div>':'')+
    '<h3 id="m-title">'+star(p)+esc(p.n)+'</h3><div class="small muted">'+esc(p.sub||'')+'</div>'+
-   '<div class="links" style="gap:6px;margin:10px 0">'+'<span class="chip">'+ic(AIC[p.area]||'pin')+esc(D.AREAS[p.area]||p.area)+'</span><span class="chip">'+ic(kic(p))+esc(p.kind)+'</span>'+(p.must?'<span class="chip sun">'+ic('star')+'必去</span>':'')+rsvChip(p)+(p.custom?'<span class="chip sky">朋友新增</span>':'')+'</div>'+
+   '<div class="links" style="gap:6px;margin:10px 0">'+'<span class="chip">'+ei(AIC[p.area]||'pin')+esc(D.AREAS[p.area]||p.area)+'</span><span class="chip">'+ei(kic(p))+esc(p.kind)+'</span>'+(p.must?'<span class="chip sun">'+ic('star')+'必去</span>':'')+rsvChip(p)+(p.custom?'<span class="chip sky">朋友新增</span>':'')+'</div>'+
    (p.d?'<p style="margin:0 0 8px">'+esc(p.d)+'</p>':'')+(m?'<div class="mlist">'+m+'</div>':'')+eat+sea+
    '<div class="links" style="margin-top:12px">'+links+'</div>'+
    '<div class="btns" style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px">'+(p.custom?'<button class="ibtn" id="pd-del" style="margin-right:auto">'+ic('trash')+'刪除</button>':'')+
@@ -887,7 +1020,7 @@ function placeView(el,key,base,xkey,title,en,addLabel,hic){
   var nMine=items.filter(function(p){return p.mine;}).length;
   el.innerHTML='<div class="sh" style="margin-top:4px">'+shIc(hic)+'<h2>'+title+'</h2><span class="en">'+items.length+' 個</span><span class="act"><button class="btn ghost" data-add>'+ic('plus')+addLabel+'</button></span></div>'+
    '<div class="searchw">'+ic('search')+'<input class="search" id="q-'+key+'" type="search" placeholder="搜尋名稱、類型、菜色" value="'+esc(f.q)+'" aria-label="搜尋"></div>'+
-   '<div class="filters"><button class="fb'+(!f.area?' on':'')+'" data-area="">'+ic('grid')+'全部</button>'+areas.map(function(a){return '<button class="fb'+(f.area===a?' on':'')+'" data-area="'+a+'">'+ic(AIC[a]||'pin')+esc((D.AREAS[a]||a).split('・')[0])+'</button>';}).join('')+'</div>'+
+   '<div class="filters"><button class="fb'+(!f.area?' on':'')+'" data-area="">'+ei('grid')+'全部</button>'+areas.map(function(a){return '<button class="fb'+(f.area===a?' on':'')+'" data-area="'+a+'">'+ei(AIC[a]||'pin')+esc((D.AREAS[a]||a).split('・')[0])+'</button>';}).join('')+'</div>'+
    '<div class="filters" style="margin-top:-4px"><button class="fb gold'+(f.mine?' on':'')+'" data-mine aria-label="只看我找的">★ '+nMine+'</button><button class="fb'+(f.only?' on':'')+'" data-only>'+ic('heart')+'收藏</button></div>'+
    (mk&&pts.length?mapHtml(mk,pts,D.AREAS[f.area])+'<div style="height:12px"></div>':'')+
    (shown.length?'<div class="plist">'+shown.map(function(p,i){return placeCard(p,mk&&p.ll?i+1:0);}).join('')+'</div>':'<div class="empty">沒有符合的項目，換個篩選看看。</div>')+
@@ -943,7 +1076,7 @@ function rFood(){var el=$('#v-food');
   placeView($('#fd'),'foods',D.FOODS,'foods','美食','Eat','新增','bowl');}
 var TONE={pink:'food bowl cake coffee heart gift sparkle shirt grill fish pot skewer noodle meat',yel:'sun star coin money wallet ticket cam clock',grn:'mtn check route temple bus train pin search grid',lil:'card info passport phone calendar bed hotel shop store bag cart plug',blu:'plane tower cloud snow rain eye route'};
 function tn(n){for(var k in TONE)if((' '+TONE[k]+' ').indexOf(' '+n+' ')>=0)return 't-'+k;return n==='warn'?'t-red':'t-blu';}
-function shIc(n){return '<span class="shic '+tn(n)+'">'+ic(n)+'</span>';}
+function shIc(n){return '<span class="shic">'+ei(n)+'</span>';}
 function qt(href,n,label,extra){return '<a href="'+href+'"'+(extra||'')+'><span class="qi '+tn(n)+'">'+ic(n)+'</span>'+label+'</a>';}
 var FUJI_SVG='<svg class="fujichan" viewBox="0 0 120 84" aria-hidden="true"><path d="M8 80 46 20q14-12 28 0l38 60z" fill="#7FA6D6"/><path d="M46 20q14-12 28 0l9 14-8 5-6-5-7 6-7-6-6 5-8-5z" fill="#fff"/><circle cx="50" cy="52" r="3.2" fill="#22324A"/><circle cx="70" cy="52" r="3.2" fill="#22324A"/><ellipse cx="43" cy="60" rx="5" ry="3" fill="#F6A9B8" opacity=".85"/><ellipse cx="77" cy="60" rx="5" ry="3" fill="#F6A9B8" opacity=".85"/><path d="M55 59q5 5 10 0" stroke="#22324A" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="100" cy="16" r="9" fill="#F4C95D"/></svg>';
 
@@ -962,19 +1095,27 @@ function packKey(p){return p[1].replace(/（.*$/,'');}
 function rList(){
   var done=S.todos.filter(function(t){return t.done;}).length,groups=[];S.todos.forEach(function(t){if(groups.indexOf(t.g)<0)groups.push(t.g);});
   var pd=PACK.filter(function(p){return LOCAL.pack[packKey(p)];}).length,pg=[];PACK.forEach(function(p){if(pg.indexOf(p[0])<0)pg.push(p[0]);});
-  $('#v-list').innerHTML='<div class="sh" style="margin-top:4px">'+shIc('check')+'<h2>待辦</h2><span class="en">兩人共用</span></div>'+
+  var lt=LOCAL.ltab||'todo';
+  var seg='<div class="seg big"><button data-lt="todo" class="'+(lt==='todo'?'on':'')+'">'+em('check-mark-button')+'待辦</button><button data-lt="pack" class="'+(lt==='pack'?'on':'')+'">'+em('luggage')+'打包</button><button data-lt="buy" class="'+(lt==='buy'?'on':'')+'">'+em('shopping-cart')+'必買</button></div>';
+  if(lt==='buy'){$('#v-list').innerHTML=seg+buyHtml();
+    $$('#v-list [data-lt]').forEach(function(b){b.onclick=function(){LOCAL.ltab=b.dataset.lt;saveLocal();rList();};});
+    $$('[data-bc]').forEach(function(b){b.onclick=function(){LOCAL.bcat=b.dataset.bc;saveLocal();rList();};});
+    $$('[data-buy]').forEach(function(c){c.onchange=function(){LOCAL.buy=LOCAL.buy||{};LOCAL.buy[c.dataset.buy]=c.checked;saveLocal();c.closest('.bc').classList.toggle('got',c.checked);var g=BUY.filter(function(b){return LOCAL.buy[b[0]];}).length;$('#v-list .sh .act').textContent='買到 '+g+' / '+BUY.length;};});
+    return;}
+  $('#v-list').innerHTML=seg+'<div class="lt-'+lt+'"><div class="sh">'+shIc('check')+'<h2>待辦</h2><span class="act small muted">兩人共用</span></div>'+
    '<div class="small muted num">完成 '+done+' / '+S.todos.length+'</div><div class="prog"><i style="width:'+(S.todos.length?done/S.todos.length*100:0)+'%"></i></div>'+
-   groups.map(function(g){return '<div class="tg"><h3>'+ic({'行前':'check','訂票':'ticket','當地':'pin','我的':'heart'}[g]||'check')+esc(g)+'</h3>'+S.todos.filter(function(t){return t.g===g;}).map(function(t){
+   groups.map(function(g){return '<div class="tg"><h3>'+ei({'行前':'check','訂票':'ticket','當地':'pin','我的':'heart'}[g]||'check')+esc(g)+'</h3>'+S.todos.filter(function(t){return t.g===g;}).map(function(t){
     return '<div class="ti'+(t.done?' done':'')+'"><input type="checkbox" id="td-'+t.id+'" data-td="'+t.id+'"'+(t.done?' checked':'')+'><label for="td-'+t.id+'">'+esc(t.t)+'</label>'+(t.u?lk(t.u,'連結'):'')+
     '<button class="ibtn" data-tdel="'+t.id+'" aria-label="刪除 '+esc(t.t)+'">'+ic('trash')+'</button></div>';}).join('')+'</div>';}).join('')+
    '<form class="addrow" id="tadd"><select id="t-g" aria-label="分類">'+['行前','訂票','當地','我的'].map(function(g){return '<option>'+g+'</option>';}).join('')+'</select><input id="t-t" placeholder="新增待辦" aria-label="待辦內容"><button class="btn" type="submit">新增</button></form>'+
-   '<div class="sh">'+shIc('bag')+'<h2>打包清單</h2><span class="en">只存在這支手機</span></div><div class="small muted num">已打包 '+pd+' / '+PACK.length+'</div><div class="prog"><i style="width:'+pd/PACK.length*100+'%"></i></div>'+
-   pg.map(function(g){return '<div class="tg"><h3>'+ic({'證件':'passport','金錢':'wallet','電子':'plug','保暖':'snow','衣物':'shirt','眼睛':'eye','保養梳化':'sparkle','其他':'bag'}[g]||'bag')+g+'</h3>'+PACK.map(function(p,i){if(p[0]!==g)return '';var on=!!LOCAL.pack[packKey(p)];
+   '<div class="pk-wrap"><div class="sh">'+shIc('lug')+'<h2>打包清單</h2><span class="act small muted">只存在這支手機</span></div><div class="small muted num">已打包 '+pd+' / '+PACK.length+'</div><div class="prog"><i style="width:'+pd/PACK.length*100+'%"></i></div>'+
+   pg.map(function(g){return '<div class="tg"><h3>'+ei({'證件':'passport','金錢':'wallet','電子':'plug','保暖':'snowflake','衣物':'shirt','眼睛':'eye','保養梳化':'sparkle','其他':'bag'}[g]||'bag')+g+'</h3>'+PACK.map(function(p,i){if(p[0]!==g)return '';var on=!!LOCAL.pack[packKey(p)];
     return '<div class="ti'+(on?' done':'')+'"><input type="checkbox" id="pk-'+i+'" data-pk="'+i+'"'+(on?' checked':'')+'><label for="pk-'+i+'">'+p[1]+'</label></div>';}).join('')+'</div>';}).join('')+
-   '<p class="small muted">日本插座跟台灣一樣，不用帶轉接頭。</p>'+
+   '<p class="small muted">'+em('electric-plug')+' 日本插座跟台灣一樣，不用轉接頭。</p></div>'+
    '<div class="sh">'+shIc('cloud')+'<h2>同步與版本</h2><span class="en">Sync</span></div><div class="card"><p class="small" style="margin:0 0 10px">行程、待辦、費用和新增的店家是兩人共用的，任何人改了另一個人會即時看到。收藏和打包清單只存在各自的手機。</p>'+
    '<div class="addrow" style="margin:0"><input id="nm" placeholder="你的名字（顯示在版本紀錄）" value="'+esc(LOCAL.name)+'" aria-label="你的名字"><button class="btn ghost" id="nm-s">儲存名字</button></div>'+
-   '<div style="margin-top:14px"><b class="small">版本紀錄</b><p class="small muted" style="margin:2px 0 0">每次修改會自動存一份，保留最近 6 份。改錯了可以回到之前的版本。</p><div class="hist" id="hist"><div class="small muted">載入中…</div></div></div></div>';
+   '<div style="margin-top:14px"><b class="small">版本紀錄</b><p class="small muted" style="margin:2px 0 0">每次修改會自動存一份，保留最近 6 份。改錯了可以回到之前的版本。</p><div class="hist" id="hist"><div class="small muted">載入中…</div></div></div></div></div>';
+  $$('#v-list [data-lt]').forEach(function(b){b.onclick=function(){LOCAL.ltab=b.dataset.lt;saveLocal();rList();};});
   $$('[data-td]').forEach(function(c){c.onchange=function(){var t=S.todos.filter(function(x){return x.id===c.dataset.td;})[0];t.done=c.checked;persist();rList();};});
   $$('[data-tdel]').forEach(function(b){b.onclick=function(){armDelete(b,function(){S.todos=S.todos.filter(function(x){return x.id!==b.dataset.tdel;});persist();rList();});};});
   $$('[data-pk]').forEach(function(c){c.onchange=function(){LOCAL.pack[packKey(PACK[+c.dataset.pk])]=c.checked;saveLocal();rList();};});
@@ -1028,14 +1169,14 @@ function rCost(){
    '<div class="grid2" style="margin-top:12px"><div class="card"><b class="small">分帳</b>'+
     (st.count?'<dl class="kv"><dt>'+esc(nm[0])+' 付了</dt><dd class="num">NT$'+fmt(st.paid[0])+'</dd><dt>'+esc(nm[1])+' 付了</dt><dd class="num">NT$'+fmt(st.paid[1])+'</dd></dl>':'')+stHtml+'</div>'+
    '<div class="card"><b class="small">依類別</b><div class="stackbar">'+cats.map(function(k){return '<i style="width:'+(by[k]/tot*100)+'%;background:'+catColor(k)+'" title="'+esc(k)+'"></i>';}).join('')+'</div>'+
-    '<div class="legend">'+cats.map(function(k){return '<span><i class="lic" style="background:'+catColor(k)+'">'+ic(CATIC[k]||'money')+'</i>'+esc(k)+' <b class="num">NT$'+fmt(by[k])+'</b></span>';}).join('')+'</div></div></div>'+
+    '<div class="legend">'+cats.map(function(k){return '<span><i class="lic" style="background:'+catColor(k)+'">'+ei(CATIC[k]||'money')+'</i>'+esc(k)+' <b class="num">NT$'+fmt(by[k])+'</b></span>';}).join('')+'</div></div></div>'+
    '<div class="card" style="margin-top:12px"><b class="small">每天花多少</b><div class="days">'+CDATES.map(function(d){var v=byd[d]||0;return '<div class="dcol"><div class="dbar"><i style="height:'+(v/dmax*100)+'%"></i></div><span class="num">'+d+'</span><b class="num">'+(v?fmt(v):'—')+'</b></div>';}).join('')+'</div></div>'+
    '<div class="sh"><h2 style="font-size:16px">明細</h2><span class="en">點一筆可以修改</span></div>'+
    groups.filter(function(d){return S.costs.some(function(c){return (c.date||'行前')===d;});}).map(function(d){
      var items=S.costs.filter(function(c){return (c.date||'行前')===d;});
      return '<div class="cgroup"><div class="cgh"><span>'+esc(d)+'</span><span class="num">NT$'+fmt(byd[d]||0)+'</span></div>'+items.map(function(c){
        var pay=c.payer==='A'?nm[0]:(c.payer==='B'?nm[1]:''),fr=c.for==='A'?'只算 '+nm[0]:(c.for==='B'?'只算 '+nm[1]:'');
-       return '<button class="crow" data-ce="'+c.id+'"><i class="cic" style="background:'+catColor(c.cat)+'">'+ic(CATIC[c.cat]||'money')+'</i><span class="cn"><b>'+esc(c.n)+'</b><span class="cm">'+esc(c.cat)+(c.per?'・每人價 ×'+ppl:'')+(pay?'・'+esc(pay)+' 付':'')+(fr?'・'+esc(fr):'')+(c.memo?'・'+esc(c.memo):'')+'</span></span>'+
+       return '<button class="crow" data-ce="'+c.id+'"><i class="cic" style="background:'+catColor(c.cat)+'">'+ei(CATIC[c.cat]||'money')+'</i><span class="cn"><b>'+esc(c.n)+'</b><span class="cm">'+esc(c.cat)+(c.per?'・每人價 ×'+ppl:'')+(pay?'・'+esc(pay)+' 付':'')+(fr?'・'+esc(fr):'')+(c.memo?'・'+esc(c.memo):'')+'</span></span>'+
         '<span class="ca"><b class="num">NT$'+fmt(toTWD(c))+'</b>'+(c.cur==='JPY'?'<span class="cm num">¥'+fmt(c.amt*(c.per?ppl:1))+'</span>':'')+(c.est?'<span class="chip peach">估價</span>':'')+'</span></button>';}).join('')+'</div>';}).join('')+
    '<details class="card" style="margin-top:14px"><summary><b class="small">設定：人數、匯率、成員名稱</b></summary><div class="settings">'+
    '<label for="s-p">人數<input id="s-p" type="number" min="1" value="'+esc(S.set.people)+'"></label><label for="s-r">匯率（1 日圓 = ? 台幣）<input id="s-r" type="number" step="0.0001" min="0" value="'+esc(S.set.rate)+'"></label>'+
@@ -1074,7 +1215,7 @@ function editCost(id){
 /* ---------- WEATHER (Open-Meteo, no key) ---------- */
 var WXV='wx3-';var WXLOC={kawa:{n:'河口湖',lat:35.4983,lon:138.7688},tokyo:{n:'東京・新宿',lat:35.6896,lon:139.7006},fuji:{n:'富士山',lat:35.3606,lon:138.7274}};
 var WX={};
-function wcode(c){if(c===0)return['sun','晴'];if(c<=2)return['sun','晴時多雲'];if(c===3)return['cloud','陰'];if(c===45||c===48)return['cloud','霧'];
+function wcode(c){if(c===0)return['sun','晴'];if(c<=2)return['suncloud','晴時多雲'];if(c===3)return['cloud','陰'];if(c===45||c===48)return['cloud','霧'];
   if(c>=71&&c<=77||c===85||c===86)return['snow','雪'];if(c>=51&&c<=67||c>=80&&c<=82)return['rain','雨'];if(c>=95)return['rain','雷雨'];return['cloud','多雲'];}
 function wxFetch(key,qs,cb){
   try{var c=JSON.parse(sessionStorage.getItem(WXV+key)||'null');if(c&&Date.now()-c.t<1800000){cb(c.d);return;}}catch(e){}
@@ -1093,7 +1234,7 @@ function fujiVis(){
   var idx=function(a){if(!a.length)return null;var m=a.reduce(function(s,x){return s+x;},0)/a.length;return Math.max(1,Math.min(10,Math.round((100-m)/10)));};
   return Object.keys(by).sort().map(function(day){return {day:day,am:idx(by[day].am),pm:idx(by[day].pm)};});
 }
-function wxi(n){return '<span class="wi w-'+n+'">'+ic(n)+'</span>';}
+function wxi(n){return '<span class="wi">'+ei(n)+'</span>';}
 function fdot(v){if(v==null)return '<span class="fdot">—</span>';return '<span class="fdot '+(v>=7?'hi':(v>=4?'md':'lo'))+'">'+v+'</span>';}
 function todayStr(){var d=new Date(Date.now()+9*3600000);return d.toISOString().slice(0,10);}
 function wxCard(){
@@ -1103,14 +1244,14 @@ function wxCard(){
   if(!WX.kawa&&!WX.tokyo){el.innerHTML='<div class="small muted">天氣資料暫時載入不到，可以先看下面兩個官方網站。</div>'+ext;return;}
   var place=function(k){var d=WX[k];if(!d||!d.daily)return '';var w=wcode(d.current?d.current.weather_code:d.daily.weather_code[0]);
     var days=d.daily.time.slice(0,4).map(function(t,i){var ww=wcode(d.daily.weather_code[i]);return '<div class="wd"><span>'+(i===0?'今天':(+t.slice(5,7))+'/'+(+t.slice(8,10)))+'</span>'+wxi(ww[0])+'<b class="num">'+Math.round(d.daily.temperature_2m_max[i])+'°</b><span class="num lo">'+Math.round(d.daily.temperature_2m_min[i])+'°</span></div>';}).join('');
-    return '<div class="wp"><div class="wnow"><span class="wic w-'+w[0]+'">'+ic(w[0])+'</span><div><b>'+WXLOC[k].n+'</b><div class="small muted">'+w[1]+'・現在 <b class="num">'+(d.current?Math.round(d.current.temperature_2m):'—')+'°C</b></div></div></div><div class="wdays">'+days+'</div></div>';};
+    return '<div class="wp"><div class="wnow"><span class="wic">'+ei(w[0])+'</span><div><b>'+WXLOC[k].n+'</b><div class="small muted">'+w[1]+'・現在 <b class="num">'+(d.current?Math.round(d.current.temperature_2m):'—')+'°C</b></div></div></div><div class="wdays">'+days+'</div></div>';};
   var fv=fujiVis()||[],td=todayStr(),wk='日一二三四五六';
-  var fh=fv.length?'<div class="fuji"><div class="fh">'+FUJI_SVG+'<div><b>富士山能見度指數</b><div class="small muted">1–10，越高越看得到・依山頂雲量推算</div></div></div>'+
-    '<div class="fgrid"><span></span><span class="small muted">上午</span><span class="small muted">下午</span>'+
-    fv.map(function(x){var dt=new Date(x.day+'T00:00:00+09:00'),lab=x.day===td?'<b>今天</b>':(+x.day.slice(5,7))+'/'+(+x.day.slice(8,10))+'（'+wk[dt.getUTCDay()]+'）';
-      return '<span class="fl'+(x.day<td?' past':'')+'">'+lab+(x.day<td?'<i>前幾天</i>':'')+'</span>'+fdot(x.am)+fdot(x.pm);}).join('')+'</div>'+
+  var fh=fv.length?'<div class="fuji"><div class="fh">'+em('mount-fuji','big')+'<div><b>富士山能見度指數</b><div class="small muted">1–10 分，越高越容易看到</div></div></div>'+
+    '<div class="fwrap"><div class="frow-l"><span></span><span>上午</span><span>下午</span></div><div class="fcols">'+
+    fv.map(function(x){var dt=new Date(x.day+'T00:00:00+09:00'),t=x.day===td,lab=t?'今天':(+x.day.slice(5,7))+'/'+(+x.day.slice(8,10));
+      return '<div class="fcol'+(x.day<td?' past':'')+(t?' today':'')+'"><span class="fdl">'+lab+'<i>'+(t?'':wk[dt.getUTCDay()])+'</i></span>'+fdot(x.am)+fdot(x.pm)+'</div>';}).join('')+'</div></div>'+
     '<div class="flegend"><span class="fdot hi">8</span>很清楚<span class="fdot md">5</span>有機會<span class="fdot lo">2</span>很難看到</div></div>':'';
-  el.innerHTML=place('kawa')+place('tokyo')+fh+ext+'<div class="small muted" style="margin-top:8px">站內數字來自 Open-Meteo，每 30 分鐘更新；出門前再點上面兩個網站確認。</div>';
+  el.innerHTML=place('kawa')+place('tokyo')+fh+ext+'<div class="small muted" style="margin-top:8px">站內為推算值，出門前點上方網站確認。</div>';
 }
 function dayWx(d){
   var key=d.reg==='fuji'?'kawa':'tokyo',w=WX[key];if(!w||!w.daily)return '';
@@ -1122,9 +1263,9 @@ function dayWx(d){
 
 /* ---------- TAX REFUND ---------- */
 var TAXV={
- 1:'<div class="tiles">'+[['passport','t-lil','出示護照'],['coin','t-yel','付含稅價'],['phone','t-blu','掃 QR 登記退款'],['card','t-grn','收據收好'],['gift','t-pink','藥妝零食不拆']].map(function(x){return '<div class="tile '+x[1]+'">'+ic(x[0])+'<span>'+x[2]+'</span></div>';}).join('')+'</div>',
- 2:'<div class="flow">'+[['bag','t-red','先別託運','免稅品帶在身上'],['passport','t-lil','刷護照','安檢前的機台或 Visit Japan Web'],['check','t-grn','綠燈＝完成','紅燈→帶商品到海關櫃台'],['plane','t-blu','託運→安檢→出境','']].map(function(x,i){return (i?'<span class="arr">'+ic('down')+'</span>':'')+'<div class="fstep">'+'<span class="qi '+x[1]+'">'+ic(x[0])+'</span><div><b>'+x[2]+'</b>'+(x[3]?'<small>'+x[3]+'</small>':'')+'</div></div>';}).join('')+'</div>',
- 3:'<div class="tiles two">'+[['money','t-yel','各店分別退款到你登記的帳戶'],['clock','t-blu','可能分好幾筆、不同時間入帳']].map(function(x){return '<div class="tile '+x[1]+'">'+ic(x[0])+'<span>'+x[2]+'</span></div>';}).join('')+'</div>'
+ 1:'<div class="tiles">'+[['passport','t-lil','出示護照'],['coin','t-yel','付含稅價'],['phone','t-blu','掃 QR 登記退款'],['card','t-grn','收據收好'],['gift','t-pink','藥妝零食不拆']].map(function(x){return '<div class="tile '+x[1]+'">'+ei(x[0])+'<span>'+x[2]+'</span></div>';}).join('')+'</div>',
+ 2:'<div class="flow">'+[['bag','t-red','先別託運','免稅品帶在身上'],['passport','t-lil','刷護照','安檢前的機台或 Visit Japan Web'],['check','t-grn','綠燈＝完成','紅燈→帶商品到海關櫃台'],['plane','t-blu','託運→安檢→出境','']].map(function(x,i){return (i?'<span class="arr">'+ic('down')+'</span>':'')+'<div class="fstep">'+'<span class="qi '+x[1]+'">'+ei(x[0])+'</span><div><b>'+x[2]+'</b>'+(x[3]?'<small>'+x[3]+'</small>':'')+'</div></div>';}).join('')+'</div>',
+ 3:'<div class="tiles two">'+[['money','t-yel','各店分別退款到你登記的帳戶'],['clock','t-blu','可能分好幾筆、不同時間入帳']].map(function(x){return '<div class="tile '+x[1]+'">'+ei(x[0])+'<span>'+x[2]+'</span></div>';}).join('')+'</div>'
 };
 function taxHtml(){
   var step=function(n,ic2,t,sub,items,tip){return '<div class="card tstep"><div class="tsh"><span class="tno">'+n+'</span>'+shIc(ic2)+'<div><b>'+t+'</b><div class="small muted">'+sub+'</div></div></div>'+(TAXV[n]||'')+(tip?'<div class="callout small">'+tip+'</div>':'')+'</div>';};
@@ -1135,7 +1276,7 @@ function taxHtml(){
   step(3,'money','收退款','由店家或退稅平台分別退款',[],'Visit Japan Web 只負責海關確認，不會退錢給你。')+
   '</div>'+
   '<div class="sh">'+shIc('warn')+'<h2 style="font-size:16px">這樣就拿不到退稅</h2></div><div class="card"><div class="nolist">'+
-  [['card','同一張收據<b>少帶一件</b>，整張都不退'],['gift','藥妝零食在日本<b>拆開或吃掉</b>'],['calendar','<b>超過 90 天</b>才出境'],['bag','<b>先託運</b>才想到要辦'],['phone','沒在店裡<b>登記退款方式</b>']].map(function(x){return '<div><span class="qi t-red">'+ic(x[0])+'<i>✕</i></span><span>'+x[1]+'</span></div>';}).join('')+'</div>'+
+  [['card','同一張收據<b>少帶一件</b>，整張都不退'],['gift','藥妝零食在日本<b>拆開或吃掉</b>'],['calendar','<b>超過 90 天</b>才出境'],['bag','<b>先託運</b>才想到要辦'],['phone','沒在店裡<b>登記退款方式</b>']].map(function(x){return '<div><span class="qi t-red">'+ei(x[0])+'<i>✕</i></span><span>'+x[1]+'</span></div>';}).join('')+'</div>'+
   '<div class="callout small">東西吃掉了就別刷機台，直接跟海關窗口說。</div></div>'+
   '<div class="sh">'+shIc('coin')+'<h2 style="font-size:16px">退稅手續費</h2><span class="en">結帳前先問</span></div><div class="tbl"><table><thead><tr><th>店家</th><th>手續費</th></tr></thead><tbody>'+
   '<tr><td><b>唐吉訶德</b></td><td>免手續費（機場領現金除外）</td></tr><tr><td><b>Bic Camera</b></td><td>免手續費（選線上退到信用卡）</td></tr><tr><td><b>百貨公司等</b></td><td>常見約 1%～3%，例如高島屋 1.55%</td></tr></tbody></table></div>'+
@@ -1147,6 +1288,53 @@ function taxHtml(){
 }
 
 
+
+/* ---------- MUST-BUY ---------- */
+var BUYCAT=[['gift','伴手禮','wrapped-gift'],['snack','零食','cookie'],['drug','藥妝保養','lotion-bottle'],['makeup','彩妝','lipstick'],['goods','雜貨','sparkles']];
+var BUY=[
+ ['tokyobanana','gift','東京芭娜娜','東京ばな奈','東京車站・羽田・成田','香蕉卡士達海綿蛋糕，東京代表伴手禮'],
+ ['sugarbutter','gift','砂糖奶油樹','シュガーバターの木','東京車站','酥脆穀物餅乾夾白巧克力','cookie'],
+ ['maple','gift','楓糖男孩','THE MAPLE MANIA','東京車站 GRANSTA','楓糖奶油夾心餅乾','maple-leaf'],
+ ['nycheese','gift','NY Perfect Cheese','ニューヨークパーフェクトチーズ','東京車站','起司奶油脆餅，常要排隊','cheese-wedge'],
+ ['kikyou','gift','桔梗信玄餅','桔梗信玄餅','河口湖車站・山梨休息站','山梨名產，黃豆粉麻糬淋黑糖蜜'],
+ ['shiroi','gift','白色戀人','白い恋人','機場・百貨北海道展','白巧克力夾心薄餅'],
+ ['royce','gift','ROYCE 生巧克力','ロイズ 生チョコレート','機場・百貨','要冷藏，最後一天再買'],
+ ['fujigoods','gift','富士山紀念章','富士山グッズ','河口湖・富士山周邊','鑰匙圈、紀念章，只有這裡買得到'],
+ ['kitkat','snack','日本限定 KitKat','キットカット','唐吉訶德・超市','抹茶、地區限定口味'],
+ ['jagariko','snack','Jagarico 薯條餅乾','じゃがりこ','超商・超市','杯裝洋芋條，沙拉口味最經典'],
+ ['calbee','snack','Calbee+ 現炸洋芋片','カルビープラス','Calbee 專門店','現炸熱的，有店鋪限定口味'],
+ ['pocky','snack','Pocky 限定口味','ポッキー','超市・車站','地區限定盒裝適合送人'],
+ ['ichiran','snack','一蘭泡麵','一蘭 カップ麺','一蘭店鋪・唐吉訶德','在家也能吃到的豚骨拉麵','steaming-bowl'],
+ ['furikake','snack','拌飯香鬆','ふりかけ','超市','小包裝好帶，口味很多'],
+ ['kewpie','snack','Kewpie 美乃滋','キユーピー マヨネーズ','超市','日本版比較濃郁'],
+ ['matcha','snack','抹茶粉・抹茶點心','抹茶','超市・百貨','做抹茶拿鐵超方便'],
+ ['sake','snack','富士山日本酒','日本酒','河口湖酒藏・超市','用富士山伏流水釀的在地酒'],
+ ['santefx','drug','眼藥水','目薬（サンテ・ロート）','藥妝店','清涼度分很多級，挑適合自己的'],
+ ['salonpas','drug','撒隆巴斯貼布','サロンパス','藥妝店','走路走累了必備'],
+ ['anessa','drug','安耐曬防曬','アネッサ','藥妝店','金瓶是招牌'],
+ ['hadalabo','drug','肌研化妝水','肌ラボ 極潤','藥妝店','玻尿酸保濕，平價大瓶','lotion-bottle'],
+ ['lululun','drug','LuLuLun 面膜','ルルルン','藥妝店','一包 7 片或 32 片，有地區限定','relieved-face'],
+ ['melano','drug','Melano CC 美容液','メラノCC','藥妝店','維他命 C 美容液','lemon'],
+ ['kyusoku','drug','休足時間腳貼','休足時間','藥妝店','走一整天後貼在小腿很舒服','foot'],
+ ['canmake','makeup','CANMAKE 腮紅','キャンメイク','藥妝店・PLAZA','平價、顏色可愛','lipstick'],
+ ['kate','makeup','KATE 眉粉・眼影','ケイト','藥妝店','眉粉三色盤很好用','eyes'],
+ ['heroine','makeup','Heroine Make 睫毛膏','ヒロインメイク','藥妝店','防水不暈','sparkles'],
+ ['lip','makeup','限定護唇膏','リップクリーム','藥妝店','冬天乾燥必備'],
+ ['gachapon','goods','扭蛋','ガチャガチャ','車站・商場','一次 ¥300–500，可愛又好帶'],
+ ['tenugui','goods','手拭巾','手ぬぐい','淺草・雜貨店','日式花紋，掛牆或包東西都好看','scroll']
+];
+function buyCard(b){
+  var on=!!(LOCAL.buy||{})[b[0]],k='b-'+b[0],img=PH[k]?photo(k,b[2]):'<span class="bemo">'+em(b[6]||'wrapped-gift')+'</span>';
+  return '<label class="bc'+(on?' got':'')+'"><span class="bimg'+(PH[k]?'':' ill')+'">'+img+'<input type="checkbox" data-buy="'+b[0]+'"'+(on?' checked':'')+' aria-label="買到 '+esc(b[2])+'"><i class="bck">'+ic('check')+'</i>'+(PH[k]?'':'<em>示意圖</em>')+'</span>'+
+   '<b>'+esc(b[2])+'</b><small class="bj">'+esc(b[3])+'</small><small class="bw">'+em('round-pushpin')+esc(b[4])+'</small><small class="bt">'+esc(b[5])+'</small></label>';
+}
+function buyHtml(){
+  var c=LOCAL.bcat||'all',got=BUY.filter(function(b){return (LOCAL.buy||{})[b[0]];}).length;
+  return '<div class="sh">'+shIc('cart')+'<h2>必買清單</h2><span class="act small muted num">買到 '+got+' / '+BUY.length+'</span></div>'+
+   '<div class="filters"><button class="fb'+(c==='all'?' on':'')+'" data-bc="all">'+em('sparkles')+'全部</button>'+BUYCAT.map(function(x){return '<button class="fb'+(c===x[0]?' on':'')+'" data-bc="'+x[0]+'">'+em(x[2])+x[1]+'</button>';}).join('')+'</div>'+
+   '<div class="bgrid">'+BUY.filter(function(b){return c==='all'||b[1]===c;}).map(buyCard).join('')+'</div>'+
+   '<p class="small muted">整理自網路熱門清單（MATCHA、Funliday、Money101 等）。勾選只存在這支手機。照片來自 Wikimedia Commons，沒有照片的用插圖示意。藥品依個人狀況使用。</p>';
+}
 /* ---------- TRANSLATOR ---------- */
 function trHtml(){
   var d=LOCAL.trd||'zh',A=d==='zh'?'中文':'日本語',B=d==='zh'?'日本語':'中文';
