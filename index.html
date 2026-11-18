@@ -653,6 +653,40 @@ nav.bn a.on{color:var(--ink);font-weight:700}
 .mine{top:46px!important;left:auto!important;right:8px;width:32px;height:32px;padding:0!important;min-width:0!important;border-radius:50%!important;display:grid;place-items:center;font-size:15px!important;background:#F6D77A!important}
 .pcb .mine~.pnum{top:8px}
 .hl{color:var(--muted);font-size:11.5px;margin-left:6px}
+
+/* buy + notes */
+.buyadd{display:grid;gap:8px;margin-bottom:6px}
+.buyadd input:not([type=radio]),.ncomp textarea,.ntools select{width:100%;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font:inherit;font-size:15px;background:#fff;color:var(--ink)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bcats{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.bcats::-webkit-scrollbar{display:none}
+.bcats label{flex:0 0 auto;cursor:pointer}.bcats input{position:absolute;opacity:0;width:1px;height:1px}
+.bcats span{display:inline-flex;gap:4px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 11px;font-size:13px;background:#fff}
+.bcats span .emo{width:16px;height:16px}
+.bcats input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bcats input:focus-visible+span{outline:3px solid var(--cer-d)}
+.buyadd .btn{justify-self:end}
+.tg h3 .emo{width:18px;height:18px;margin-right:4px}
+.bi label{display:grid;gap:1px}.bmeta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted)}.bmeta .emo{width:13px;height:13px;margin-right:2px}
+.empty{text-align:center;padding:28px 10px;color:var(--muted)}.empty .emo.big{width:56px;height:56px}
+.ncomp{display:grid;gap:8px}.ncomp textarea{resize:vertical;min-height:80px}
+.ntools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.ntools .sp{flex:1}.ntools select{width:auto;padding:6px 10px;font-size:13px}
+.nadd{cursor:pointer;padding:6px 12px!important;font-size:13px!important;color:var(--ink)!important}.nadd .emo{width:18px;height:18px}.nadd input{position:absolute;opacity:0;width:1px;height:1px}
+.nthumbs{display:flex;gap:6px;flex-wrap:wrap}.nthumbs:empty{display:none}
+.nth{position:relative;width:72px;height:72px;border-radius:12px;overflow:hidden}.nth img{width:100%;height:100%;object-fit:cover}
+.nth button{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;display:grid;place-items:center;cursor:pointer}.nth button svg{width:12px;height:12px}
+.nlist{display:grid;gap:12px;margin-top:10px}
+.note .nh{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.note .nh .sp{flex:1}.note .nh .ibtn .emo{width:15px;height:15px}
+.note .nh .ibtn{filter:grayscale(1);opacity:.7}.note .nh .ibtn.on{filter:none;opacity:1}
+.note.pinned{box-shadow:inset 3px 0 0 var(--sun)}
+.ntext{white-space:pre-wrap;word-break:break-word;font-size:15px;margin-top:8px}
+.ntext a{color:var(--mint)}
+.nimgs{display:grid;gap:6px;margin-top:10px;grid-template-columns:repeat(3,1fr)}.nimgs.n1{grid-template-columns:1fr}.nimgs.n2{grid-template-columns:1fr 1fr}
+.nimg{border:0;padding:0;border-radius:14px;overflow:hidden;aspect-ratio:1/1;background:var(--sand-l);cursor:zoom-in;display:grid;place-items:center}
+.nimgs.n1 .nimg{aspect-ratio:4/3}
+.nimg img{width:100%;height:100%;object-fit:cover;display:block}
+.nimg .ld{width:22px;height:22px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--cer-d);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seg.big button{font-size:13.5px;padding:9px 4px}
 </style>
 </head>
 <body>
@@ -746,6 +780,7 @@ var IC={
  bed:'<path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="2"/>',
  cloud:'<path d="M6 18h11a4 4 0 0 0 .5-8A6 6 0 0 0 6 11a3.5 3.5 0 0 0 0 7z"/>',
  rain:'<path d="M6 15h11a4 4 0 0 0 .5-8A6 6 0 0 0 6 8a3.5 3.5 0 0 0 0 7zM8 18l-1 3M12 18l-1 3M16 18l-1 3"/>',
+ x:'<path d="M6 6l12 12M18 6 6 18"/>',
  ext:'<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
  swap:'<path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/>',
  mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',
@@ -786,9 +821,9 @@ try{var ls=JSON.parse(localStorage.getItem('jp27-trip')||'null');if(ls&&Array.is
 /* ---------- Firebase sync: the Thailand site's project. Its rules only open trips/main, history and photos,
    so this trip lives in photos/japan-trip (+ photos/japan-history) to stay clear of the Thailand data. ---------- */
 var CFG={apiKey:"AIzaSyA4DeGrCmRtLCyTqbC3DyRKInSIhqUI-GQ",authDomain:"thai-trip-2026-2786f.firebaseapp.com",projectId:"thai-trip-2026-2786f",storageBucket:"thai-trip-2026-2786f.firebasestorage.app",messagingSenderId:"946860826582",appId:"1:946860826582:web:f305a3efe7515a4effce77"};
-var FV='10.12.2',ref=null,href=null,ready=false,lastSent='',pushT=null,me=uid();
+var DB=null,FV='10.12.2',ref=null,href=null,ready=false,lastSent='',pushT=null,me=uid();
 function badge(t,c){var el=$('#sync');el.textContent=t;el.className='sync '+(c||'');}
-function snap(){return JSON.stringify({days:S.days,todos:S.todos,costs:S.costs,set:S.set,extras:S.extras});}
+function snap(){return JSON.stringify({days:S.days,todos:S.todos,costs:S.costs,set:S.set,extras:S.extras,buys:S.buys||[],notes:S.notes||[]});}
 function persist(){
   try{localStorage.setItem('jp27-trip',JSON.stringify(S));}catch(e){}
   if(!ready||!ref)return;
@@ -806,7 +841,7 @@ function saveHist(s){
 }
 function histList(d){try{return (d.exists&&d.data().d)?JSON.parse(d.data().d):[];}catch(e){return [];}}
 function apply(s){
-  try{var o=JSON.parse(s);if(!o||!Array.isArray(o.days))return;S=o;S.extras=S.extras||{spots:[],shops:[],foods:[]};lastSent=s;
+  try{var o=JSON.parse(s);if(!o||!Array.isArray(o.days))return;S=o;S.extras=S.extras||{spots:[],shops:[],foods:[]};S.buys=S.buys||[];S.notes=S.notes||[];lastSent=s;
     try{localStorage.setItem('jp27-trip',JSON.stringify(S));}catch(e){}
     if($('#modal').classList.contains('on'))return;var y=window.scrollY;render();window.scrollTo(0,y);}catch(e){}
 }
@@ -815,7 +850,7 @@ function connect(){
   badge('連線中…');
   var fail=function(){badge('離線，只存在這支手機','warn');};
   js('https://www.gstatic.com/firebasejs/'+FV+'/firebase-app-compat.js',function(){js('https://www.gstatic.com/firebasejs/'+FV+'/firebase-firestore-compat.js',function(){
-    try{firebase.initializeApp(CFG);var db=firebase.firestore();ref=db.collection('photos').doc('japan-trip');href=db.collection('photos').doc('japan-history');}catch(e){fail();return;}
+    try{firebase.initializeApp(CFG);var db=firebase.firestore();DB=db;ref=db.collection('photos').doc('japan-trip');href=db.collection('photos').doc('japan-history');}catch(e){fail();return;}
     ref.get().then(function(d){
       if(d.exists&&d.data().d){apply(d.data().d);ready=true;badge('已同步','ok');}
       else{ready=true;persist();}
@@ -1163,10 +1198,14 @@ var PACK=[['證件','護照（確認效期）'],['證件','行程單 PDF 存在�
 (function(){var p=LOCAL.pack||{},ks=Object.keys(p);if(ks.some(function(k){return /^p\d+$/.test(k);})){var n={};ks.forEach(function(k){var m=/^p(\d+)$/.exec(k);
   if(m&&PACK_OLD[+m[1]]){var t=PACK_OLD[+m[1]][1];if(t==='手套、毛帽、圍巾'){n['手套']=p[k];n['圍巾']=p[k];n['毛帽']=p[k];}else n[t]=p[k];}else if(!m)n[k]=p[k];});LOCAL.pack=n;saveLocal();}})();
 function packKey(p){return p[1].replace(/（.*$/,'');}
+function listSeg(){var lt=LOCAL.ltab||'todo';return '<div class="seg big" role="tablist" aria-label="清單分頁"><button data-lt="todo" class="'+(lt==='todo'?'on':'')+'">'+em('check-mark-button')+'待辦・打包</button><button data-lt="buy" class="'+(lt==='buy'?'on':'')+'">'+em('shopping-cart')+'必買</button><button data-lt="note" class="'+(lt==='note'?'on':'')+'">'+em('memo')+'記事本</button></div>';}
+function bindSeg(){$$('#v-list [data-lt]').forEach(function(b){b.onclick=function(){LOCAL.ltab=b.dataset.lt;saveLocal();rList();window.scrollTo(0,0);};});}
 function rList(){
+  S.buys=S.buys||[];S.notes=S.notes||[];
+  if(LOCAL.ltab==='buy'){rBuy();return;}if(LOCAL.ltab==='note'){rNotes();return;}
   var done=S.todos.filter(function(t){return t.done;}).length,groups=[];S.todos.forEach(function(t){if(groups.indexOf(t.g)<0)groups.push(t.g);});
   var pd=PACK.filter(function(p){return LOCAL.pack[packKey(p)];}).length,pg=[];PACK.forEach(function(p){if(pg.indexOf(p[0])<0)pg.push(p[0]);});
-  $('#v-list').innerHTML='<div class="sh" style="margin-top:4px">'+shIc('check')+'<h2>待辦</h2><span class="en">兩人共用</span></div>'+
+  $('#v-list').innerHTML=listSeg()+'<div class="sh">'+shIc('check')+'<h2>待辦</h2><span class="en">兩人共用</span></div>'+
    '<div class="small muted num">完成 '+done+' / '+S.todos.length+'</div><div class="prog"><i style="width:'+(S.todos.length?done/S.todos.length*100:0)+'%"></i></div>'+
    groups.map(function(g){return '<div class="tg"><h3>'+ic({'行前':'check','訂票':'ticket','當地':'pin','我的':'heart'}[g]||'check')+esc(g)+'</h3>'+S.todos.filter(function(t){return t.g===g;}).map(function(t){
     return '<div class="ti'+(t.done?' done':'')+'"><input type="checkbox" id="td-'+t.id+'" data-td="'+t.id+'"'+(t.done?' checked':'')+'><label for="td-'+t.id+'">'+esc(t.t)+'</label>'+(t.u?lk(t.u,'連結'):'')+
@@ -1184,6 +1223,7 @@ function rList(){
   $$('[data-pk]').forEach(function(c){c.onchange=function(){LOCAL.pack[packKey(PACK[+c.dataset.pk])]=c.checked;saveLocal();rList();};});
   $('#tadd').onsubmit=function(e){e.preventDefault();var v=$('#t-t').value.trim();if(!v)return;S.todos.push({id:'t'+uid(),g:$('#t-g').value,t:v,u:'',done:false});persist();rList();};
   $('#nm-s').onclick=function(){LOCAL.name=$('#nm').value.trim();saveLocal();toast('已儲存');};
+  bindSeg();
   loadHist();
 }
 function loadHist(){
@@ -1352,6 +1392,98 @@ function taxHtml(){
 
 
 
+
+/* ---------- BUY LIST ---------- */
+var BCATS=[['伴手禮','wrapped-gift'],['零食','cookie'],['藥妝保養','lotion-bottle'],['彩妝','lipstick'],['衣服雜貨','t-shirt'],['其他','shopping-bags']];
+function bcatIc(c){for(var i=0;i<BCATS.length;i++)if(BCATS[i][0]===c)return BCATS[i][1];return 'shopping-bags';}
+function rBuy(){
+  var B=S.buys,got=B.filter(function(b){return b.done;}).length,cats=[];B.forEach(function(b){if(cats.indexOf(b.c)<0)cats.push(b.c);});
+  cats.sort(function(a,b){var i=BCATS.map(function(x){return x[0];});return i.indexOf(a)-i.indexOf(b);});
+  $('#v-list').innerHTML=listSeg()+'<div class="sh">'+shIc('cart')+'<h2>必買清單</h2><span class="en">兩人共用</span></div>'+
+   (B.length?'<div class="small muted num">買到 '+got+' / '+B.length+'</div><div class="prog"><i style="width:'+(got/B.length*100)+'%"></i></div>':'')+
+   '<form class="card buyadd" id="badd"><div class="bcats" role="radiogroup" aria-label="分類">'+BCATS.map(function(c,i){return '<label><input type="radio" name="bc" value="'+c[0]+'"'+(i===(LOCAL.bci||0)?' checked':'')+'><span>'+em(c[1])+c[0]+'</span></label>';}).join('')+'</div>'+
+   '<input id="b-n" placeholder="想買什麼？例如：東京芭娜娜" aria-label="品名" required>'+
+   '<div class="row2"><input id="b-w" placeholder="哪裡買（可不填）" aria-label="哪裡買"><input id="b-q" placeholder="給誰・數量（可不填）" aria-label="給誰或數量"></div>'+
+   '<button class="btn" type="submit">'+ic('plus')+'加入清單</button></form>'+
+   (B.length?cats.map(function(c){return '<div class="tg"><h3>'+em(bcatIc(c))+esc(c)+'</h3>'+B.filter(function(b){return b.c===c;}).map(function(b){
+     return '<div class="ti bi'+(b.done?' done':'')+'"><input type="checkbox" id="by-'+b.id+'" data-by="'+b.id+'"'+(b.done?' checked':'')+'><label for="by-'+b.id+'"><b>'+esc(b.n)+'</b>'+
+     ((b.w||b.q)?'<span class="bmeta">'+(b.w?em('round-pushpin')+esc(b.w):'')+(b.q?'<span>'+em('wrapped-gift')+esc(b.q)+'</span>':'')+'</span>':'')+'</label>'+
+     '<button class="ibtn" data-bed="'+b.id+'" aria-label="編輯 '+esc(b.n)+'">'+ic('edit')+'</button><button class="ibtn" data-bdel="'+b.id+'" aria-label="刪除 '+esc(b.n)+'">'+ic('trash')+'</button></div>';}).join('')+'</div>';}).join('')
+    :'<div class="empty">'+em('shopping-cart','big')+'<p>還沒有東西，從上面加入想買的吧！</p></div>');
+  bindSeg();
+  $$('#badd [name=bc]').forEach(function(x,i){x.onchange=function(){LOCAL.bci=i;saveLocal();};});
+  $('#badd').onsubmit=function(e){e.preventDefault();var n=$('#b-n').value.trim();if(!n)return;var c=($('#badd [name=bc]:checked')||{}).value||'其他';
+    S.buys.push({id:'b'+uid(),c:c,n:n,w:$('#b-w').value.trim(),q:$('#b-q').value.trim(),done:false,by:LOCAL.name||''});persist();rBuy();toast('已加入');setTimeout(function(){var f=$('#b-n');if(f)f.focus();},50);};
+  $$('[data-by]').forEach(function(c){c.onchange=function(){var b=S.buys.filter(function(x){return x.id===c.dataset.by;})[0];if(b){b.done=c.checked;persist();rBuy();}};});
+  $$('[data-bdel]').forEach(function(x){x.onclick=function(){armDelete(x,function(){S.buys=S.buys.filter(function(b){return b.id!==x.dataset.bdel;});persist();rBuy();});};});
+  $$('[data-bed]').forEach(function(x){x.onclick=function(){var b=S.buys.filter(function(y){return y.id===x.dataset.bed;})[0];if(!b)return;
+    openModal('<h3 id="m-title">編輯</h3><form class="form" id="bef"><label for="be-c">分類<select id="be-c">'+BCATS.map(function(c){return '<option'+(c[0]===b.c?' selected':'')+'>'+c[0]+'</option>';}).join('')+'</select></label>'+
+     '<label for="be-n">品名<input id="be-n" value="'+esc(b.n)+'" required></label><label for="be-w">哪裡買<input id="be-w" value="'+esc(b.w||'')+'"></label><label for="be-q">給誰・數量<input id="be-q" value="'+esc(b.q||'')+'"></label>'+
+     '<div class="trtools"><span class="sp"></span><button class="ibtn" type="button" data-close>取消</button><button class="btn" type="submit">儲存</button></div></form>');
+    $$('[data-close]').forEach(function(y){y.onclick=closeModal;});
+    $('#bef').onsubmit=function(e){e.preventDefault();b.c=$('#be-c').value;b.n=$('#be-n').value.trim()||b.n;b.w=$('#be-w').value.trim();b.q=$('#be-q').value.trim();persist();closeModal();rBuy();};};});
+}
+
+/* ---------- NOTES ---------- */
+var IMGC={},NDRAFT=[];
+function imgGet(id,cb){
+  if(IMGC[id])return cb(IMGC[id]);
+  try{var l=localStorage.getItem('jpimg-'+id);if(l){IMGC[id]=l;return cb(l);}}catch(e){}
+  if(!DB)return cb(null);
+  DB.collection('photos').doc('jpimg-'+id).get().then(function(d){var v=d.exists&&d.data().d;if(v){IMGC[id]=v;try{localStorage.setItem('jpimg-'+id,v);}catch(e){}}cb(v||null);}).catch(function(){cb(null);});
+}
+function imgPut(id,data){IMGC[id]=data;try{localStorage.setItem('jpimg-'+id,data);}catch(e){}
+  if(!DB)return Promise.reject('offline');return DB.collection('photos').doc('jpimg-'+id).set({d:data});}
+function shrink(file,cb){
+  var rd=new FileReader();rd.onload=function(){var im=new Image();im.onload=function(){
+    var max=1280,q=.78,out='';
+    for(var k=0;k<8;k++){var s=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);out=c.toDataURL('image/jpeg',q);if(out.length<270000)break;if(q>.5)q-=.1;else max=Math.round(max*.8);}
+    cb(out.length<290000?out:null);};im.onerror=function(){cb(null);};im.src=rd.result;};rd.onerror=function(){cb(null);};rd.readAsDataURL(file);
+}
+function noteTime(t){var d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+' '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2);}
+function linkify(s){return esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');}
+function rNotes(){
+  var N=S.notes.slice().sort(function(a,b){return (b.pin?1:0)-(a.pin?1:0)||b.at-a.at;}),tag=LOCAL.ntag||'';
+  var tags=['','行前','2/16','2/17','2/18','2/19','2/20','2/21','2/22','2/23'];
+  $('#v-list').innerHTML=listSeg()+'<div class="sh">'+shIc('memo')+'<h2>記事本</h2><span class="en">兩人共用</span></div>'+
+   '<form class="card ncomp" id="nf"><textarea id="n-t" rows="3" placeholder="記點什麼…（可以貼網址）" aria-label="筆記內容"></textarea>'+
+   '<div class="nthumbs" id="n-th"></div>'+
+   '<div class="ntools"><label class="ibtn nadd">'+em('camera-with-flash')+'加照片<input type="file" id="n-f" accept="image/*" multiple></label>'+
+   '<select id="n-g" aria-label="標記日期">'+tags.map(function(t){return '<option value="'+t+'">'+(t||'不標日期')+'</option>';}).join('')+'</select><span class="sp"></span><button class="btn" type="submit" id="n-s">儲存</button></div></form>'+
+   (N.length?'<div class="filters">'+['全部'].concat(tags.slice(1).filter(function(t){return S.notes.some(function(n){return n.g===t;});})).map(function(t){var v=t==='全部'?'':t;return '<button class="fb'+(tag===v?' on':'')+'" data-nt="'+v+'">'+t+'</button>';}).join('')+'</div>':'')+
+   '<div class="nlist">'+(N.filter(function(n){return !tag||n.g===tag;}).map(function(n){
+     return '<article class="card note'+(n.pin?' pinned':'')+'"><div class="nh">'+(n.g?'<span class="chip mint">'+em('spiral-calendar')+esc(n.g)+'</span>':'')+'<span class="small muted">'+esc(n.by||'')+(n.by?'・':'')+noteTime(n.at)+'</span><span class="sp"></span>'+
+     '<button class="ibtn'+(n.pin?' on':'')+'" data-npin="'+n.id+'" aria-label="置頂" aria-pressed="'+!!n.pin+'">'+em('round-pushpin')+'</button><button class="ibtn" data-ned="'+n.id+'" aria-label="編輯">'+ic('edit')+'</button><button class="ibtn" data-ndel="'+n.id+'" aria-label="刪除">'+ic('trash')+'</button></div>'+
+     (n.t?'<div class="ntext">'+linkify(n.t)+'</div>':'')+
+     ((n.imgs||[]).length?'<div class="nimgs n'+Math.min(n.imgs.length,3)+'">'+n.imgs.map(function(id){return '<button class="nimg" data-img="'+id+'" aria-label="放大照片"><span class="ld"></span></button>';}).join('')+'</div>':'')+'</article>';}).join('')||
+     '<div class="empty">'+em('memo','big')+'<p>還沒有筆記。可以記店家資訊、收據、截圖、想法…</p></div>')+'</div>';
+  bindSeg();
+  var draw=function(){$('#n-th').innerHTML=NDRAFT.map(function(d,i){return '<span class="nth"><img src="'+d+'" alt=""><button type="button" data-ndr="'+i+'" aria-label="移除這張">'+ic('x')+'</button></span>';}).join('');
+    $$('[data-ndr]').forEach(function(b){b.onclick=function(){NDRAFT.splice(+b.dataset.ndr,1);draw();};});};draw();
+  $('#n-f').onchange=function(){var fs=[].slice.call(this.files||[]);this.value='';if(!fs.length)return;toast('處理照片中…');
+    var left=fs.length;fs.forEach(function(f){shrink(f,function(d){if(d)NDRAFT.push(d);else toast('有一張照片太大或無法讀取');if(--left===0)draw();});});};
+  $('#n-g').value=tag;
+  $('#nf').onsubmit=function(e){e.preventDefault();var t=$('#n-t').value.trim();if(!t&&!NDRAFT.length){toast('寫點字或加張照片');return;}
+    if(NDRAFT.length&&!DB){toast('離線中，照片要連上雲端才能存');return;}
+    var btn=$('#n-s');btn.disabled=true;btn.textContent='儲存中…';
+    var ids=NDRAFT.map(function(){return 'i'+uid()+Math.random().toString(36).slice(2,6);});
+    Promise.all(ids.map(function(id,i){return imgPut(id,NDRAFT[i]);})).then(function(){
+      S.notes.push({id:'n'+uid(),t:t,imgs:ids,g:$('#n-g').value,at:Date.now(),by:LOCAL.name||''});NDRAFT=[];persist();rNotes();toast('已儲存');
+    }).catch(function(){btn.disabled=false;btn.textContent='儲存';toast('照片上傳失敗，請再試一次');});};
+  $$('[data-nt]').forEach(function(b){b.onclick=function(){LOCAL.ntag=b.dataset.nt;saveLocal();rNotes();};});
+  $$('#v-list [data-img]').forEach(function(b){var id=b.dataset.img;imgGet(id,function(d){if(d)b.innerHTML='<img src="'+d+'" alt="筆記照片">';else b.innerHTML='<span class="small muted">載入不到</span>';});
+    b.onclick=function(){if(!IMGC[id])return;$('#fullimg').src=IMGC[id];$('#fullimg').alt='筆記照片';$('#full').classList.add('on');};});
+  var find=function(id){return S.notes.filter(function(n){return n.id===id;})[0];};
+  $$('[data-npin]').forEach(function(b){b.onclick=function(){var n=find(b.dataset.npin);n.pin=!n.pin;persist();rNotes();};});
+  $$('[data-ndel]').forEach(function(b){b.onclick=function(){armDelete(b,function(){var n=find(b.dataset.ndel);S.notes=S.notes.filter(function(x){return x!==n;});persist();
+    (n.imgs||[]).forEach(function(id){try{localStorage.removeItem('jpimg-'+id);}catch(e){}if(DB)DB.collection('photos').doc('jpimg-'+id).set({d:''}).catch(function(){});});rNotes();toast('已刪除');});};});
+  $$('[data-ned]').forEach(function(b){b.onclick=function(){var n=find(b.dataset.ned);
+    openModal('<h3 id="m-title">編輯筆記</h3><form class="form" id="nef"><label for="ne-t">內容<textarea id="ne-t" rows="6">'+esc(n.t||'')+'</textarea></label><label for="ne-g">日期<select id="ne-g">'+tags.map(function(t){return '<option value="'+t+'"'+(t===(n.g||'')?' selected':'')+'>'+(t||'不標日期')+'</option>';}).join('')+'</select></label>'+
+      ((n.imgs||[]).length?'<div class="small muted">照片 '+n.imgs.length+' 張（要換照片請刪掉重寫）</div>':'')+'<div class="trtools"><span class="sp"></span><button class="ibtn" type="button" data-close>取消</button><button class="btn" type="submit">儲存</button></div></form>');
+    $$('[data-close]').forEach(function(y){y.onclick=closeModal;});
+    $('#nef').onsubmit=function(e){e.preventDefault();n.t=$('#ne-t').value.trim();n.g=$('#ne-g').value;persist();closeModal();rNotes();};};});
+}
 /* ---------- TRANSLATOR ---------- */
 function trHtml(){
   var d=LOCAL.trd||'zh',A=d==='zh'?'中文':'日本語',B=d==='zh'?'日本語':'中文';
