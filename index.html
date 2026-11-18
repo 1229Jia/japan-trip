@@ -956,7 +956,7 @@ function rHome(){
   '<div class="routes">'+[['red-circle','紅線','河口湖','bus'],['green-circle','綠線','西湖','bus'],['blue-circle','藍線','鳴澤・精進湖・本栖湖','bus'],['yellow-circle','富士湖號','忍野八海・山中湖','oncoming-bus'],['purple-circle','富士急行線','大月 – 河口湖','light-rail'],['mountain-cableway','全景纜車・遊覽船','免費或優惠','ship']].map(function(x){
     return '<div class="rt"><span class="rti">'+em(x[3])+'<i>'+em(x[0])+'</i></span><b>'+x[1]+'</b><small>'+x[2]+'</small></div>';}).join('')+'</div>'+
   '<div class="links">'+lk(D.L.kimiyo,'五湖周遊巴士介紹')+lk(D.L.fujitour,'路線・時刻表')+lk(D.L.fujikko,'富士湖號時刻表')+lk(D.L.willer,'成田 → 河口湖 訂票')+lk(D.L.hwbus,'河口湖 → 新宿 訂票')+lk(D.L.hwteach,'高速巴士訂票教學')+'</div></div>'+
-  fujiBusHtml()+fujiMapHtml()+
+  fujiMapHtml()+
 
   '<div class="sh">'+shIc('snowflake')+'<h2>2 月的天氣</h2><span class="en">What to wear</span></div><div class="grid2">'+
   wearCard('河口湖','−5 ~ 8°C',GUY_FUJI,[['womans-hat','毛帽'],['scarf','圍巾'],['coat','羽絨外套'],['gloves','手套'],['socks','發熱衣・厚襪'],['hiking-boot','防滑鞋']],'早晚常在零度以下，可能有積雪，路面會結冰。','snow')+
@@ -984,21 +984,6 @@ function hotel(when,name,sub,addr,cin,cout,tel,note,q,ph){
 
 
 /* ---------- FUJI BUS LINES + MAP ---------- */
-var FBUS=[
- ['#E0605E','河口湖周遊巴士','紅線','mount-fuji','河口湖主要熱門景點，富士山景觀優美'],
- ['#3F9A63','西湖周遊巴士','綠線','hut','西湖人氣與自然人文景點，體驗傳統文化'],
- ['#3E6C9E','鳴澤・精進湖・本栖湖・西湖周遊巴士','藍線','evergreen-tree','精進湖與本栖湖的秘境，人少清靜、景緻獨特'],
- ['#5BA9C9','ふじっ湖号','F-line','swan','繞行山中湖、富士吉田與忍野八海'],
- ['#E39B3B','御殿場行き','A-Line','railway-car','經富士吉田與忍野八海，終點御殿場車站'],
- ['#D9785A','御殿場アウトレット行','C-Line','shopping-bags','經富士吉田與忍野八海，終點御殿場 Outlet'],
- ['#7A62C2','高速巴士 特急御殿場','直達','bus','中途不停車，直達御殿場 Outlet 購物城'],
- ['#3B9C9C','富士吉田口五合目巴士','季節限定','person-climbing','前往富士山五合目，夏季登山季開通；冬天常因積雪停駛']
-];
-function fujiBusHtml(){
-  return '<div class="sh">'+shIc('bus')+'<h2>富士五湖 8 線周遊巴士</h2><span class="act small muted">左右滑</span></div>'+
-  '<div class="fbus">'+FBUS.map(function(b,i){return '<div class="fb8" style="--bc:'+b[0]+'"><span class="fbn num">'+(i+1)+'</span><div class="fbe">'+em(b[3])+'</div><b>'+b[1]+'</b><span class="fbl">'+b[2]+'</span><p>'+b[4]+'</p></div>';}).join('')+'</div>'+
-  '<div class="fbtips">'+[['admission-tickets','可搭配富士五湖周遊券（Unlimited Pass）更划算'],['oncoming-bus','河口湖站是主要轉乘點'],['alarm-clock','部分路線班次間隔長，也有季節性'],['spiral-calendar','往御殿場與五合目方向，注意預約資訊']].map(function(x){return '<div>'+em(x[0])+'<span>'+x[1]+'</span></div>';}).join('')+'</div>';
-}
 var FMAP=[
  ['motosu','本栖湖',78,250,['千元日幣場景','遊覽船']],
  ['shoji','精進湖',165,160,['他手合濱']],
