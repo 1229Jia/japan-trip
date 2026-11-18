@@ -363,7 +363,7 @@ function saveHist(s){
   if(!href)return;
   href.get().then(function(d){var list=histList(d);var now=Date.now();
     if(list.length&&now-list[0].t<180000)list[0]={t:now,by:LOCAL.name||'某人',data:s};else list.unshift({t:now,by:LOCAL.name||'某人',data:s});
-    list=list.slice(0,6);var out=JSON.stringify(list);while(out.length>400000&&list.length>1){list.pop();out=JSON.stringify(list);}
+    list=list.slice(0,6);var out=JSON.stringify(list);while(out.length>280000&&list.length>1){list.pop();out=JSON.stringify(list);}
     href.set({d:out}).catch(function(){});}).catch(function(){});
 }
 function histList(d){try{return (d.exists&&d.data().d)?JSON.parse(d.data().d):[];}catch(e){return [];}}
