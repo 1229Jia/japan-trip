@@ -687,6 +687,22 @@ nav.bn a.on{color:var(--ink);font-weight:700}
 .nimg .ld{width:22px;height:22px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--cer-d);animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .seg.big button{font-size:13.5px;padding:9px 4px}
+
+.fbus{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 12px;scrollbar-width:none}.fbus::-webkit-scrollbar{display:none}
+.fb8{flex:0 0 150px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-top:5px solid var(--bc);border-radius:20px;padding:12px 12px 14px;display:grid;justify-items:center;text-align:center;align-content:start;gap:4px;position:relative}
+.fbn{position:absolute;top:10px;left:10px;width:28px;height:28px;border-radius:50%;background:var(--bc);color:#fff;font-weight:700;display:grid;place-items:center;font-size:15px}
+.fbe{width:64px;height:64px;border-radius:50%;background:color-mix(in srgb,var(--bc) 14%,#fff);display:grid;place-items:center;margin:6px 0 4px}.fbe .emo{width:40px;height:40px}
+.fb8 b{font-size:14px;line-height:1.35}
+.fbl{font-size:11.5px;font-weight:700;color:var(--bc);background:color-mix(in srgb,var(--bc) 12%,#fff);border-radius:999px;padding:1px 10px}
+.fb8 p{margin:4px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
+.fbtips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:2px}
+.fbtips>div{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:9px 10px;font-size:12.5px;line-height:1.4}.fbtips .emo{width:26px;height:26px}
+.fmapc{padding:14px}
+.fmap{width:100%;height:auto;display:block;font-family:var(--body)}
+.fspots{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.fspots>div{background:var(--sand-l);border-radius:14px;padding:8px 10px;display:grid;gap:2px}
+.fspots b{display:flex;gap:5px;align-items:center;font-size:13.5px}.fspots b .emo{width:18px;height:18px}.fspots span{font-size:12px;color:var(--muted);line-height:1.5}
+@media (min-width:600px){.fspots{grid-template-columns:repeat(3,1fr)}.fbtips{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
@@ -940,6 +956,7 @@ function rHome(){
   '<div class="routes">'+[['red-circle','紅線','河口湖','bus'],['green-circle','綠線','西湖','bus'],['blue-circle','藍線','鳴澤・精進湖・本栖湖','bus'],['yellow-circle','富士湖號','忍野八海・山中湖','oncoming-bus'],['purple-circle','富士急行線','大月 – 河口湖','light-rail'],['mountain-cableway','全景纜車・遊覽船','免費或優惠','ship']].map(function(x){
     return '<div class="rt"><span class="rti">'+em(x[3])+'<i>'+em(x[0])+'</i></span><b>'+x[1]+'</b><small>'+x[2]+'</small></div>';}).join('')+'</div>'+
   '<div class="links">'+lk(D.L.kimiyo,'五湖周遊巴士介紹')+lk(D.L.fujitour,'路線・時刻表')+lk(D.L.fujikko,'富士湖號時刻表')+lk(D.L.willer,'成田 → 河口湖 訂票')+lk(D.L.hwbus,'河口湖 → 新宿 訂票')+lk(D.L.hwteach,'高速巴士訂票教學')+'</div></div>'+
+  fujiBusHtml()+fujiMapHtml()+
 
   '<div class="sh">'+shIc('snowflake')+'<h2>2 月的天氣</h2><span class="en">What to wear</span></div><div class="grid2">'+
   wearCard('河口湖','−5 ~ 8°C',GUY_FUJI,[['womans-hat','毛帽'],['scarf','圍巾'],['coat','羽絨外套'],['gloves','手套'],['socks','發熱衣・厚襪'],['hiking-boot','防滑鞋']],'早晚常在零度以下，可能有積雪，路面會結冰。','snow')+
@@ -965,6 +982,59 @@ function hotel(when,name,sub,addr,cin,cout,tel,note,q,ph){
   (PH[ph]?'<div class="credit">'+credit(ph,'照片為周邊景色')+'</div>':'')+'</div></div>';
 }
 
+
+/* ---------- FUJI BUS LINES + MAP ---------- */
+var FBUS=[
+ ['#E0605E','河口湖周遊巴士','紅線','mount-fuji','河口湖主要熱門景點，富士山景觀優美'],
+ ['#3F9A63','西湖周遊巴士','綠線','hut','西湖人氣與自然人文景點，體驗傳統文化'],
+ ['#3E6C9E','鳴澤・精進湖・本栖湖・西湖周遊巴士','藍線','evergreen-tree','精進湖與本栖湖的秘境，人少清靜、景緻獨特'],
+ ['#5BA9C9','ふじっ湖号','F-line','swan','繞行山中湖、富士吉田與忍野八海'],
+ ['#E39B3B','御殿場行き','A-Line','railway-car','經富士吉田與忍野八海，終點御殿場車站'],
+ ['#D9785A','御殿場アウトレット行','C-Line','shopping-bags','經富士吉田與忍野八海，終點御殿場 Outlet'],
+ ['#7A62C2','高速巴士 特急御殿場','直達','bus','中途不停車，直達御殿場 Outlet 購物城'],
+ ['#3B9C9C','富士吉田口五合目巴士','季節限定','person-climbing','前往富士山五合目，夏季登山季開通；冬天常因積雪停駛']
+];
+function fujiBusHtml(){
+  return '<div class="sh">'+shIc('bus')+'<h2>富士五湖 8 線周遊巴士</h2><span class="act small muted">左右滑</span></div>'+
+  '<div class="fbus">'+FBUS.map(function(b,i){return '<div class="fb8" style="--bc:'+b[0]+'"><span class="fbn num">'+(i+1)+'</span><div class="fbe">'+em(b[3])+'</div><b>'+b[1]+'</b><span class="fbl">'+b[2]+'</span><p>'+b[4]+'</p></div>';}).join('')+'</div>'+
+  '<div class="fbtips">'+[['admission-tickets','可搭配富士五湖周遊券（Unlimited Pass）更划算'],['oncoming-bus','河口湖站是主要轉乘點'],['alarm-clock','部分路線班次間隔長，也有季節性'],['spiral-calendar','往御殿場與五合目方向，注意預約資訊']].map(function(x){return '<div>'+em(x[0])+'<span>'+x[1]+'</span></div>';}).join('')+'</div>';
+}
+var FMAP=[
+ ['motosu','本栖湖',78,250,['千元日幣場景','遊覽船']],
+ ['shoji','精進湖',165,160,['他手合濱']],
+ ['saiko','西湖',275,205,['里根場','紅葉台','鳴澤村','富岳風穴']],
+ ['kawa','河口湖',390,128,['遊覽船','大石公園','紅葉隧道','天上山公園','天空遙拜所','音樂盒之森美術館']],
+ ['yoshida','富士吉田',515,205,['新倉山淺間公園','下吉田商店街','富士急樂園']],
+ ['oshino','忍野八海',600,285,[]],
+ ['yamanaka','山中湖',600,385,['長池親水公園','紅富士之湯','遊覽船','花之都公園']],
+ ['gotemba','御殿場',665,490,['Outlet']],
+ ['fuji','富士山五合目',380,318,['富士山登山']]
+];
+var FEDGE=[['motosu','shoji',5],['shoji','saiko',10],['saiko','kawa',15],['kawa','yoshida',10],['yoshida','oshino',15],['oshino','yamanaka',15],['yamanaka','gotemba',40],['kawa','fuji',40]];
+function fujiMapHtml(){
+  var P={};FMAP.forEach(function(n){P[n[0]]=n;});
+  var lake=function(n){if(n[0]==='fuji'||n[0]==='gotemba'||n[0]==='oshino'||n[0]==='yoshida')return '';var rx=n[0]==='kawa'?62:(n[0]==='yamanaka'?58:44);
+    return '<ellipse cx="'+n[2]+'" cy="'+(n[3]+4)+'" rx="'+rx+'" ry="'+(rx*.48)+'" fill="#BFDDEF" opacity=".9"/>';};
+  var edges=FEDGE.map(function(e){var a=P[e[0]],b=P[e[1]],mx=(a[2]+b[2])/2,my=(a[3]+b[3])/2;
+    return '<line x1="'+a[2]+'" y1="'+a[3]+'" x2="'+b[2]+'" y2="'+b[3]+'" stroke="#5B6B80" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>'+
+      '<g transform="translate('+mx+' '+my+')"><rect x="-27" y="-15" width="54" height="30" rx="15" fill="#fff" stroke="#D9D0C5"/><text y="6.5" text-anchor="middle" font-size="18" font-weight="700" fill="#22324A">'+e[2]+'分</text></g>';}).join('');
+  var nodes=FMAP.map(function(n){var fuji=n[0]==='fuji';
+    return '<g class="fmn" transform="translate('+n[2]+' '+n[3]+')">'+(fuji?'<circle r="7" fill="#fff" stroke="#3E6C9E" stroke-width="4"/>':'<circle r="9" fill="#fff" stroke="'+(n[0]==='gotemba'||n[0]==='yoshida'||n[0]==='oshino'?'#E39B3B':'#3E6C9E')+'" stroke-width="4"/>')+
+      '<text x="'+(n[0]==='oshino'||n[0]==='yoshida'?16:0)+'" y="'+(fuji?118:(n[0]==='oshino'||n[0]==='yoshida'?9:(n[0]==='motosu'?40:-18)))+'" text-anchor="'+(n[0]==='oshino'||n[0]==='yoshida'?'start':'middle')+'" font-size="'+(n[0]==='kawa'?30:26)+'" font-weight="800" fill="#22324A" stroke="#fff" stroke-width="6" paint-order="stroke">'+n[1]+'</text></g>';}).join('');
+  var svg='<svg viewBox="0 0 760 540" class="fmap" role="img" aria-label="富士五湖相對位置與車程示意圖">'+
+   '<defs><linearGradient id="fmbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF5EC"/><stop offset="1" stop-color="#F6F1EA"/></linearGradient><linearGradient id="fjs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FA6D6"/><stop offset="1" stop-color="#5F8DBE"/></linearGradient></defs>'+
+   '<rect width="760" height="540" rx="28" fill="url(#fmbg)"/>'+
+   '<g opacity=".5" fill="#D6E6CF"><ellipse cx="160" cy="400" rx="140" ry="70"/><ellipse cx="560" cy="120" rx="120" ry="50"/><ellipse cx="700" cy="300" rx="70" ry="90"/></g>'+
+   '<g transform="translate(380 395)"><path d="M-120 10 -30 -80q30-22 60 0L120 10z" fill="url(#fjs)"/><path d="M-30 -80q30-22 60 0l14 15-12 8-10-8-10 9-12-9-10 9-10-9-10 8-12-8z" fill="#fff"/></g>'+
+   FMAP.map(lake).join('')+
+   '<path d="M410 112 Q520 40 690 52" stroke="#5B6B80" stroke-width="3" stroke-dasharray="2 7" fill="none" stroke-linecap="round"/><text x="700" y="40" text-anchor="end" font-size="24" font-weight="800" fill="#3E6C9E">往新宿 →</text>'+
+   '<path d="M680 488 Q720 470 748 470" stroke="#5B6B80" stroke-width="3" stroke-dasharray="2 7" fill="none" stroke-linecap="round"/><text x="748" y="526" text-anchor="end" font-size="22" font-weight="800" fill="#3E6C9E">往箱根 →</text>'+
+   edges+nodes+
+   '<text x="24" y="522" font-size="16" fill="#8A8F98">示意圖・時間為大約車程</text></svg>';
+  return '<div class="sh">'+shIc('world-map')+'<h2>富士五湖位置圖</h2><span class="act small muted">由西到東</span></div>'+
+   '<div class="card fmapc"><p class="small muted" style="margin:0 0 10px">由西向東：本栖湖 → 精進湖 → 西湖 → 河口湖 → 山中湖；另外忍野八海、富士吉田、富士山五合目、御殿場也是必訪景點。</p>'+svg+
+   '<div class="fspots">'+FMAP.filter(function(n){return n[4].length;}).map(function(n){return '<div><b>'+em(n[0]==='fuji'?'mount-fuji':(n[0]==='gotemba'?'shopping-bags':(n[0]==='yoshida'?'house-with-garden':'water-wave')))+n[1]+'</b><span>'+n[4].join('・')+'</span></div>';}).join('')+'</div></div>';
+}
 /* ---------- WEAR ---------- */
 var GUY_FUJI='<svg viewBox="0 0 120 170" class="guy" aria-hidden="true">'+
  '<g fill="#fff" stroke="#BFD6EA" stroke-width="1.2"><circle cx="12" cy="30" r="3"/><circle cx="104" cy="22" r="2.5"/><circle cx="108" cy="70" r="3"/><circle cx="10" cy="96" r="2.5"/><circle cx="100" cy="128" r="2"/><circle cx="18" cy="140" r="2"/></g>'+
