@@ -405,7 +405,7 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .wnow{display:flex;gap:10px;align-items:center}
 .wic{width:40px;height:40px;border-radius:12px;background:var(--sky-l);color:var(--sky);display:grid;place-items:center}
 .wic svg{width:24px;height:24px}
-.wdays{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.wdays{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .wd{background:var(--sand-l);border-radius:12px;padding:6px 4px;display:grid;justify-items:center;gap:2px;font-size:12px}
 .wd svg{width:20px;height:20px;color:var(--cer-d)}
 .wd b{font-size:15px}.wd .lo{color:var(--muted)}
@@ -1346,9 +1346,9 @@ function wxCard(){
     '<a href="https://www.japan.travel/tw/weather/kanto/tokyo/" target="_blank" rel="noopener"><img src="img/ph/tokyotower.jpg" alt=""><span><b>'+ic('sun')+'東京天氣</b><small>日本國家旅遊局 JNTO</small></span>'+ic('ext')+'</a></div>';
   if(!WX.kawa&&!WX.tokyo){el.innerHTML='<div class="small muted">天氣資料暫時載入不到，可以先看下面兩個官方網站。</div>'+ext;return;}
   var place=function(k){var d=WX[k];if(!d||!d.daily)return '';var w=wcode(d.current?d.current.weather_code:d.daily.weather_code[0]);
-    var days=d.daily.time.slice(0,4).map(function(t,i){var ww=wcode(d.daily.weather_code[i]);return '<div class="wd"><span>'+(i===0?'今天':(+t.slice(5,7))+'/'+(+t.slice(8,10)))+'</span>'+wxi(ww[0])+'<b class="num">'+Math.round(d.daily.temperature_2m_max[i])+'°</b><span class="num lo">'+Math.round(d.daily.temperature_2m_min[i])+'°</span></div>';}).join('');
+    var days=d.daily.time.slice(0,3).map(function(t,i){var ww=wcode(d.daily.weather_code[i]);return '<div class="wd"><span>'+(i===0?'今天':(+t.slice(5,7))+'/'+(+t.slice(8,10)))+'</span>'+wxi(ww[0])+'<b class="num">'+Math.round(d.daily.temperature_2m_max[i])+'°</b><span class="num lo">'+Math.round(d.daily.temperature_2m_min[i])+'°</span></div>';}).join('');
     return '<div class="wp"><div class="wnow"><span class="wic">'+ei(w[0])+'</span><div><b>'+WXLOC[k].n+'</b><div class="small muted">'+w[1]+'・現在 <b class="num">'+(d.current?Math.round(d.current.temperature_2m):'—')+'°C</b></div></div></div><div class="wdays">'+days+'</div></div>';};
-  var fv=fujiVis()||[],td=todayStr(),wk='日一二三四五六';
+  var td=todayStr(),fv=(fujiVis()||[]).filter(function(x){return x.day>=td;}).slice(0,3),wk='日一二三四五六';
   var fh=fv.length?'<div class="fuji"><div class="fh">'+em('mount-fuji','big')+'<div><b>富士山能見度指數</b><div class="small muted">1–10，越高越看得到・依山頂雲量推算</div></div></div>'+
     '<div class="fgrid"><span></span><span class="small muted">上午</span><span class="small muted">下午</span>'+
     fv.map(function(x){var dt=new Date(x.day+'T00:00:00+09:00'),lab=x.day===td?'<b>今天</b>':(+x.day.slice(5,7))+'/'+(+x.day.slice(8,10))+'（'+wk[dt.getUTCDay()]+'）';
