@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F6F8F7">
+<meta name="theme-color" content="#9BB7D4">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
 <title>富士・東京 8 日｜旅行手帳</title>
 <meta property="og:title" content="富士・東京 8 日旅行手帳">
 <meta property="og:description" content="2027/2/16–2/23 河口湖 2 泊＋新宿 5 泊">
@@ -11,10 +15,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Plan: airy travel notebook — pale sage page, white cards, one mint accent, sky blue for transport, peach only for warnings. Single theme by choice. */
+/* Plan: Pantone notebook — Sand Dollar 13-1106 page, white cards, Cerulean 15-4020 as the main fill, Aqua Sky 14-4811 for food and links;
+   deeper shades of the same hues carry text so contrast holds. Peach only for warnings. Single theme by choice. */
 :root{
-  --bg:#F6F8F7; --card:#FFFFFF; --ink:#24312D; --muted:#6B7874; --line:#E2E8E5;
-  --mint:#3B9781; --mint-l:#E3F2ED; --sky:#4F8FCB; --sky-l:#E7F0F9; --peach:#D9735B; --peach-l:#FCECE7; --sun:#F2C55C;
+  --cer:#9BB7D4; --aqua:#7BC4C4; --sand:#DECDBE; --sand-l:#F5EFE8;
+  --cer-d:#5F8DBE; --aqua-d:#3B9C9C; --sand-d:#A88C74;
+  --bg:#F5EFE8; --card:#FFFFFF; --ink:#22324A; --muted:#6E7682; --line:#E8DFD5;
+  --mint:#3E6C9E; --mint-l:#E6EEF7; --sky:#2E8585; --sky-l:#E2F3F3; --peach:#C96A52; --peach-l:#FBEAE4; --sun:#F2C55C;
   --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
   --latin:"Quicksand","Noto Sans TC",system-ui,sans-serif;
   --r:16px;
@@ -34,13 +41,13 @@ img{max-width:100%;display:block}
 .small{font-size:13px}
 
 /* header */
-.top{position:sticky;top:0;z-index:20;background:rgba(246,248,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.top{position:sticky;top:0;z-index:20;background:rgba(245,239,232,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
 .top .wrap{display:flex;align-items:center;gap:10px;height:52px}
 .brand{font-weight:700;font-size:16px;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
-.brand i{width:22px;height:22px;display:inline-block;background:var(--mint);clip-path:polygon(50% 8%,100% 92%,0 92%);border-radius:2px}
+.brand i{width:22px;height:22px;display:inline-block;background:var(--cer-d);clip-path:polygon(50% 8%,100% 92%,0 92%);border-radius:2px}
 .sync{margin-left:auto;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;white-space:nowrap}
-.sync::before{content:"";width:8px;height:8px;border-radius:50%;background:#C9D2CE}
-.sync.ok::before{background:var(--mint)}
+.sync::before{content:"";width:8px;height:8px;border-radius:50%;background:#CFC4B8}
+.sync.ok::before{background:var(--aqua-d)}
 .sync.warn::before{background:var(--peach)}
 
 /* sections */
@@ -56,12 +63,12 @@ section.view.on{display:block}
 @media (max-width:540px){.grid2{grid-template-columns:1fr}}
 
 /* chips & buttons */
-.chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:2px 9px;border-radius:999px;background:#EEF2F0;color:var(--muted);white-space:nowrap;line-height:1.6}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:2px 9px;border-radius:999px;background:#F1EBE4;color:var(--muted);white-space:nowrap;line-height:1.6}
 .chip.mint{background:var(--mint-l);color:var(--mint)}
 .chip.sky{background:var(--sky-l);color:var(--sky)}
 .chip.peach{background:var(--peach-l);color:var(--peach)}
 .chip.sun{background:#FBF1D8;color:#9A7417}
-.btn{border:0;background:var(--mint);color:#fff;padding:9px 16px;border-radius:999px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:14px}
+.btn{border:0;background:var(--cer);color:var(--ink);padding:9px 16px;border-radius:999px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:14px}
 .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
 .btn svg{width:16px;height:16px}
 .ibtn{border:1px solid var(--line);background:#fff;padding:4px 9px;border-radius:999px;font-size:12.5px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;color:var(--muted)}
@@ -75,9 +82,9 @@ section.view.on{display:block}
 .links{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
 
 /* hero */
-.hero{border-radius:22px;overflow:hidden;position:relative;background:#DDE9F2}
+.hero{border-radius:22px;overflow:hidden;position:relative;background:var(--sand)}
 .hero img{width:100%;height:230px;object-fit:cover}
-.hero .ov{position:absolute;inset:auto 0 0 0;padding:56px 18px 16px;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.92) 55%,#fff 100%)}
+.hero .ov{position:absolute;inset:auto 0 0 0;padding:56px 18px 16px;background:linear-gradient(180deg,rgba(245,239,232,0) 0%,rgba(245,239,232,.94) 55%,#F5EFE8 100%)}
 .hero h1{font-size:28px;letter-spacing:.02em}
 .hero .d{font-family:var(--latin);font-weight:600;color:var(--muted);font-size:14px}
 .cd{display:flex;align-items:baseline;gap:6px;margin-top:4px}
@@ -124,32 +131,32 @@ table.bag th{font-weight:500;color:var(--muted);white-space:nowrap}
 .tab{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:12px;padding:6px 12px;cursor:pointer;text-align:center;min-width:64px}
 .tab b{display:block;font-family:var(--latin);font-size:14px}
 .tab span{font-size:11.5px;color:var(--muted)}
-.tab.on{background:var(--mint);border-color:var(--mint);color:#fff}
-.tab.on span{color:#E3F2ED}
+.tab.on{background:var(--cer);border-color:var(--cer);color:var(--ink)}
+.tab.on span{color:var(--ink)}
 .dayh{margin:6px 0 12px}
 .dayh .en{font-family:var(--latin);font-size:12px;color:var(--muted);letter-spacing:.06em}
 .dayh h2{font-size:22px;margin:2px 0 6px}
 .dayh p{margin:0;font-size:14px;color:var(--muted)}
 
-.map{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#EEF2F0;aspect-ratio:720/440}
+.map{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#EFE7DE;aspect-ratio:720/440}
 .map img{width:100%;height:100%;object-fit:cover;filter:saturate(.55) brightness(1.05) contrast(.95)}
 .map svg{position:absolute;inset:0;width:100%;height:100%}
 .map .att{position:absolute;right:6px;bottom:4px;font-size:10px;background:rgba(255,255,255,.85);padding:1px 6px;border-radius:6px;color:var(--muted)}
 .map .att a{color:var(--muted)}
-.pin circle{fill:var(--mint);stroke:#fff;stroke-width:2.5}
-.pin.food circle{fill:var(--peach)}
-.pin.hotel circle{fill:var(--sky)}
+.pin circle{fill:var(--cer-d);stroke:#fff;stroke-width:2.5}
+.pin.food circle{fill:var(--aqua-d)}
+.pin.hotel circle{fill:var(--sand-d)}
 .pin text{fill:#fff;font:700 12px var(--latin);text-anchor:middle;dominant-baseline:central}
 .pin{cursor:pointer}
 
 .stops{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
 .stop{display:grid;grid-template-columns:30px 1fr;gap:10px}
-.stop .no{width:30px;height:30px;border-radius:50%;background:var(--mint);color:#fff;font:700 13px var(--latin);display:grid;place-items:center;margin-top:12px}
-.stop .no.food{background:var(--peach)}
-.stop .no.hotel,.stop .no.move{background:var(--sky)}
-.stop .no.off{background:#C9D2CE}
+.stop .no{width:30px;height:30px;border-radius:50%;background:var(--cer-d);color:#fff;font:700 13px var(--latin);display:grid;place-items:center;margin-top:12px}
+.stop .no.food{background:var(--aqua-d)}
+.stop .no.hotel,.stop .no.move{background:var(--sand-d)}
+.stop .no.off{background:#CFC4B8}
 .sc{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.sc .ph{aspect-ratio:16/8;background:#EEF2F0}
+.sc .ph{aspect-ratio:16/8;background:#EFE7DE}
 .sc .ph img{width:100%;height:100%;object-fit:cover}
 .sc .in{padding:12px 14px}
 .sc .h{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
@@ -170,21 +177,21 @@ table.bag th{font-weight:500;color:var(--muted);white-space:nowrap}
 /* places */
 .filters{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
 .fb{border:1px solid var(--line);background:#fff;padding:5px 12px;font-size:13px;cursor:pointer;border-radius:999px}
-.fb.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.fb.on{background:var(--cer);border-color:var(--cer);color:var(--ink);font-weight:700}
 .search{width:100%;border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:12px}
 .plist{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:540px){.plist{grid-template-columns:1fr}}
 .pc{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.pc .ph{aspect-ratio:16/9;background:#EEF2F0;position:relative}
+.pc .ph{aspect-ratio:16/9;background:#EFE7DE;position:relative}
 .pc .ph img{width:100%;height:100%;object-fit:cover}
 .pc .ph .lbl{position:absolute;left:8px;bottom:8px;font-size:11px;background:rgba(255,255,255,.9);padding:1px 8px;border-radius:999px;color:var(--muted)}
-.pc .noph{display:grid;place-items:center;color:#B8C4BF}
+.pc .noph{display:grid;place-items:center;color:#C9BBAC}
 .pc .noph svg{width:40px;height:40px}
 .pc .in{padding:12px 14px;display:grid;gap:6px;flex:1;align-content:start}
 .pc .hd{display:flex;gap:8px;align-items:flex-start}
 .pc h3{font-size:15.5px;flex:1;line-height:1.4}
 .pc h3 small{display:block;font-family:var(--latin);font-weight:500;font-size:12px;color:var(--muted)}
-.heart{border:1px solid var(--line);background:#fff;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex:0 0 auto;color:#B8C4BF}
+.heart{border:1px solid var(--line);background:#fff;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex:0 0 auto;color:#C9BBAC}
 .heart svg{width:17px;height:17px}
 .heart.on{color:#fff;background:var(--peach);border-color:var(--peach)}
 .pc .d{font-size:13.5px}
@@ -192,8 +199,8 @@ table.bag th{font-weight:500;color:var(--muted);white-space:nowrap}
 .mine-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);display:inline-block}
 
 /* lists */
-.prog{height:8px;border-radius:99px;background:#E6ECE9;overflow:hidden;margin:6px 0 12px}
-.prog i{display:block;height:100%;background:var(--mint);border-radius:99px}
+.prog{height:8px;border-radius:99px;background:#EAE2D9;overflow:hidden;margin:6px 0 12px}
+.prog i{display:block;height:100%;background:var(--cer);border-radius:99px}
 .tg{margin-bottom:14px}
 .tg h3{font-size:12.5px;color:var(--muted);font-weight:500;margin-bottom:6px;letter-spacing:.04em}
 .ti{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;margin-bottom:6px}
@@ -209,16 +216,16 @@ table.bag th{font-weight:500;color:var(--muted);white-space:nowrap}
 .tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
 .tile span{font-size:12px;color:var(--muted)}
 .tile b{display:block;font-family:var(--latin);font-size:22px}
-.tile.hl{background:var(--mint);border-color:var(--mint);color:#fff}
-.tile.hl span{color:#DFF1EB}
+.tile.hl{background:var(--cer);border-color:var(--cer);color:var(--ink)}
+.tile.hl span{color:var(--ink)}
 @media (max-width:480px){.tiles{grid-template-columns:1fr 1fr}.tile.hl{grid-column:1/-1}}
 .settings{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 6px}
 .settings label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
 .settings input{border:1px solid var(--line);background:#fff;padding:7px 10px;border-radius:10px;width:140px;color:var(--ink)}
 .bars{display:grid;gap:8px}
 .bar{display:grid;grid-template-columns:64px 1fr 96px;gap:10px;align-items:center;font-size:13px}
-.bar .tr{height:10px;background:#E6ECE9;border-radius:99px;overflow:hidden}
-.bar .tr i{display:block;height:100%;background:var(--sky);border-radius:99px}
+.bar .tr{height:10px;background:#EAE2D9;border-radius:99px;overflow:hidden}
+.bar .tr i{display:block;height:100%;background:var(--aqua);border-radius:99px}
 .bar .v{text-align:right}
 .tbl{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px}
 .tbl table{width:100%;border-collapse:collapse;font-size:13.5px}
@@ -232,7 +239,7 @@ table.bag th{font-weight:500;color:var(--muted);white-space:nowrap}
 @media (max-width:540px){.cform{grid-template-columns:1fr 1fr}}
 
 /* allergy */
-.seg{display:inline-flex;background:#E9EEEC;border-radius:999px;padding:3px;gap:2px}
+.seg{display:inline-flex;background:#ECE3D9;border-radius:999px;padding:3px;gap:2px}
 .seg button{border:0;background:transparent;padding:6px 16px;border-radius:999px;cursor:pointer;font-size:14px}
 .seg button.on{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);font-weight:700}
 .acard{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);cursor:zoom-in;background:#fff}
@@ -245,12 +252,12 @@ table.bag th{font-weight:500;color:var(--muted);white-space:nowrap}
 /* nav */
 nav.bn{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
 nav.bn .in{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(7,1fr)}
-nav.bn a{display:grid;justify-items:center;gap:1px;padding:8px 0 8px;color:#98A39F;text-decoration:none;font-size:11px}
+nav.bn a{display:grid;justify-items:center;gap:1px;padding:8px 0 8px;color:#9A9189;text-decoration:none;font-size:11px}
 nav.bn a svg{width:22px;height:22px}
 nav.bn a.on{color:var(--mint);font-weight:700}
 
 /* modal */
-.modal{position:fixed;inset:0;background:rgba(36,49,45,.35);z-index:50;display:none;align-items:flex-end;justify-content:center}
+.modal{position:fixed;inset:0;background:rgba(34,50,74,.35);z-index:50;display:none;align-items:flex-end;justify-content:center}
 .modal.on{display:flex}
 .sheet{background:#fff;width:100%;max-width:600px;max-height:88%;overflow:auto;padding:18px 16px calc(24px + env(safe-area-inset-bottom));border-radius:20px 20px 0 0}
 .sheet h3{font-size:18px;margin-bottom:12px}
@@ -263,9 +270,50 @@ nav.bn a.on{color:var(--mint);font-weight:700}
 .form .btns{display:flex;justify-content:flex-end;gap:8px;margin-top:4px}
 .toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px;font-size:13px;z-index:70;display:none}
 .toast.on{display:block}
-.empty{border:1px dashed #C9D2CE;border-radius:14px;padding:20px;text-align:center;color:var(--muted);font-size:14px}
+.empty{border:1px dashed #D5C8BA;border-radius:14px;padding:20px;text-align:center;color:var(--muted);font-size:14px}
 .hist{display:grid;gap:6px;margin-top:8px}
 .hist .ti{font-size:13px}
+
+/* cost v2 */
+.costhero{background:var(--cer);border-radius:var(--r);padding:16px 18px;color:var(--ink)}
+.costhero .lbl{font-size:13px}
+.costhero .big{font-family:var(--latin);font-weight:700;font-size:36px;line-height:1.15}
+.costhero .sub{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13.5px;margin-top:4px}
+.costhero .split{height:8px;border-radius:99px;background:rgba(255,255,255,.55);overflow:hidden;margin-top:12px}
+.costhero .split i{display:block;height:100%;background:var(--ink);border-radius:99px}
+.settle{margin-top:10px;background:var(--sky-l);color:var(--sky);border-radius:12px;padding:10px 12px;font-size:14px;display:flex;justify-content:space-between;gap:8px;align-items:center;font-weight:700}
+.settle b{font-size:18px}
+.settle.ok{justify-content:flex-start}
+.stackbar{display:flex;height:12px;border-radius:99px;overflow:hidden;margin:10px 0 8px;background:#EAE2D9}
+.stackbar i{display:block;height:100%}
+.legend{display:grid;gap:4px;font-size:13px}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend span b{margin-left:auto;font-weight:600}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.days{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;margin-top:10px;align-items:end}
+.dcol{display:grid;justify-items:center;gap:3px;font-size:10.5px;color:var(--muted)}
+.dcol b{font-size:10px;font-weight:600;color:var(--ink);white-space:nowrap}
+.dbar{width:100%;max-width:28px;height:70px;background:#F1EBE4;border-radius:6px;display:flex;align-items:flex-end;overflow:hidden}
+.dbar i{display:block;width:100%;background:var(--aqua);border-radius:6px 6px 0 0}
+.cgroup{margin-bottom:12px}
+.cgh{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);padding:0 4px 4px}
+.crow{width:100%;display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:6px;text-align:left;cursor:pointer}
+.crow:hover{border-color:var(--cer-d)}
+.crow .dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+.crow .cn{flex:1;display:grid;min-width:0}
+.crow .cn b{font-size:14.5px;font-weight:700}
+.crow .cm{font-size:12px;color:var(--muted)}
+.crow .ca{display:grid;justify-items:end;gap:2px;text-align:right}
+.crow .ca b{font-size:14.5px}
+details.card summary{cursor:pointer;list-style:none}
+details.card summary::-webkit-details-marker{display:none}
+details.card summary::after{content:"＋";float:right;color:var(--muted)}
+details.card[open] summary::after{content:"－"}
+.form .seg{flex-wrap:wrap;border-radius:14px}
+.form .seg button{font-size:13.5px;padding:6px 12px;color:var(--ink)}
+.rsv{display:grid;gap:6px}
+.rsv .ti{gap:8px}
+.rsv .ti label{flex:1}
 @media (prefers-reduced-motion:no-preference){.sc,.pc,.drow{transition:border-color .15s}}
 </style>
 </head>
@@ -410,7 +458,7 @@ function mapHtml(key,pts,label){
   var m=D.MAPS[key];if(!m)return '';
   var g='',line=[];
   pts.forEach(function(p){if(!p.ll)return;var x=wx(p.ll[1],m.z)-m.x0,y=wy(p.ll[0],m.z)-m.y0;if(x<-10||y<-10||x>m.w+10||y>m.h+10)return;p._xy=[x,y];if(p.route)line.push(x.toFixed(1)+','+y.toFixed(1));});
-  if(line.length>1)g+='<polyline points="'+line.join(' ')+'" fill="none" stroke="#3B9781" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round" opacity=".75"/>';
+  if(line.length>1)g+='<polyline points="'+line.join(' ')+'" fill="none" stroke="#5F8DBE" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round" opacity=".75"/>';
   var seen={};
   pts.forEach(function(p){if(!p._xy)return;var k=p._xy[0].toFixed(0)+','+p._xy[1].toFixed(0),off=(seen[k]||0)*14;seen[k]=(seen[k]||0)+1;
     g+='<g class="pin '+(p.cls||'')+'" data-go="'+esc(p.id)+'" transform="translate('+(p._xy[0]+off).toFixed(1)+' '+p._xy[1].toFixed(1)+')"><title>'+esc(p.title)+'</title><circle r="12"/><text>'+esc(p.label)+'</text></g>';});
@@ -503,11 +551,11 @@ function rPlan(){
 }
 function stopHtml(s,i,n){
   var f=s.food?foodById(s.food):null,phk=s.ph||(f&&f.dish?'d-'+f.dish:'');
-  var chips='';if(s.must)chips+='<span class="chip sun">必去</span>';
+  var chips='';if(s.must)chips+='<span class="chip sun">必去</span>';if(f&&f.rsv&&!s.bk)chips+=rsvChip(f);
   if(s.bk)chips+='<span class="chip '+(/已訂/.test(s.bk)?'mint':'peach')+'">'+esc(s.bk)+'</span>';
   var meta='';if(s.a)meta+='<div>地址：'+esc(s.a)+'</div>';if(s.hr||(f&&f.hr))meta+='<div>營業：'+esc(s.hr||f.hr)+'</div>';
   var pl=s.ref?placeById(s.ref):null;
-  var links='';if(s.k!=='flight')links+=lk(mapUrl(s.q||(f&&f.q)||(pl&&pl.q)||s.a||s.n),'地圖');(s.lk||[]).concat(f&&f.lk||[]).forEach(function(l){links+=lk(l[0],l[1]);});
+  var links='';if(s.k!=='flight')links+=lk(mapUrl(s.q||(f&&f.q)||(pl&&pl.q)||s.a||s.n),'地圖');if(f&&f.tb)links+=lk(f.tb,'Tabelog');(s.lk||[]).concat(f&&f.lk||[]).forEach(function(l){links+=lk(l[0],l[1]);});
   var eat='';if(f&&f.must_eat)eat='<div class="musteat"><b>必點</b><ul>'+f.must_eat.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></div>';
   var sea=f&&f.sea?'<div class="sea">海藻提醒：'+esc(f.sea)+'</div>':'';
   var note=s.note||(f&&f.d)||'';
@@ -560,11 +608,13 @@ function editDay(d){
 }
 
 /* ---------- PLACES ---------- */
+var RSV={net:['Tabelog 可網路訂位','mint'],phone:['可預約（可能要打電話）','sun'],no:['不接受預約，現場排隊',''],tc:['TableCheck 記帳','mint']};
+function rsvChip(p){var r=p&&RSV[p.rsv];return r?'<span class="chip '+r[1]+'">'+r[0]+'</span>':'';}
 function placeCard(p,num){
   var phk=p.ph||(p.dish?'d-'+p.dish:''),isDish=!p.ph&&!!p.dish;
-  var chips='<span class="chip">'+esc(D.AREAS[p.area]||p.area)+'</span><span class="chip">'+esc(p.kind)+'</span>'+(p.must?'<span class="chip sun">必去</span>':'')+(p.custom?'<span class="chip sky">朋友新增</span>':'');
+  var chips='<span class="chip">'+esc(D.AREAS[p.area]||p.area)+'</span><span class="chip">'+esc(p.kind)+'</span>'+(p.must?'<span class="chip sun">必去</span>':'')+rsvChip(p)+(p.custom?'<span class="chip sky">朋友新增</span>':'');
   var m='';if(p.a)m+='<div>地址：'+esc(p.a)+'</div>';if(p.hr)m+='<div>營業：'+esc(p.hr)+'</div>';
-  var links=lk(mapUrl(p.q||p.n),'Google 地圖');(p.lk||[]).forEach(function(l){links+=lk(l[0],l[1]);});
+  var links=lk(mapUrl(p.q||p.n),'Google 地圖')+(p.tb?lk(p.tb,'Tabelog'):'');(p.lk||[]).forEach(function(l){links+=lk(l[0],l[1]);});
   var eat=p.must_eat?'<div class="musteat"><b>必點</b><ul>'+p.must_eat.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></div>':'';
   var sea=p.sea?'<div class="sea">海藻提醒：'+esc(p.sea)+'</div>':'';
   return '<article class="pc" id="it-'+esc(p.id)+'"><div class="ph'+(PH[phk]?'':' noph')+'">'+(PH[phk]?photo(phk,p.n,isDish?'菜色示意':(p.pha?'周邊街景':'')):ic('pin'))+'</div>'+
@@ -628,15 +678,30 @@ function addPlace(xkey,rer){
 }
 function rExplore(){var el=$('#v-explore');el.innerHTML='<div id="ex-s"></div><div id="ex-p" style="margin-top:30px"></div>';
   placeView($('#ex-s'),'spots',D.SPOTS,'spots','景點','Sights','新增景點');placeView($('#ex-p'),'shops',D.SHOPS,'shops','逛街','Shopping','新增店家');}
-function rFood(){var el=$('#v-food');el.innerHTML='<div class="callout peach" style="margin-bottom:6px"><b>海藻過敏提醒</b>：日式高湯（だし）常用昆布，定食的味噌湯常放海帶芽。點湯麵、餺飥、烏龍麵、定食前，先到「字卡」分頁亮給店員看。</div><div id="fd"></div>';
+function rFood(){var el=$('#v-food');
+  var book=D.FOODS.filter(function(f){return f.rsv&&f.rsv!=='no';}),walk=D.FOODS.filter(function(f){return f.rsv==='no';});
+  el.innerHTML='<div class="callout peach" style="margin-bottom:12px"><b>海藻過敏提醒</b>：看得到的海藻（海帶芽、昆布、海苔）請店家拿掉；高湯裡有昆布可以接受。點餐前先到「字卡」分頁亮給店員看。</div>'+
+   '<div class="card"><div class="fhead"><strong>出發前要訂的餐廳</strong>'+lk('https://tabelog.com/tw/','打開 Tabelog')+'</div>'+
+   '<div class="rsv">'+book.map(function(f){return '<div class="ti"><label>'+esc(f.n)+'<span class="small muted">　'+esc(RSV[f.rsv][0])+(f.tel?'・電話 '+esc(f.tel):'')+'</span></label>'+(f.tb?lk(f.tb,'Tabelog'):'')+((f.lk||[]).map(function(l){return lk(l[0],l[1]);}).join(''))+'</div>';}).join('')+'</div>'+
+   '<p class="small muted" style="margin:10px 0 0">Tabelog 頁面上有「ネット予約」（網路預約）按鈕才能直接線上訂，沒有的話就要打電話。不收預約、要現場排隊的店：'+walk.map(function(f){return esc(f.n);}).join('、')+'。訂好後到「清單」把待辦打勾。</p></div>'+
+   '<div id="fd" style="margin-top:8px"></div>';
   placeView($('#fd'),'foods',D.FOODS,'foods','美食','Eat','新增餐廳');}
 
 /* ---------- LIST ---------- */
-var PACK=[['證件','護照（確認效期）'],['證件','行程單 PDF 存在手機'],['金錢','日幣現金'],['金錢','信用卡'],['金錢','零錢包'],['電子','手機與充電線'],['電子','行動電源（只能放手提）'],['電子','網卡或 eSIM'],
- ['保暖','羽絨外套'],['保暖','發熱衣褲'],['保暖','手套、毛帽、圍巾'],['保暖','防滑好走的鞋'],['保暖','暖暖包'],['保養','保濕乳液、護唇膏'],['保養','個人常備藥'],['其他','摺疊傘'],['其他','購物袋'],['其他','行李秤（手提限重 7 公斤）']];
+var PACK_OLD=[['證件','護照（確認效期）'],['證件','行程單 PDF 存在手機'],['金錢','日幣現金'],['金錢','信用卡'],['金錢','零錢包'],['電子','手機與充電線'],['電子','行動電源（只能放手提）'],['電子','網卡或 eSIM'],['保暖','羽絨外套'],['保暖','發熱衣褲'],['保暖','手套、毛帽、圍巾'],['保暖','防滑好走的鞋'],['保暖','暖暖包'],['保養','保濕乳液、護唇膏'],['保養','個人常備藥'],['其他','摺疊傘'],['其他','購物袋'],['其他','行李秤（手提限重 7 公斤）']];
+var PACK=[['證件','護照（確認效期）'],['證件','行程單 PDF 存在手機'],['金錢','日幣現金'],['金錢','信用卡'],['金錢','零錢包'],
+ ['電子','手機與充電線'],['電子','行動電源（只能放手提）'],['電子','網卡或 eSIM'],['電子','CCD 相機（電池、充電器、記憶卡）'],['電子','離子夾（無線款含鋰電池只能放手提）'],
+ ['保暖','羽絨外套'],['保暖','發熱衣褲'],['保暖','手套'],['保暖','圍巾'],['保暖','毛帽'],['保暖','防滑好走的鞋'],['保暖','暖暖包'],
+ ['衣物','免洗內褲'],
+ ['眼睛','眼鏡'],['眼睛','隱形眼鏡'],['眼睛','隱形眼鏡藥水（手提限 100ml）'],
+ ['保養梳化','爽膚棉片'],['保養梳化','卸妝'],['保養梳化','保濕乳液、護唇膏'],['保養梳化','髮圈、髮夾'],['保養梳化','髮膠（噴霧類建議放託運）'],
+ ['其他','個人常備藥'],['其他','摺疊傘'],['其他','購物袋'],['其他','行李秤（手提限重 7 公斤）']];
+(function(){var p=LOCAL.pack||{},ks=Object.keys(p);if(ks.some(function(k){return /^p\d+$/.test(k);})){var n={};ks.forEach(function(k){var m=/^p(\d+)$/.exec(k);
+  if(m&&PACK_OLD[+m[1]]){var t=PACK_OLD[+m[1]][1];if(t==='手套、毛帽、圍巾'){n['手套']=p[k];n['圍巾']=p[k];n['毛帽']=p[k];}else n[t]=p[k];}else if(!m)n[k]=p[k];});LOCAL.pack=n;saveLocal();}})();
+function packKey(p){return p[1].replace(/（.*$/,'');}
 function rList(){
   var done=S.todos.filter(function(t){return t.done;}).length,groups=[];S.todos.forEach(function(t){if(groups.indexOf(t.g)<0)groups.push(t.g);});
-  var pd=PACK.filter(function(p,i){return LOCAL.pack['p'+i];}).length,pg=[];PACK.forEach(function(p){if(pg.indexOf(p[0])<0)pg.push(p[0]);});
+  var pd=PACK.filter(function(p){return LOCAL.pack[packKey(p)];}).length,pg=[];PACK.forEach(function(p){if(pg.indexOf(p[0])<0)pg.push(p[0]);});
   $('#v-list').innerHTML='<div class="sh" style="margin-top:4px"><h2>待辦</h2><span class="en">兩人共用</span></div>'+
    '<div class="small muted num">完成 '+done+' / '+S.todos.length+'</div><div class="prog"><i style="width:'+(S.todos.length?done/S.todos.length*100:0)+'%"></i></div>'+
    groups.map(function(g){return '<div class="tg"><h3>'+esc(g)+'</h3>'+S.todos.filter(function(t){return t.g===g;}).map(function(t){
@@ -644,7 +709,7 @@ function rList(){
     '<button class="ibtn" data-tdel="'+t.id+'" aria-label="刪除 '+esc(t.t)+'">'+ic('trash')+'</button></div>';}).join('')+'</div>';}).join('')+
    '<form class="addrow" id="tadd"><select id="t-g" aria-label="分類">'+['行前','訂票','當地','我的'].map(function(g){return '<option>'+g+'</option>';}).join('')+'</select><input id="t-t" placeholder="新增待辦" aria-label="待辦內容"><button class="btn" type="submit">新增</button></form>'+
    '<div class="sh"><h2>打包清單</h2><span class="en">只存在這支手機</span></div><div class="small muted num">已打包 '+pd+' / '+PACK.length+'</div><div class="prog"><i style="width:'+pd/PACK.length*100+'%"></i></div>'+
-   pg.map(function(g){return '<div class="tg"><h3>'+g+'</h3>'+PACK.map(function(p,i){if(p[0]!==g)return '';var on=!!LOCAL.pack['p'+i];
+   pg.map(function(g){return '<div class="tg"><h3>'+g+'</h3>'+PACK.map(function(p,i){if(p[0]!==g)return '';var on=!!LOCAL.pack[packKey(p)];
     return '<div class="ti'+(on?' done':'')+'"><input type="checkbox" id="pk-'+i+'" data-pk="'+i+'"'+(on?' checked':'')+'><label for="pk-'+i+'">'+p[1]+'</label></div>';}).join('')+'</div>';}).join('')+
    '<p class="small muted">日本插座跟台灣一樣，不用帶轉接頭。</p>'+
    '<div class="sh"><h2>同步與版本</h2><span class="en">Sync</span></div><div class="card"><p class="small" style="margin:0 0 10px">行程、待辦、費用和新增的店家是兩人共用的，任何人改了另一個人會即時看到。收藏和打包清單只存在各自的手機。</p>'+
@@ -652,7 +717,7 @@ function rList(){
    '<div style="margin-top:14px"><b class="small">版本紀錄</b><p class="small muted" style="margin:2px 0 0">每次修改會自動存一份，保留最近 6 份。改錯了可以回到之前的版本。</p><div class="hist" id="hist"><div class="small muted">載入中…</div></div></div></div>';
   $$('[data-td]').forEach(function(c){c.onchange=function(){var t=S.todos.filter(function(x){return x.id===c.dataset.td;})[0];t.done=c.checked;persist();rList();};});
   $$('[data-tdel]').forEach(function(b){b.onclick=function(){armDelete(b,function(){S.todos=S.todos.filter(function(x){return x.id!==b.dataset.tdel;});persist();rList();});};});
-  $$('[data-pk]').forEach(function(c){c.onchange=function(){LOCAL.pack['p'+c.dataset.pk]=c.checked;saveLocal();rList();};});
+  $$('[data-pk]').forEach(function(c){c.onchange=function(){LOCAL.pack[packKey(PACK[+c.dataset.pk])]=c.checked;saveLocal();rList();};});
   $('#tadd').onsubmit=function(e){e.preventDefault();var v=$('#t-t').value.trim();if(!v)return;S.todos.push({id:'t'+uid(),g:$('#t-g').value,t:v,u:'',done:false});persist();rList();};
   $('#nm-s').onclick=function(){LOCAL.name=$('#nm').value.trim();saveLocal();toast('已儲存');};
   loadHist();
@@ -668,27 +733,81 @@ function loadHist(){
 }
 
 /* ---------- COST ---------- */
+var CATS=[['餐飲','#7BC4C4'],['交通','#9BB7D4'],['門票','#C9A98E'],['購物','#E4A68F'],['住宿','#5F8DBE'],['機票','#3E6C9E'],['其他','#B9B1A8']];
+var CDATES=['行前','2/16','2/17','2/18','2/19','2/20','2/21','2/22','2/23'];
+function catColor(c){for(var i=0;i<CATS.length;i++)if(CATS[i][0]===c)return CATS[i][1];return '#B9B1A8';}
+function names(){var n=(S.set&&S.set.names)||[];return [n[0]||'A',n[1]||'B'];}
 function toTWD(c){var a=+c.amt||0;if(c.cur==='JPY')a*=(+S.set.rate||0);if(c.per)a*=(+S.set.people||1);return a;}
+function toJPY(c){var a=+c.amt||0;if(c.cur!=='JPY')return 0;if(c.per)a*=(+S.set.people||1);return a;}
+function settle(){
+  var nm=names(),paid=[0,0],owe=[0,0],count=0;
+  S.costs.forEach(function(c){var p=c.payer;if(p!=='A'&&p!=='B')return;var v=toTWD(c),pi=p==='A'?0:1;count++;
+    paid[pi]+=v;var f=c.for||'both';if(f==='A')owe[0]+=v;else if(f==='B')owe[1]+=v;else{owe[0]+=v/2;owe[1]+=v/2;}});
+  var bal=paid[0]-owe[0];
+  return {nm:nm,paid:paid,owe:owe,bal:bal,count:count};
+}
+function seg(id,opts,val){return '<span class="seg" role="group" id="'+id+'">'+opts.map(function(o){return '<button type="button" data-v="'+o[0]+'" class="'+(String(val)===String(o[0])?'on':'')+'">'+esc(o[1])+'</button>';}).join('')+'</span>';}
+function wireSeg(id){var el=$('#'+id);$$('button',el).forEach(function(b){b.onclick=function(){$$('button',el).forEach(function(x){x.classList.remove('on');});b.classList.add('on');};});}
+function segVal(id){var b=$('#'+id+' button.on');return b?b.dataset.v:'';}
 function rCost(){
-  var tot=0,by={};S.costs.forEach(function(c){var v=toTWD(c);tot+=v;by[c.cat]=(by[c.cat]||0)+v;});
-  var ppl=+S.set.people||1,est=S.costs.filter(function(c){return c.est;}).length,cats=Object.keys(by).sort(function(a,b){return by[b]-by[a];}),mx=Math.max.apply(null,cats.map(function(k){return by[k];}).concat([1]));
-  $('#v-cost').innerHTML='<div class="sh" style="margin-top:4px"><h2>旅費</h2><span class="en">兩人共用</span></div>'+
-   '<div class="tiles"><div class="tile hl"><span>總計（台幣）</span><b>NT$'+fmt(tot)+'</b></div><div class="tile"><span>每人</span><b>NT$'+fmt(tot/ppl)+'</b></div><div class="tile"><span>筆數／估價</span><b>'+S.costs.length+' / '+est+'</b></div></div>'+
-   '<div class="settings"><label for="s-p">人數<input id="s-p" type="number" min="1" value="'+esc(S.set.people)+'"></label><label for="s-r">匯率（1 日圓 = ? 台幣）<input id="s-r" type="number" step="0.0001" min="0" value="'+esc(S.set.rate)+'"></label></div>'+
-   '<p class="small muted" style="margin:0 0 6px">匯率預設 0.20（2026 年中台銀牌告的大約數字），換錢前改成當天的。</p>'+
-   '<div class="sh"><h2 style="font-size:16px">依類別</h2></div><div class="bars">'+cats.map(function(k){return '<div class="bar"><span>'+esc(k)+'</span><div class="tr"><i style="width:'+(by[k]/mx*100)+'%"></i></div><span class="v num">NT$'+fmt(by[k])+'</span></div>';}).join('')+'</div>'+
-   '<div class="sh"><h2 style="font-size:16px">明細</h2></div><div class="tbl"><table><thead><tr><th>項目</th><th>日期</th><th class="r">金額</th><th class="r">台幣</th><th></th></tr></thead><tbody>'+
-   S.costs.map(function(c){return '<tr><td><b>'+esc(c.n)+'</b><div class="links" style="gap:4px;margin-top:2px"><span class="chip">'+esc(c.cat)+'</span>'+(c.per?'<span class="chip sky">每人</span>':'')+(c.est?'<span class="chip peach">估價</span>':'')+'</div>'+(c.memo?'<div class="small muted">'+esc(c.memo)+'</div>':'')+'</td>'+
-    '<td class="num">'+esc(c.date||'—')+'</td><td class="r num">'+(c.cur==='JPY'?'¥':'NT$')+fmt(c.amt)+(c.per?' ×'+ppl:'')+'</td><td class="r num">'+fmt(toTWD(c))+'</td><td><button class="ibtn" data-cdel="'+c.id+'" aria-label="刪除 '+esc(c.n)+'">'+ic('trash')+'</button></td></tr>';}).join('')+'</tbody></table></div>'+
-   '<div class="sh"><h2 style="font-size:16px">新增費用</h2></div><form class="cform" id="cf"><input id="c-n" placeholder="項目" aria-label="項目" required><select id="c-cat" aria-label="類別">'+['餐飲','交通','門票','購物','住宿','機票','其他'].map(function(x){return '<option>'+x+'</option>';}).join('')+'</select>'+
-   '<input id="c-d" placeholder="日期 2/19" aria-label="日期"><input id="c-a" type="number" min="0" placeholder="金額" aria-label="金額" required>'+
-   '<div class="full"><select id="c-cur" aria-label="幣別" style="border:1px solid var(--line);border-radius:10px;padding:7px 10px;background:#fff"><option value="JPY">日圓</option><option value="TWD">台幣</option></select><label><input type="checkbox" id="c-per"> 每人計價</label><label><input type="checkbox" id="c-est"> 估價</label><button class="btn" type="submit">加入</button></div></form>';
-  var sp=$('#s-p'),sr=$('#s-r');
-  sp.onchange=function(){var v=Math.max(1,parseInt(sp.value,10)||1);if(v!==S.set.people){S.set.people=v;persist();rCost();}};
-  sr.onchange=function(){var v=parseFloat(sr.value);if(v>0&&v!==S.set.rate){S.set.rate=v;persist();rCost();}};
-  $$('[data-cdel]').forEach(function(b){b.onclick=function(){armDelete(b,function(){S.costs=S.costs.filter(function(c){return c.id!==b.dataset.cdel;});persist();rCost();});};});
-  $('#cf').onsubmit=function(e){e.preventDefault();var nm=$('#c-n').value.trim(),a=parseFloat($('#c-a').value);if(!nm||!(a>=0))return;
-    S.costs.push({id:'c'+uid(),n:nm,cat:$('#c-cat').value,date:$('#c-d').value.trim(),amt:a,cur:$('#c-cur').value,per:$('#c-per').checked?1:0,est:$('#c-est').checked?1:0,memo:''});persist();rCost();toast('已加入');};
+  S.set.names=names();
+  var tot=0,jpy=0,est=0,by={},byd={};
+  S.costs.forEach(function(c){var v=toTWD(c);tot+=v;jpy+=toJPY(c);if(c.est)est+=v;by[c.cat]=(by[c.cat]||0)+v;var d=c.date||'行前';byd[d]=(byd[d]||0)+v;});
+  var ppl=+S.set.people||1,cats=Object.keys(by).sort(function(a,b){return by[b]-by[a];});
+  var st=settle(),nm=st.nm,stHtml;
+  if(!st.count)stHtml='<p class="small muted" style="margin:6px 0 0">每筆費用設定「誰付的」，這裡就會自動算出誰要給誰多少。</p>';
+  else if(Math.abs(st.bal)<1)stHtml='<div class="settle ok">目前兩人剛好打平，不用互相給錢。</div>';
+  else stHtml='<div class="settle">'+(st.bal>0?esc(nm[1])+' 要給 '+esc(nm[0]):esc(nm[0])+' 要給 '+esc(nm[1]))+'<b class="num">NT$'+fmt(Math.abs(st.bal))+'</b></div>';
+  var dmax=Math.max.apply(null,CDATES.map(function(d){return byd[d]||0;}).concat([1]));
+  var groups=CDATES.concat(Object.keys(byd).filter(function(d){return CDATES.indexOf(d)<0;}));
+  $('#v-cost').innerHTML='<div class="sh" style="margin-top:4px"><h2>旅費</h2><span class="en">兩人共用</span><span class="act"><button class="btn" id="c-add">'+ic('plus')+'記一筆</button></span></div>'+
+   '<div class="costhero"><div class="lbl">總花費（台幣）</div><div class="big num">NT$'+fmt(tot)+'</div>'+
+   '<div class="sub"><span>每人 <b class="num">NT$'+fmt(tot/ppl)+'</b></span><span>日圓部分 <b class="num">¥'+fmt(jpy)+'</b></span></div>'+
+   '<div class="split" aria-label="已確定與估價的比例"><i style="width:'+(tot?((tot-est)/tot*100):0)+'%"></i></div><div class="sub small"><span>已確定 NT$'+fmt(tot-est)+'</span><span>估價 NT$'+fmt(est)+'</span></div></div>'+
+   '<div class="grid2" style="margin-top:12px"><div class="card"><b class="small">分帳</b>'+
+    (st.count?'<dl class="kv"><dt>'+esc(nm[0])+' 付了</dt><dd class="num">NT$'+fmt(st.paid[0])+'</dd><dt>'+esc(nm[1])+' 付了</dt><dd class="num">NT$'+fmt(st.paid[1])+'</dd></dl>':'')+stHtml+'</div>'+
+   '<div class="card"><b class="small">依類別</b><div class="stackbar">'+cats.map(function(k){return '<i style="width:'+(by[k]/tot*100)+'%;background:'+catColor(k)+'" title="'+esc(k)+'"></i>';}).join('')+'</div>'+
+    '<div class="legend">'+cats.map(function(k){return '<span><i style="background:'+catColor(k)+'"></i>'+esc(k)+' <b class="num">NT$'+fmt(by[k])+'</b></span>';}).join('')+'</div></div></div>'+
+   '<div class="card" style="margin-top:12px"><b class="small">每天花多少</b><div class="days">'+CDATES.map(function(d){var v=byd[d]||0;return '<div class="dcol"><div class="dbar"><i style="height:'+(v/dmax*100)+'%"></i></div><span class="num">'+d+'</span><b class="num">'+(v?fmt(v):'—')+'</b></div>';}).join('')+'</div></div>'+
+   '<div class="sh"><h2 style="font-size:16px">明細</h2><span class="en">點一筆可以修改</span></div>'+
+   groups.filter(function(d){return S.costs.some(function(c){return (c.date||'行前')===d;});}).map(function(d){
+     var items=S.costs.filter(function(c){return (c.date||'行前')===d;});
+     return '<div class="cgroup"><div class="cgh"><span>'+esc(d)+'</span><span class="num">NT$'+fmt(byd[d]||0)+'</span></div>'+items.map(function(c){
+       var pay=c.payer==='A'?nm[0]:(c.payer==='B'?nm[1]:''),fr=c.for==='A'?'只算 '+nm[0]:(c.for==='B'?'只算 '+nm[1]:'');
+       return '<button class="crow" data-ce="'+c.id+'"><i class="dot" style="background:'+catColor(c.cat)+'"></i><span class="cn"><b>'+esc(c.n)+'</b><span class="cm">'+esc(c.cat)+(c.per?'・每人價 ×'+ppl:'')+(pay?'・'+esc(pay)+' 付':'')+(fr?'・'+esc(fr):'')+(c.memo?'・'+esc(c.memo):'')+'</span></span>'+
+        '<span class="ca"><b class="num">NT$'+fmt(toTWD(c))+'</b>'+(c.cur==='JPY'?'<span class="cm num">¥'+fmt(c.amt*(c.per?ppl:1))+'</span>':'')+(c.est?'<span class="chip peach">估價</span>':'')+'</span></button>';}).join('')+'</div>';}).join('')+
+   '<details class="card" style="margin-top:14px"><summary><b class="small">設定：人數、匯率、成員名稱</b></summary><div class="settings">'+
+   '<label for="s-p">人數<input id="s-p" type="number" min="1" value="'+esc(S.set.people)+'"></label><label for="s-r">匯率（1 日圓 = ? 台幣）<input id="s-r" type="number" step="0.0001" min="0" value="'+esc(S.set.rate)+'"></label>'+
+   '<label for="s-a">成員 A<input id="s-a" value="'+esc(nm[0])+'"></label><label for="s-b">成員 B<input id="s-b" value="'+esc(nm[1])+'"></label></div>'+
+   '<p class="small muted" style="margin:0">匯率預設 0.20（2026 年中台銀牌告的大約數字），換錢前改成當天的。</p></details>';
+  var save=function(){var p=Math.max(1,parseInt($('#s-p').value,10)||1),r=parseFloat($('#s-r').value),a=$('#s-a').value.trim()||'A',b=$('#s-b').value.trim()||'B';
+    S.set.people=p;if(r>0)S.set.rate=r;S.set.names=[a,b];persist();rCost();};
+  ['#s-p','#s-r','#s-a','#s-b'].forEach(function(s){$(s).onchange=save;});
+  $('#c-add').onclick=function(){editCost(null);};
+  $$('[data-ce]').forEach(function(b){b.onclick=function(){editCost(b.dataset.ce);};});
+}
+function editCost(id){
+  var c=id?S.costs.filter(function(x){return x.id===id;})[0]:{cat:'餐飲',cur:'JPY',per:0,est:0,payer:'',for:'both',date:''};if(!c)return;
+  var nm=names(),today=(function(){var d=new Date(),m=d.getMonth()+1,dd=d.getDate(),k=m+'/'+dd;return CDATES.indexOf(k)>=0?k:'';})();
+  var date=id?(c.date||'行前'):(today||'行前');
+  openModal('<h3 id="m-title">'+(id?'修改這筆':'記一筆')+'</h3><form class="form" id="cf">'+
+   '<label for="c-n">項目<input id="c-n" required value="'+esc(c.n||'')+'" placeholder="例如：一蘭拉麵"></label>'+
+   '<div class="row"><label for="c-a">金額<input id="c-a" type="number" inputmode="decimal" min="0" required value="'+(c.amt!=null?esc(c.amt):'')+'"></label><label>幣別'+seg('c-cur',[['JPY','日圓'],['TWD','台幣']],c.cur||'JPY')+'</label></div>'+
+   '<label>類別'+seg('c-cat',CATS.map(function(x){return [x[0],x[0]];}),c.cat||'餐飲')+'</label>'+
+   '<label for="c-d">日期<select id="c-d">'+CDATES.map(function(d){return '<option'+(d===date?' selected':'')+'>'+d+'</option>';}).join('')+'</select></label>'+
+   '<label>誰付的'+seg('c-pay',[['A',nm[0]],['B',nm[1]],['','不分帳']],c.payer||'')+'</label>'+
+   '<label>算誰的'+seg('c-for',[['both','兩人平分'],['A','只算 '+nm[0]],['B','只算 '+nm[1]]],c.for||'both')+'</label>'+
+   '<label class="chk" for="c-per"><input type="checkbox" id="c-per"'+(c.per?' checked':'')+'>金額是每人價（自動 × '+(+S.set.people||1)+' 人）</label>'+
+   '<label class="chk" for="c-est"><input type="checkbox" id="c-est"'+(c.est?' checked':'')+'>這是估價，還沒實際付</label>'+
+   '<label for="c-m">備註<input id="c-m" value="'+esc(c.memo||'')+'"></label>'+
+   '<div class="btns">'+(id?'<button type="button" class="ibtn" id="c-del" style="margin-right:auto">'+ic('trash')+'刪除</button>':'')+'<button type="button" class="btn ghost" id="c-c">取消</button><button class="btn" type="submit">儲存</button></div></form>');
+  ['c-cur','c-cat','c-pay','c-for'].forEach(wireSeg);
+  $('#c-c').onclick=closeModal;
+  if(id)$('#c-del').onclick=function(){armDelete($('#c-del'),function(){S.costs=S.costs.filter(function(x){return x.id!==id;});persist();closeModal();rCost();toast('已刪除');});};
+  $('#cf').onsubmit=function(e){e.preventDefault();var n=$('#c-n').value.trim(),a=parseFloat($('#c-a').value);if(!n||!(a>=0))return;
+    var o=id?c:{id:'c'+uid()};o.n=n;o.amt=a;o.cur=segVal('c-cur')||'JPY';o.cat=segVal('c-cat')||'其他';var d=$('#c-d').value;o.date=d==='行前'?'':d;
+    o.payer=segVal('c-pay');o.for=segVal('c-for')||'both';o.per=$('#c-per').checked?1:0;o.est=$('#c-est').checked?1:0;o.memo=$('#c-m').value.trim();
+    if(!id)S.costs.push(o);persist();closeModal();rCost();toast('已儲存');};
 }
 
 /* ---------- CARD ---------- */
@@ -701,9 +820,10 @@ function rCard(){
    phrase('わかめや昆布など、海藻のアレルギーがあります。','我對海帶芽、昆布等海藻過敏。')+
    phrase('だし（出汁）に昆布は入っていますか？','高湯裡有用昆布嗎？')+
    phrase('海藻を抜いてもらえますか？','可以幫我不要放海藻嗎？')+
+   phrase('だしの昆布は大丈夫です。他におすすめの料理はありますか？','高湯裡的昆布沒關係。有沒有推薦其他餐點？')+
    phrase('味噌汁にわかめは入っていますか？','味噌湯裡有海帶芽嗎？')+
    '</div><div class="card" style="margin-top:12px"><b class="small">聽懂店員的回答</b><dl class="kv"><dt>入っています</dt><dd>有放</dd><dt>入っていません</dt><dd>沒有放</dd><dt>抜けます</dt><dd>可以拿掉</dd><dt>抜けません</dt><dd>沒辦法拿掉</dd><dt>大丈夫です</dt><dd>沒問題（沒有放）</dd></dl></div>'+
-   '<div class="callout peach" style="margin-top:12px">常見藏有海藻的地方：日式高湯（昆布だし）、味噌湯的海帶芽、拉麵上的海苔、沙拉、佃煮、飯糰海苔、湯豆腐。海苔也是海藻，有需要的話一併請店家拿掉。</div>';
+   '<div class="callout peach" style="margin-top:12px">字卡補充寫的是：高湯裡有昆布等海藻也沒關係，或請店家推薦其他餐點。要特別注意的是看得到的海藻：味噌湯的海帶芽、拉麵上的海苔、沙拉、佃煮、飯糰海苔。</div>';
   $$('#v-card [data-l]').forEach(function(b){b.onclick=function(){LOCAL.lang=b.dataset.l;saveLocal();rCard();};});
   $('#acard').onclick=function(){$('#fullimg').src=src;$('#fullimg').alt=$('#acard img').alt;$('#full').classList.add('on');};
 }
