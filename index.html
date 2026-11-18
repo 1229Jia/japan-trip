@@ -504,26 +504,22 @@ body{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 @media (prefers-reduced-motion:no-preference){.sc,.pc,.drow{transition:border-color .15s}}
 
 /* ===== v5 soft redesign ===== */
-:root{--r:24px;--shadow:0 1px 2px rgba(34,50,74,.04),0 8px 24px rgba(34,50,74,.07)}
+:root{--shadow:0 1px 2px rgba(34,50,74,.04),0 8px 24px rgba(34,50,74,.07)}
 body{background:#F6F1EA;background-image:radial-gradient(60% 40% at 100% 0%,rgba(155,183,212,.28),transparent 70%),radial-gradient(50% 35% at 0% 30%,rgba(123,196,196,.18),transparent 70%),radial-gradient(60% 40% at 100% 85%,rgba(222,205,190,.45),transparent 70%);background-attachment:fixed}
 .top{background:rgba(246,241,234,.8);border-bottom:0}
-.card,.pc,.tstep{border:0!important;border-radius:var(--r);box-shadow:var(--shadow)}
 .emo{width:1.25em;height:1.25em;flex:0 0 auto;vertical-align:-.25em;display:inline-block}
 .emo.big{width:44px;height:44px}
 .chip .emo,.fb .emo{width:16px;height:16px;margin-right:2px}
-.fb{border:0;box-shadow:0 1px 2px rgba(34,50,74,.06),0 2px 8px rgba(34,50,74,.05);padding:7px 14px;border-radius:999px;background:#fff}
 .fb.on{background:var(--ink);color:#fff}
 .shic{width:44px!important;height:44px!important;border-radius:16px!important;background:#fff!important;box-shadow:var(--shadow)}
 .shic .emo{width:28px;height:28px}
 .sh{margin:30px 0 12px}.sh h2{font-size:21px;letter-spacing:.01em;background:none}
 .sh .act{margin-left:auto}
 .sic{width:auto!important;height:auto!important;background:none!important;margin-right:6px}.sic .emo{width:22px;height:22px;vertical-align:-5px}
-.hero{border-radius:32px;box-shadow:var(--shadow)}
 .hero img{height:260px}
 .hero .ov h1{font-size:30px;letter-spacing:.02em}
 .cd{display:inline-flex;align-items:baseline;gap:6px;background:#fff;border-radius:999px;padding:4px 14px;margin-top:8px;box-shadow:var(--shadow)}
 .cd b{font-size:26px}
-.credit,.cap{font-size:10px;opacity:.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* day carousel */
 .dcar{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 14px;scrollbar-width:none}
 .dcar::-webkit-scrollbar{display:none}
@@ -574,9 +570,6 @@ body{background:#F6F1EA;background-image:radial-gradient(60% 40% at 100% 0%,rgba
 .walk .emo{width:20px;height:20px}
 .walk span{background:#fff;border-radius:999px;padding:3px 10px;box-shadow:0 1px 2px rgba(34,50,74,.06)}
 .walk.far span{background:var(--sky-l)}
-.stop .no{border-radius:12px}
-.stop .sc{border:0!important;border-radius:22px!important;box-shadow:var(--shadow)}
-.tab{border:0;border-radius:18px;box-shadow:0 1px 2px rgba(34,50,74,.06)}
 .tab.on{background:var(--ink);color:#fff}.tab.on span{color:#fff;opacity:.8}
 /* nav emoji */
 nav.bn a i{display:grid;place-items:center;width:44px;height:30px;border-radius:999px;transition:background .2s,transform .2s}
@@ -617,8 +610,6 @@ nav.bn a.on{color:var(--ink);font-weight:700}
 .fcol.today{background:#fff;box-shadow:0 1px 3px rgba(34,50,74,.08)}
 .fcol.past{opacity:.55}
 .fdl{font-size:12px;font-weight:700;line-height:1.1;text-align:center}.fdl i{display:block;font-style:normal;font-weight:400;font-size:10.5px;color:var(--muted)}
-.stop .tools{flex-wrap:nowrap}.stop .tools .links{flex-wrap:wrap;min-width:0}
-.stop .tools .ibtn{width:32px;height:32px;padding:0;justify-content:center;flex:0 0 auto}
 </style>
 </head>
 <body>
@@ -844,28 +835,32 @@ function rHome(){
   $('#v-home').innerHTML=
   '<div class="hero"><img src="img/ph/kawaguchi.jpg" alt="河口湖與富士山"><div class="ov"><h1>富士・東京 8 日</h1><div class="d">2027.02.16 – 02.23 ・ 河口湖 2 泊＋新宿 5 泊 ・ 2 人</div>'+cd+'</div></div>'+
   '<div class="credit">'+credit('kawaguchi','封面照片')+'</div>'+
-  '<div class="sh">'+shIc('sun')+'<h2>天氣・富士山</h2></div><div class="card" id="wxbox"><div class="small muted">載入天氣中…</div></div>'+
-  '<div class="sh">'+shIc('calendar')+'<h2>8 天行程</h2><span class="act small muted">左右滑</span></div><div class="dcar">'+
-  S.days.map(function(d,i){return '<button class="dc" data-day="'+d.id+'">'+dayThumb(d,i)+'<span class="dcb"><b>'+esc(d.zh)+'</b><small>'+d.date+'（'+d.dow+'）'+'</small></span><span class="dcr">'+em(d.reg==='fuji'?'mount-fuji':'tokyo-tower')+'</span></button>';}).join('')+'</div>'+
-  '<div class="sh" id="flight">'+shIc('plane')+'<h2>機票</h2><span class="act small muted">捷星日本航空</span></div><div class="stack">'+
+  '<div class="sh">'+shIc('sun')+'<h2>天氣與富士山</h2><span class="en">即時</span></div><div class="card" id="wxbox"><div class="small muted">載入天氣中…</div></div>'+
+
+  '<div class="sh">'+shIc('calendar')+'<h2>行程總覽</h2><span class="en">Overview</span></div><div class="dlist">'+
+  S.days.map(function(d,i){return '<button class="drow" data-day="'+d.id+'">'+dayThumb(d,i)+'<div><div class="t">'+esc(d.zh)+'</div><div class="s">'+d.date+'（'+d.dow+'）・'+d.stops.length+' 站</div></div><span class="chip '+(d.reg==='fuji'?'sky':'mint')+'">'+ic(d.reg==='fuji'?'mtn':'tower')+(d.reg==='fuji'?'富士':'東京')+'</span></button>';}).join('')+'</div>'+
+
+  '<div class="sh" id="flight">'+shIc('plane')+'<h2>航班與行李</h2><span class="en">Flights</span></div><div class="stack">'+
   flightCard('去程','GK012','2/16','二','TPE','台北桃園','T1','02:30','NRT','東京成田','T3','06:35','')+
   flightCard('回程','GK011','2/23','二','NRT','東京成田','T3','22:25','TPE','台北桃園','T1','01:30','+1')+
-  '<div class="bagt">'+
-  '<div class="t-lil">'+em('backpack')+'<b>個人物品</b><span>1 件・座位下</span></div>'+
-  '<div class="t-blu">'+em('shopping-bags')+'<b>手提行李</b><span>56×36×23 cm</span></div>'+
-  '<div class="t-red">'+em('warning')+'<b class="num">合計 7 kg</b><span>上面兩件加起來</span></div>'+
-  '<div class="t-grn">'+em('luggage')+'<b class="num">託運 20 kg</b><span>每人 1 件</span></div></div>'+
-  '<div class="pill-note">'+em('alarm-clock')+'<span>提早 3 小時到機場：去程 <b class="num">2/15 23:30</b>・回程 <b class="num">2/23 19:25</b></span></div></div>'+
-  '<div class="sh" id="stay">'+shIc('bed')+'<h2>住宿</h2></div><div class="grid2">'+
-  hotel('2/16–2/18・2 晚','THE NOBORISAKA HOTEL','登り坂ホテル・河口湖','6832 Funatsu, Fujikawaguchiko','16:00','10:00','+81-555-72-5300',[['hot-springs','大浴場'],['taxi','車站搭計程車']],'THE NOBORISAKA HOTEL Fujikawaguchiko','noborisaka')+
-  hotel('2/18–2/23・5 晚','APA 新宿御苑前','APA Hotel Shinjuku Gyoemmae','2-2-8 Shinjuku, Shinjuku-ku','15:00','看訂房資料','—',[['metro','丸之內線旁'],['person-walking','走到新宿三丁目']],'APA Hotel Shinjuku Gyoemmae','gyoen')+'</div>'+
-  '<div class="sh">'+shIc('bus')+'<h2>富士山交通</h2><span class="act small muted">Mt. Fuji Pass</span></div><div class="card">'+
-  '<div class="routes">'+[['red-circle','紅線','河口湖'],['green-circle','綠線','西湖'],['blue-circle','藍線','精進湖・本栖湖'],['oncoming-bus','富士湖號','忍野・山中湖'],['railway-car','富士急行線','大月–河口湖'],['ship','遊覽船・纜車','免費或優惠']].map(function(x){return '<div>'+em(x[0])+'<b>'+x[1]+'</b><small>'+x[2]+'</small></div>';}).join('')+'</div>'+
-  '<div class="links">'+lk(D.L.fujitour,'時刻表')+lk(D.L.kimiyo,'巴士介紹')+lk(D.L.willer,'成田→河口湖')+lk(D.L.hwbus,'河口湖→新宿')+'</div></div>'+
-  '<div class="sh">'+shIc('snowflake')+'<h2>2 月穿搭</h2></div><div class="grid2 wear">'+
-  '<div class="card">'+em('mount-fuji','big')+'<b>河口湖</b><span class="num">−5 ~ 8°C</span><small>羽絨＋發熱衣・防滑鞋</small></div>'+
-  '<div class="card">'+em('tokyo-tower','big')+'<b>東京</b><span class="num">2 ~ 11°C</span><small>洋蔥式・室內很暖</small></div></div>'+
-  '<p class="small muted" style="margin-top:16px">★ 是你自己找的地點・'+lk(D.L.mylist,'Google 地圖清單')+'</p>';
+  '<div class="card"><div class="fhead"><strong>行李規定（每人，去回程相同）</strong></div><div class="bagt">'+
+  '<div class="t-lil">'+em('backpack')+'<b>個人物品</b><span>1 件・前方座位下</span></div>'+
+  '<div class="t-blu">'+em('shopping-bags')+'<b>手提行李</b><span>1 件・56×36×23 cm</span></div>'+
+  '<div class="t-red big">'+em('warning')+'<b class="num">合計 7 kg</b><span>個人物品＋手提行李</span></div>'+
+  '<div class="t-grn">'+em('luggage')+'<b class="num">託運 20 kg</b><span>100×100×100 cm 內</span></div></div>'+'<div class="callout" style="margin-top:10px">行程單建議起飛前 3 小時到機場：去程 2/15 晚上 23:30 前到桃園，回程 2/23 19:25 前到成田。行程單 PDF 請存在手機裡，網站不放，因為上面有姓名和訂位代號。</div></div></div>'+
+
+  '<div class="sh" id="stay">'+shIc('bed')+'<h2>住宿</h2><span class="en">Stay</span></div><div class="grid2">'+
+  hotel('2/16 – 2/18・2 晚','THE NOBORISAKA HOTEL','登り坂ホテル・河口湖','6832 Funatsu, Fujikawaguchiko, Yamanashi 401-0301','16:00','10:00','+81-555-72-5300','離河口湖站走路約 20–30 分，拖行李搭計程車。有大浴場、三溫暖。','THE NOBORISAKA HOTEL Fujikawaguchiko','noborisaka')+
+  hotel('2/18 – 2/23・5 晚','APA 飯店〈新宿御苑前〉','APA Hotel Shinjuku Gyoemmae','2-2-8 Shinjuku, Shinjuku-ku, Tokyo 160-0022','15:00','看訂房資料','—','丸之內線「新宿御苑前」站旁，走到新宿三丁目也很近。','APA Hotel Shinjuku Gyoemmae','gyoen')+'</div>'+
+
+  '<div class="sh">'+shIc('bus')+'<h2>富士山交通</h2><span class="en">Around Fuji</span></div><div class="card">'+
+  '<p style="margin:0 0 8px;font-size:14px">Mt. Fuji Pass 可無限搭乘富士五湖的觀光巴士：紅線（河口湖）、綠線（西湖）、藍線（鳴澤・精進湖・本栖湖），還有往忍野八海和山中湖的「富士湖號」，以及富士急行線（大月–河口湖）。全景纜車、河口湖遊覽船也有免費或優惠。</p>'+
+  '<div class="links">'+lk(D.L.kimiyo,'五湖周遊巴士介紹')+lk(D.L.fujitour,'路線・時刻表')+lk(D.L.fujikko,'富士湖號時刻表')+lk(D.L.willer,'成田 → 河口湖 訂票')+lk(D.L.hwbus,'河口湖 → 新宿 訂票')+lk(D.L.hwteach,'高速巴士訂票教學')+'</div></div>'+
+
+  '<div class="sh">'+shIc('snow')+'<h2>2 月的天氣</h2><span class="en">Weather</span></div><div class="grid2">'+
+  '<div class="card wx">'+shIc('snowflake')+'<div><strong>河口湖</strong><p class="small muted" style="margin:4px 0 0">早晚常在零度以下，可能有積雪。羽絨外套＋發熱衣，鞋子要防滑。</p></div></div>'+
+  '<div class="card wx">'+shIc('cloud')+'<div><strong>東京</strong><p class="small muted" style="margin:4px 0 0">白天約 10 度上下，乾冷、風大，室內暖氣很強，洋蔥式穿法。</p></div></div></div>'+
+  '<p class="small muted" style="margin-top:18px">你的 Google 地圖清單「日本8天7夜」的 21 個地點都已經放進行程、探索和美食，卡片上有綠點的就是你存的。'+lk(D.L.mylist,'打開清單')+'</p>';
   $$('#v-home [data-ct]').forEach(function(a){a.addEventListener('click',function(){LOCAL.ctab=a.dataset.ct;saveLocal();});});
   if(WX.kawa||WX.tokyo)wxCard();else loadWeather(function(){if(cur()==='home')wxCard();if(cur()==='plan')rPlan();});
   $$('#v-home [data-day]').forEach(function(b){b.onclick=function(){LOCAL.day=b.dataset.day;saveLocal();go('plan');};});
@@ -877,14 +872,12 @@ function flightCard(dir,no,date,dow,fc,fa,ft,ftm,tc,ta,tt,ttm,plus){
   '<div class="bp-info"><div><small>日期</small><b class="num">'+date+'（'+dow+'）</b></div><div><small>起飛</small><b class="num">'+ftm+'</b></div><div><small>抵達</small><b class="num">'+ttm+(plus?'<sup>'+plus+'</sup>':'')+'</b></div></div></div>'+
   '<div class="bp-stub"><small>BOARDING</small><b class="num">'+no+'</b><div class="bar"></div></div></div>';
 }
-function hotel(when,name,sub,addr,cin,cout,tel,feats,q,ph){
-  return '<div class="card hcard">'+(PH[ph]?'<div class="himg">'+photo(ph,name)+'<span class="hwhen">'+when+'</span></div>':'')+
-  '<div class="hb"><h3>'+esc(name)+'</h3><div class="small muted">'+esc(sub)+'</div>'+
-  '<div class="hrow">'+em('round-pushpin')+'<span>'+esc(addr)+'</span></div>'+
-  '<div class="hrow">'+em('old-key')+'<span>入住 <b class="num">'+cin+'</b>・退房 <b class="num">'+cout+'</b></span></div>'+
-  (tel!=='—'?'<div class="hrow">'+em('mobile-phone')+'<span class="num">'+esc(tel)+'</span></div>':'')+
-  '<div class="feats">'+feats.map(function(f){return '<span>'+em(f[0])+f[1]+'</span>';}).join('')+'</div>'+
-  '<div class="links">'+lk(mapUrl(q),'地圖')+'</div>'+(PH[ph]?'<div class="credit">'+credit(ph,'照片')+'</div>':'')+'</div></div>';
+function hotel(when,name,sub,addr,cin,cout,tel,note,q,ph){
+  return '<div class="card" style="padding:0;overflow:hidden">'+(PH[ph]?'<div style="aspect-ratio:16/8">'+photo(ph,name).replace('<img','<img style="width:100%;height:100%;object-fit:cover"')+'</div>':'')+
+  '<div style="padding:14px 16px"><span class="chip mint">'+when+'</span><h3 style="font-size:16px;margin:8px 0 0">'+esc(name)+'</h3><div class="small muted">'+esc(sub)+'</div>'+
+  '<dl class="kv"><dt>地址</dt><dd>'+esc(addr)+'</dd><dt>入住</dt><dd class="num">'+cin+'</dd><dt>退房</dt><dd class="num">'+cout+'</dd><dt>電話</dt><dd class="num">'+esc(tel)+'</dd></dl>'+
+  '<p class="small muted" style="margin:8px 0 6px">'+esc(note)+'</p><div class="links">'+lk(mapUrl(q),'Google 地圖')+'</div>'+
+  (PH[ph]?'<div class="credit">'+credit(ph,'照片為周邊景色')+'</div>':'')+'</div></div>';
 }
 
 /* ---------- PLAN ---------- */
@@ -896,7 +889,7 @@ function rPlan(){if(!WX.kawa&&!WX._loading){WX._loading=1;loadWeather(function()
   '<div class="dayh"><div class="en">DAY '+(idx+1)+' ・ '+esc(d.en)+'</div><h2>'+esc(d.zh)+'</h2>'+dayWx(d)+(d.note?'<p>'+esc(d.note)+'</p>':'')+
   '<div style="margin-top:8px"><button class="ibtn" id="edday">'+ic('edit')+'改標題和備註</button></div></div>'+
   mapHtml(d.map||d.id,pts,'DAY '+(idx+1))+
-  '<ol class="stops">'+d.stops.map(function(s,i){return (i?walkHtml(d.stops[i-1],s):'')+stopHtml(s,i,d.stops.length);}).join('')+'</ol>'+
+  '<ol class="stops">'+d.stops.map(function(s,i){return stopHtml(s,i,d.stops.length);}).join('')+'</ol>'+
   '<div style="margin-top:14px"><button class="btn" id="addstop">'+ic('plus')+'新增一站</button></div>';
   wirePins($('#v-plan'));
   $$('#v-plan .tab').forEach(function(b){b.onclick=function(){LOCAL.day=b.dataset.day;saveLocal();rPlan();};});
@@ -907,15 +900,6 @@ function rPlan(){if(!WX.kawa&&!WX._loading){WX._loading=1;loadWeather(function()
     if(a==='up'&&i>0){var t=st[i];st[i]=st[i-1];st[i-1]=t;persist();rPlan();}
     if(a==='down'&&i<st.length-1){var t2=st[i];st[i]=st[i+1];st[i+1]=t2;persist();rPlan();}
     if(a==='del')armDelete(b,function(){st.splice(i,1);persist();rPlan();toast('已刪除');});};});
-}
-function stopLL(s){if(s.k==='flight')return null;var f=s.food?foodById(s.food):null,p=s.ref?placeById(s.ref):null;return s.ll||(f&&f.ll)||(p&&p.ll)||null;}
-function isMove(s){return s.k==='flight'||['bus','train','plane'].indexOf(s.ic)>=0;}
-function walkHtml(a,b){
-  if(isMove(a)||isMove(b))return '';var p=stopLL(a),q=stopLL(b);if(!p||!q)return '';
-  var R=6371000,t=Math.PI/180,dl=(q[0]-p[0])*t,dn=(q[1]-p[1])*t,x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(p[0]*t)*Math.cos(q[0]*t)*Math.sin(dn/2)*Math.sin(dn/2);
-  var m=2*R*Math.asin(Math.sqrt(x))*1.3;if(m<60)return '';
-  if(m>2500)return '<li class="walk far">'+em('metro')+'<span>約 <b class="num">'+(m/1000).toFixed(1)+' km</b>・建議搭車</span></li>';
-  return '<li class="walk">'+em('person-walking')+'<span>步行約 <b class="num">'+Math.max(1,Math.round(m/75))+' 分</b>・'+(m<1000?Math.round(m/10)*10+' m':(m/1000).toFixed(1)+' km')+'</span></li>';
 }
 function stopHtml(s,i,n){
   var f=s.food?foodById(s.food):null,phk=s.ph||(f&&f.dish?'d-'+f.dish:'');
@@ -935,7 +919,7 @@ function stopHtml(s,i,n){
    '<div class="tools"><div class="links">'+links+'</div><span class="sp"></span>'+
    '<button class="ibtn" data-act="up" data-i="'+i+'" aria-label="往上移"'+(i===0?' disabled':'')+'>'+ic('up')+'</button>'+
    '<button class="ibtn" data-act="down" data-i="'+i+'" aria-label="往下移"'+(i===n-1?' disabled':'')+'>'+ic('down')+'</button>'+
-   '<button class="ibtn" data-act="edit" data-i="'+i+'" aria-label="編輯">'+ic('edit')+'</button>'+
+   '<button class="ibtn" data-act="edit" data-i="'+i+'">'+ic('edit')+'編輯</button>'+
    '<button class="ibtn" data-act="del" data-i="'+i+'" aria-label="刪除">'+ic('trash')+'</button></div></div></div></li>';
 }
 var ICOPTS=[['pin','景點'],['food','吃飯'],['coffee','咖啡甜點'],['shop','逛街'],['cart','採買'],['mtn','自然'],['temple','寺社'],['tower','展望台'],['cam','拍照'],['bus','巴士'],['train','電車'],['plane','飛機'],['hotel','住宿']];
@@ -1095,27 +1079,19 @@ function packKey(p){return p[1].replace(/（.*$/,'');}
 function rList(){
   var done=S.todos.filter(function(t){return t.done;}).length,groups=[];S.todos.forEach(function(t){if(groups.indexOf(t.g)<0)groups.push(t.g);});
   var pd=PACK.filter(function(p){return LOCAL.pack[packKey(p)];}).length,pg=[];PACK.forEach(function(p){if(pg.indexOf(p[0])<0)pg.push(p[0]);});
-  var lt=LOCAL.ltab||'todo';
-  var seg='<div class="seg big"><button data-lt="todo" class="'+(lt==='todo'?'on':'')+'">'+em('check-mark-button')+'待辦</button><button data-lt="pack" class="'+(lt==='pack'?'on':'')+'">'+em('luggage')+'打包</button><button data-lt="buy" class="'+(lt==='buy'?'on':'')+'">'+em('shopping-cart')+'必買</button></div>';
-  if(lt==='buy'){$('#v-list').innerHTML=seg+buyHtml();
-    $$('#v-list [data-lt]').forEach(function(b){b.onclick=function(){LOCAL.ltab=b.dataset.lt;saveLocal();rList();};});
-    $$('[data-bc]').forEach(function(b){b.onclick=function(){LOCAL.bcat=b.dataset.bc;saveLocal();rList();};});
-    $$('[data-buy]').forEach(function(c){c.onchange=function(){LOCAL.buy=LOCAL.buy||{};LOCAL.buy[c.dataset.buy]=c.checked;saveLocal();c.closest('.bc').classList.toggle('got',c.checked);var g=BUY.filter(function(b){return LOCAL.buy[b[0]];}).length;$('#v-list .sh .act').textContent='買到 '+g+' / '+BUY.length;};});
-    return;}
-  $('#v-list').innerHTML=seg+'<div class="lt-'+lt+'"><div class="sh">'+shIc('check')+'<h2>待辦</h2><span class="act small muted">兩人共用</span></div>'+
+  $('#v-list').innerHTML='<div class="sh" style="margin-top:4px">'+shIc('check')+'<h2>待辦</h2><span class="en">兩人共用</span></div>'+
    '<div class="small muted num">完成 '+done+' / '+S.todos.length+'</div><div class="prog"><i style="width:'+(S.todos.length?done/S.todos.length*100:0)+'%"></i></div>'+
-   groups.map(function(g){return '<div class="tg"><h3>'+ei({'行前':'check','訂票':'ticket','當地':'pin','我的':'heart'}[g]||'check')+esc(g)+'</h3>'+S.todos.filter(function(t){return t.g===g;}).map(function(t){
+   groups.map(function(g){return '<div class="tg"><h3>'+ic({'行前':'check','訂票':'ticket','當地':'pin','我的':'heart'}[g]||'check')+esc(g)+'</h3>'+S.todos.filter(function(t){return t.g===g;}).map(function(t){
     return '<div class="ti'+(t.done?' done':'')+'"><input type="checkbox" id="td-'+t.id+'" data-td="'+t.id+'"'+(t.done?' checked':'')+'><label for="td-'+t.id+'">'+esc(t.t)+'</label>'+(t.u?lk(t.u,'連結'):'')+
     '<button class="ibtn" data-tdel="'+t.id+'" aria-label="刪除 '+esc(t.t)+'">'+ic('trash')+'</button></div>';}).join('')+'</div>';}).join('')+
    '<form class="addrow" id="tadd"><select id="t-g" aria-label="分類">'+['行前','訂票','當地','我的'].map(function(g){return '<option>'+g+'</option>';}).join('')+'</select><input id="t-t" placeholder="新增待辦" aria-label="待辦內容"><button class="btn" type="submit">新增</button></form>'+
-   '<div class="pk-wrap"><div class="sh">'+shIc('lug')+'<h2>打包清單</h2><span class="act small muted">只存在這支手機</span></div><div class="small muted num">已打包 '+pd+' / '+PACK.length+'</div><div class="prog"><i style="width:'+pd/PACK.length*100+'%"></i></div>'+
-   pg.map(function(g){return '<div class="tg"><h3>'+ei({'證件':'passport','金錢':'wallet','電子':'plug','保暖':'snowflake','衣物':'shirt','眼睛':'eye','保養梳化':'sparkle','其他':'bag'}[g]||'bag')+g+'</h3>'+PACK.map(function(p,i){if(p[0]!==g)return '';var on=!!LOCAL.pack[packKey(p)];
+   '<div class="sh">'+shIc('bag')+'<h2>打包清單</h2><span class="en">只存在這支手機</span></div><div class="small muted num">已打包 '+pd+' / '+PACK.length+'</div><div class="prog"><i style="width:'+pd/PACK.length*100+'%"></i></div>'+
+   pg.map(function(g){return '<div class="tg"><h3>'+ic({'證件':'passport','金錢':'wallet','電子':'plug','保暖':'snow','衣物':'shirt','眼睛':'eye','保養梳化':'sparkle','其他':'bag'}[g]||'bag')+g+'</h3>'+PACK.map(function(p,i){if(p[0]!==g)return '';var on=!!LOCAL.pack[packKey(p)];
     return '<div class="ti'+(on?' done':'')+'"><input type="checkbox" id="pk-'+i+'" data-pk="'+i+'"'+(on?' checked':'')+'><label for="pk-'+i+'">'+p[1]+'</label></div>';}).join('')+'</div>';}).join('')+
-   '<p class="small muted">'+em('electric-plug')+' 日本插座跟台灣一樣，不用轉接頭。</p></div>'+
+   '<p class="small muted">日本插座跟台灣一樣，不用帶轉接頭。</p>'+
    '<div class="sh">'+shIc('cloud')+'<h2>同步與版本</h2><span class="en">Sync</span></div><div class="card"><p class="small" style="margin:0 0 10px">行程、待辦、費用和新增的店家是兩人共用的，任何人改了另一個人會即時看到。收藏和打包清單只存在各自的手機。</p>'+
    '<div class="addrow" style="margin:0"><input id="nm" placeholder="你的名字（顯示在版本紀錄）" value="'+esc(LOCAL.name)+'" aria-label="你的名字"><button class="btn ghost" id="nm-s">儲存名字</button></div>'+
-   '<div style="margin-top:14px"><b class="small">版本紀錄</b><p class="small muted" style="margin:2px 0 0">每次修改會自動存一份，保留最近 6 份。改錯了可以回到之前的版本。</p><div class="hist" id="hist"><div class="small muted">載入中…</div></div></div></div></div>';
-  $$('#v-list [data-lt]').forEach(function(b){b.onclick=function(){LOCAL.ltab=b.dataset.lt;saveLocal();rList();};});
+   '<div style="margin-top:14px"><b class="small">版本紀錄</b><p class="small muted" style="margin:2px 0 0">每次修改會自動存一份，保留最近 6 份。改錯了可以回到之前的版本。</p><div class="hist" id="hist"><div class="small muted">載入中…</div></div></div></div>';
   $$('[data-td]').forEach(function(c){c.onchange=function(){var t=S.todos.filter(function(x){return x.id===c.dataset.td;})[0];t.done=c.checked;persist();rList();};});
   $$('[data-tdel]').forEach(function(b){b.onclick=function(){armDelete(b,function(){S.todos=S.todos.filter(function(x){return x.id!==b.dataset.tdel;});persist();rList();});};});
   $$('[data-pk]').forEach(function(c){c.onchange=function(){LOCAL.pack[packKey(PACK[+c.dataset.pk])]=c.checked;saveLocal();rList();};});
@@ -1246,12 +1222,12 @@ function wxCard(){
     var days=d.daily.time.slice(0,4).map(function(t,i){var ww=wcode(d.daily.weather_code[i]);return '<div class="wd"><span>'+(i===0?'今天':(+t.slice(5,7))+'/'+(+t.slice(8,10)))+'</span>'+wxi(ww[0])+'<b class="num">'+Math.round(d.daily.temperature_2m_max[i])+'°</b><span class="num lo">'+Math.round(d.daily.temperature_2m_min[i])+'°</span></div>';}).join('');
     return '<div class="wp"><div class="wnow"><span class="wic">'+ei(w[0])+'</span><div><b>'+WXLOC[k].n+'</b><div class="small muted">'+w[1]+'・現在 <b class="num">'+(d.current?Math.round(d.current.temperature_2m):'—')+'°C</b></div></div></div><div class="wdays">'+days+'</div></div>';};
   var fv=fujiVis()||[],td=todayStr(),wk='日一二三四五六';
-  var fh=fv.length?'<div class="fuji"><div class="fh">'+em('mount-fuji','big')+'<div><b>富士山能見度指數</b><div class="small muted">1–10 分，越高越容易看到</div></div></div>'+
-    '<div class="fwrap"><div class="frow-l"><span></span><span>上午</span><span>下午</span></div><div class="fcols">'+
-    fv.map(function(x){var dt=new Date(x.day+'T00:00:00+09:00'),t=x.day===td,lab=t?'今天':(+x.day.slice(5,7))+'/'+(+x.day.slice(8,10));
-      return '<div class="fcol'+(x.day<td?' past':'')+(t?' today':'')+'"><span class="fdl">'+lab+'<i>'+(t?'':wk[dt.getUTCDay()])+'</i></span>'+fdot(x.am)+fdot(x.pm)+'</div>';}).join('')+'</div></div>'+
+  var fh=fv.length?'<div class="fuji"><div class="fh">'+em('mount-fuji','big')+'<div><b>富士山能見度指數</b><div class="small muted">1–10，越高越看得到・依山頂雲量推算</div></div></div>'+
+    '<div class="fgrid"><span></span><span class="small muted">上午</span><span class="small muted">下午</span>'+
+    fv.map(function(x){var dt=new Date(x.day+'T00:00:00+09:00'),lab=x.day===td?'<b>今天</b>':(+x.day.slice(5,7))+'/'+(+x.day.slice(8,10))+'（'+wk[dt.getUTCDay()]+'）';
+      return '<span class="fl'+(x.day<td?' past':'')+'">'+lab+(x.day<td?'<i>前幾天</i>':'')+'</span>'+fdot(x.am)+fdot(x.pm);}).join('')+'</div>'+
     '<div class="flegend"><span class="fdot hi">8</span>很清楚<span class="fdot md">5</span>有機會<span class="fdot lo">2</span>很難看到</div></div>':'';
-  el.innerHTML=place('kawa')+place('tokyo')+fh+ext+'<div class="small muted" style="margin-top:8px">站內為推算值，出門前點上方網站確認。</div>';
+  el.innerHTML=place('kawa')+place('tokyo')+fh+ext+'<div class="small muted" style="margin-top:8px">站內數字來自 Open-Meteo，每 30 分鐘更新；出門前再點上面兩個網站確認。</div>';
 }
 function dayWx(d){
   var key=d.reg==='fuji'?'kawa':'tokyo',w=WX[key];if(!w||!w.daily)return '';
@@ -1289,52 +1265,6 @@ function taxHtml(){
 
 
 
-/* ---------- MUST-BUY ---------- */
-var BUYCAT=[['gift','伴手禮','wrapped-gift'],['snack','零食','cookie'],['drug','藥妝保養','lotion-bottle'],['makeup','彩妝','lipstick'],['goods','雜貨','sparkles']];
-var BUY=[
- ['tokyobanana','gift','東京芭娜娜','東京ばな奈','東京車站・羽田・成田','香蕉卡士達海綿蛋糕，東京代表伴手禮'],
- ['sugarbutter','gift','砂糖奶油樹','シュガーバターの木','東京車站','酥脆穀物餅乾夾白巧克力','cookie'],
- ['maple','gift','楓糖男孩','THE MAPLE MANIA','東京車站 GRANSTA','楓糖奶油夾心餅乾','maple-leaf'],
- ['nycheese','gift','NY Perfect Cheese','ニューヨークパーフェクトチーズ','東京車站','起司奶油脆餅，常要排隊','cheese-wedge'],
- ['kikyou','gift','桔梗信玄餅','桔梗信玄餅','河口湖車站・山梨休息站','山梨名產，黃豆粉麻糬淋黑糖蜜'],
- ['shiroi','gift','白色戀人','白い恋人','機場・百貨北海道展','白巧克力夾心薄餅'],
- ['royce','gift','ROYCE 生巧克力','ロイズ 生チョコレート','機場・百貨','要冷藏，最後一天再買'],
- ['fujigoods','gift','富士山紀念章','富士山グッズ','河口湖・富士山周邊','鑰匙圈、紀念章，只有這裡買得到'],
- ['kitkat','snack','日本限定 KitKat','キットカット','唐吉訶德・超市','抹茶、地區限定口味'],
- ['jagariko','snack','Jagarico 薯條餅乾','じゃがりこ','超商・超市','杯裝洋芋條，沙拉口味最經典'],
- ['calbee','snack','Calbee+ 現炸洋芋片','カルビープラス','Calbee 專門店','現炸熱的，有店鋪限定口味'],
- ['pocky','snack','Pocky 限定口味','ポッキー','超市・車站','地區限定盒裝適合送人'],
- ['ichiran','snack','一蘭泡麵','一蘭 カップ麺','一蘭店鋪・唐吉訶德','在家也能吃到的豚骨拉麵','steaming-bowl'],
- ['furikake','snack','拌飯香鬆','ふりかけ','超市','小包裝好帶，口味很多'],
- ['kewpie','snack','Kewpie 美乃滋','キユーピー マヨネーズ','超市','日本版比較濃郁'],
- ['matcha','snack','抹茶粉・抹茶點心','抹茶','超市・百貨','做抹茶拿鐵超方便'],
- ['sake','snack','富士山日本酒','日本酒','河口湖酒藏・超市','用富士山伏流水釀的在地酒'],
- ['santefx','drug','眼藥水','目薬（サンテ・ロート）','藥妝店','清涼度分很多級，挑適合自己的'],
- ['salonpas','drug','撒隆巴斯貼布','サロンパス','藥妝店','走路走累了必備'],
- ['anessa','drug','安耐曬防曬','アネッサ','藥妝店','金瓶是招牌'],
- ['hadalabo','drug','肌研化妝水','肌ラボ 極潤','藥妝店','玻尿酸保濕，平價大瓶','lotion-bottle'],
- ['lululun','drug','LuLuLun 面膜','ルルルン','藥妝店','一包 7 片或 32 片，有地區限定','relieved-face'],
- ['melano','drug','Melano CC 美容液','メラノCC','藥妝店','維他命 C 美容液','lemon'],
- ['kyusoku','drug','休足時間腳貼','休足時間','藥妝店','走一整天後貼在小腿很舒服','foot'],
- ['canmake','makeup','CANMAKE 腮紅','キャンメイク','藥妝店・PLAZA','平價、顏色可愛','lipstick'],
- ['kate','makeup','KATE 眉粉・眼影','ケイト','藥妝店','眉粉三色盤很好用','eyes'],
- ['heroine','makeup','Heroine Make 睫毛膏','ヒロインメイク','藥妝店','防水不暈','sparkles'],
- ['lip','makeup','限定護唇膏','リップクリーム','藥妝店','冬天乾燥必備'],
- ['gachapon','goods','扭蛋','ガチャガチャ','車站・商場','一次 ¥300–500，可愛又好帶'],
- ['tenugui','goods','手拭巾','手ぬぐい','淺草・雜貨店','日式花紋，掛牆或包東西都好看','scroll']
-];
-function buyCard(b){
-  var on=!!(LOCAL.buy||{})[b[0]],k='b-'+b[0],img=PH[k]?photo(k,b[2]):'<span class="bemo">'+em(b[6]||'wrapped-gift')+'</span>';
-  return '<label class="bc'+(on?' got':'')+'"><span class="bimg'+(PH[k]?'':' ill')+'">'+img+'<input type="checkbox" data-buy="'+b[0]+'"'+(on?' checked':'')+' aria-label="買到 '+esc(b[2])+'"><i class="bck">'+ic('check')+'</i>'+(PH[k]?'':'<em>示意圖</em>')+'</span>'+
-   '<b>'+esc(b[2])+'</b><small class="bj">'+esc(b[3])+'</small><small class="bw">'+em('round-pushpin')+esc(b[4])+'</small><small class="bt">'+esc(b[5])+'</small></label>';
-}
-function buyHtml(){
-  var c=LOCAL.bcat||'all',got=BUY.filter(function(b){return (LOCAL.buy||{})[b[0]];}).length;
-  return '<div class="sh">'+shIc('cart')+'<h2>必買清單</h2><span class="act small muted num">買到 '+got+' / '+BUY.length+'</span></div>'+
-   '<div class="filters"><button class="fb'+(c==='all'?' on':'')+'" data-bc="all">'+em('sparkles')+'全部</button>'+BUYCAT.map(function(x){return '<button class="fb'+(c===x[0]?' on':'')+'" data-bc="'+x[0]+'">'+em(x[2])+x[1]+'</button>';}).join('')+'</div>'+
-   '<div class="bgrid">'+BUY.filter(function(b){return c==='all'||b[1]===c;}).map(buyCard).join('')+'</div>'+
-   '<p class="small muted">整理自網路熱門清單（MATCHA、Funliday、Money101 等）。勾選只存在這支手機。照片來自 Wikimedia Commons，沒有照片的用插圖示意。藥品依個人狀況使用。</p>';
-}
 /* ---------- TRANSLATOR ---------- */
 function trHtml(){
   var d=LOCAL.trd||'zh',A=d==='zh'?'中文':'日本語',B=d==='zh'?'日本語':'中文';
