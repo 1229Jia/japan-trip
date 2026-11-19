@@ -713,7 +713,7 @@ nav.bn a.on{color:var(--ink);font-weight:700}
 .wn-today span{background:rgba(255,255,255,.85);border-radius:999px;padding:3px 10px;display:inline-flex;gap:3px;align-items:center}
 .wn-today .wn-d{font-weight:700;background:var(--ink);color:#fff}.wn-today .hi{color:#C9573F;font-weight:700}.wn-today .lo{color:var(--mint);font-weight:700}
 .wn-today .emo{width:15px;height:15px}
-.wdays.two{grid-template-columns:1fr 1fr}
+.wdays.two{grid-template-columns:repeat(3,1fr)}
 </style>
 </head>
 <body>
@@ -1413,7 +1413,7 @@ function wxCard(){
   if(!WX.kawa&&!WX.tokyo){el.innerHTML='<div class="small muted">天氣資料暫時載入不到，可以先看下面兩個官方網站。</div>'+ext;return;}
   var WK='日一二三四五六',dow=function(t){return WK[new Date(Date.UTC(+t.slice(0,4),+t.slice(5,7)-1,+t.slice(8,10))).getUTCDay()];};
   var place=function(k){var d=WX[k];if(!d||!d.daily)return '';var w=wcode(d.current?d.current.weather_code:d.daily.weather_code[0]),t0=d.daily.time[0],pp=d.daily.precipitation_probability_max;
-    var days=d.daily.time.slice(1,3).map(function(t,i0){var i=i0+1,ww=wcode(d.daily.weather_code[i]);return '<div class="wd"><span>'+(+t.slice(5,7))+'/'+(+t.slice(8,10))+'（'+dow(t)+'）</span>'+wxi(ww[0])+'<b class="num">'+Math.round(d.daily.temperature_2m_max[i])+'°</b><span class="num lo">'+Math.round(d.daily.temperature_2m_min[i])+'°</span></div>';}).join('');
+    var days=d.daily.time.slice(1,4).map(function(t,i0){var i=i0+1,ww=wcode(d.daily.weather_code[i]);return '<div class="wd"><span>'+(+t.slice(5,7))+'/'+(+t.slice(8,10))+'（'+dow(t)+'）</span>'+wxi(ww[0])+'<b class="num">'+Math.round(d.daily.temperature_2m_max[i])+'°</b><span class="num lo">'+Math.round(d.daily.temperature_2m_min[i])+'°</span></div>';}).join('');
     return '<div class="wp"><div class="wnow2"><div class="wn-l"><span class="wic">'+ei(w[0])+'</span><div><b>'+WXLOC[k].n+'</b><small>'+w[1]+'</small></div></div>'+
       '<div class="wn-r"><small>現在</small><span class="wn-t num">'+(d.current?Math.round(d.current.temperature_2m):'—')+'<sup>°C</sup></span></div>'+
       '<div class="wn-today"><span class="wn-d">今天（'+dow(t0)+'）</span><span class="hi num">最高 '+Math.round(d.daily.temperature_2m_max[0])+'°</span><span class="lo num">最低 '+Math.round(d.daily.temperature_2m_min[0])+'°</span>'+(pp?'<span class="num">'+em('umbrella-with-rain-drops')+(pp[0]||0)+'%</span>':'')+'</div></div>'+
