@@ -714,6 +714,13 @@ nav.bn a.on{color:var(--ink);font-weight:700}
 .wn-today .wn-d{font-weight:700;background:var(--ink);color:#fff}.wn-today .hi{color:#C9573F;font-weight:700}.wn-today .lo{color:var(--mint);font-weight:700}
 .wn-today .emo{width:15px;height:15px}
 .wdays.two{grid-template-columns:repeat(3,1fr)}
+
+.mapbox{position:relative;overflow:hidden;background:#E8E4DC}
+.mapfb{position:absolute;inset:0;overflow:hidden}
+.mft{position:absolute;left:50%;top:50%;width:768px;height:768px}
+.mft img{position:absolute;width:256px!important;height:256px!important;max-width:none;object-fit:fill!important;filter:saturate(.75) contrast(.95)}
+.mfpin{position:absolute;left:50%;top:50%;transform:translate(-50%,-90%)}.mfpin .emo{width:34px;height:34px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+.mfatt{position:absolute;right:4px;bottom:3px;font-size:9px;background:rgba(255,255,255,.75);padding:0 4px;border-radius:4px;color:#555}
 </style>
 </head>
 <body>
@@ -1155,8 +1162,16 @@ var KIC={'景點':'mtn','寺社':'temple','展望台':'tower','拍照':'cam','�
 function kic(p){return p.kic||KIC[p.kind]||(p.dish?'bowl':'pin');}
 var AIC={fuji:'mtn',harajuku:'shirt',shibuya:'tower',shinjuku:'store',shimokita:'shirt',ginza:'gift',asakusa:'temple',tokyo:'tower',kyoto:'temple'};
 function star(p){return p&&p.mine?'<span class="star" title="你自己找的">★</span>':'';}
+function mapFallback(ll){
+  var z=16,n=Math.pow(2,z),fx=(ll[1]+180)/360*n,s=Math.sin(ll[0]*Math.PI/180),fy=(0.5-Math.log((1+s)/(1-s))/(4*Math.PI))*n,tx=Math.floor(fx),ty=Math.floor(fy),t='';
+  for(var dy=-1;dy<=1;dy++)for(var dx=-1;dx<=1;dx++)t+='<img src="https://tile.openstreetmap.org/'+z+'/'+(tx+dx)+'/'+(ty+dy)+'.png" alt="" loading="lazy" style="left:'+((dx+1)*256)+'px;top:'+((dy+1)*256)+'px">';
+  var px=(fx-tx+1)*256,py=(fy-ty+1)*256;
+  return '<span class="mapfb"><span class="mft" style="transform:translate('+(-px).toFixed(0)+'px,'+(-py).toFixed(0)+'px)">'+t+'</span><span class="mfpin">'+em('round-pushpin')+'</span><span class="mfatt">© OpenStreetMap</span></span>';
+}
 function photoBox(p,cls){var phk=p.ph||(p.dish?'d-'+p.dish:'');
-  return '<div class="'+(cls||'pimg')+(PH[phk]?'':' noph')+'">'+(PH[phk]?'<img loading="lazy" decoding="async" src="img/ph/'+phk+'.jpg" alt="'+esc(p.n)+'">':'<span class="bigic">'+ic(kic(p))+'</span>')+'</div>';}
+  if(!PH[phk]&&p.img&&p.img.u)return '<div class="'+(cls||'pimg')+'"><img loading="lazy" decoding="async" src="'+esc(p.img.u)+'" alt="'+esc(p.n)+'"></div>';
+  if(!PH[phk]&&p.ll)return '<div class="'+(cls||'pimg')+' mapbox">'+mapFallback(p.ll)+'</div>';
+  return '<div class="'+(cls||'pimg')+(PH[phk]?'':' noph')+'">'+(PH[phk]?'<img loading="lazy" decoding="async" src="img/ph/'+phk+'.jpg" alt="'+esc(p.n)+'">':'<span class="bigic">'+ei(kic(p))+'</span>')+'</div>';}
 function placeCard(p,num){
   return '<article class="pc" id="it-'+esc(p.id)+'"><button class="pcb" data-open="'+esc(p.id)+'" aria-label="'+esc(p.n)+' 詳細資訊">'+photoBox(p)+
    (p.mine?'<span class="mine" aria-label="我找的">★</span>':'')+(num?'<span class="pnum">'+num+'</span>':'')+
@@ -1169,7 +1184,7 @@ function openPlace(p,xkey,rer){
   var eat=p.must_eat?'<div class="musteat"><b>'+ic('star')+'必點</b><ul>'+p.must_eat.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></div>':'';
   var sea=p.sea?'<div class="sea">'+ic('warn')+'<span>'+esc(p.sea)+'</span></div>':'';
   var links=lk(mapUrl(p.q||p.n),'Google 地圖')+(p.tb?lk(p.tb,'Tabelog'):'');(p.lk||[]).forEach(function(l){links+=lk(l[0],l[1]);});
-  openModal('<div class="dsheet">'+photoBox(p,'dimg')+(PH[phk]?'<div class="credit">'+(isDish?'菜色示意（非該店）・':(p.pha?'周邊街景・':''))+credit(phk,'照片')+'</div>':'')+
+  openModal('<div class="dsheet">'+photoBox(p,'dimg')+(PH[phk]?'<div class="credit">'+(isDish?'菜色示意（非該店）・':(p.pha?'周邊街景・':''))+credit(phk,'照片')+'</div>':(p.img&&p.img.u?'<div class="credit">'+(p.img.cap?esc(p.img.cap)+'・':'')+'照片：'+(p.img.src?'<a href="'+esc(p.img.src)+'" target="_blank" rel="noopener">'+esc(p.img.by||'來源')+'</a>':esc(p.img.by||''))+(p.img.lic?'・'+esc(p.img.lic):'')+'</div>':(p.ll?'<div class="credit">還沒找到照片，先顯示位置地圖（每天自動補）</div>':'')))+
    '<h3 id="m-title">'+star(p)+esc(p.n)+'</h3><div class="small muted">'+esc(p.sub||'')+'</div>'+
    '<div class="links" style="gap:6px;margin:10px 0">'+'<span class="chip">'+ei(AIC[p.area]||'pin')+esc(D.AREAS[p.area]||p.area)+'</span><span class="chip">'+ei(kic(p))+esc(p.kind)+'</span>'+(p.must?'<span class="chip sun">'+ic('star')+'必去</span>':'')+rsvChip(p)+(p.custom?'<span class="chip sky">朋友新增</span>':'')+'</div>'+
    (p.d?'<p style="margin:0 0 8px">'+esc(p.d)+'</p>':'')+(m?'<div class="mlist">'+m+'</div>':'')+eat+sea+
